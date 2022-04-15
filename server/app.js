@@ -4,6 +4,8 @@ const morgan = require('morgan')
 const app = express()
 module.exports = app
 
+
+
 // logging middleware
 app.use(morgan('dev'))
 
@@ -23,7 +25,7 @@ app.use(express.static(path.join(__dirname, '..', 'public')))
 app.use((req, res, next) => {
   if (path.extname(req.path).length) {
     const err = new Error('Not found')
-    err.status = 404;
+    err.status = 404
     next(err)
   } else {
     next()
