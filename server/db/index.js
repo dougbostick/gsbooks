@@ -9,8 +9,14 @@ const Cart = require("./models/Cart");
 
 //associations could go here!
 CartItem.belongsTo(Product);
-Cart.belongsTo(CartItem);
+CartItem.belongsTo(Cart);
 Cart.belongsTo(User);
+
+const seed = async () => {
+  await Product.create({ name: "book1" });
+};
+
+seed();
 
 module.exports = {
   db,
