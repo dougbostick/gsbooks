@@ -12,12 +12,6 @@ CartItem.belongsTo(Product);
 CartItem.belongsTo(Cart);
 Cart.belongsTo(User);
 
-const seed = async () => {
-  await Product.create({ name: "book1" });
-};
-
-seed();
-
 module.exports = {
   db,
   models: {
