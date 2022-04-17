@@ -51,6 +51,7 @@ const Product = require("./db/models/Product");
 app.get("/api/products", async (req, res, next) => {
   try {
     const products = await Product.findAll();
+    console.log("/api/produtcs", products);
     res.send(products);
   } catch (ex) {
     next(ex);
