@@ -5,12 +5,14 @@ import { Login, Signup } from "./components/AuthForm";
 import Home from "./components/Home";
 import Products from "./components/Products";
 import { me } from "./store";
+import store, {loadProducts} from "./store"
 
 /**
  * COMPONENT
  */
 class Routes extends Component {
-  componentDidMount() {
+  async componentDidMount() {
+    await store.dispatch(loadProducts())
     this.props.loadInitialData();
   }
 
