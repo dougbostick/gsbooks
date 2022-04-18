@@ -12,14 +12,14 @@ export default class Products extends Component {
   async componentDidMount() {
     const response = await axios.get("/api/products");
     const products = response.data;
-    console.log(response);
+    console.log(products);
     this.setState({ products });
   }
 
   render() {
-    // console.log(this.state);
+    console.log(this.state);
     const books = this.state.products.map((book) => {
-      <li>{book.name}</li>;
+      return <li key={book.id}>{book.name}</li>;
     });
     return (
       <div>

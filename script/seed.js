@@ -17,15 +17,29 @@ async function seed() {
   const users = await Promise.all([
     User.create({ username: "cody", password: "123" }),
     User.create({ username: "murphy", password: "123" }),
+    User.create({ username: "evelyn", password: "123" }),
+    User.create({ username: "stefan", password: "123" }),
+    User.create({ username: "gary", password: "123" }),
+    User.create({ username: "doug", password: "123" }),
   ]);
-  //dummy data added to check if product component works
+
   const products = await Promise.all([
-    Product.create({ name: "book1" }),
-    Product.create({ name: "book2" }),
+    Product.create({ name: "Harry Potter and the Sorcerer's Stone" }),
+    Product.create({ name: "Pachinko" }),
+    Product.create({ name: "Left Hand of Darkness" }),
+    Product.create({ name: "The Bluest Eye" }),
+    Product.create({ name: "Dune" }),
+    Product.create({ name: "Do Androids Dream of Electric Sheep" }),
+    Product.create({ name: "For Whom The Bell Tolls" }),
+    Product.create({ name: "The Wind-Up Bird Chronicle" }),
+    Product.create({ name: "One Hundred Years of Solitude" }),
+    Product.create({ name: "1984" }),
   ]);
 
   console.log(`seeded ${users.length} users`);
+  console.log(`seeded ${products.length} products`);
   console.log(`seeded successfully`);
+
   return {
     users: {
       cody: users[0],
