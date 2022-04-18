@@ -5,7 +5,10 @@ const databaseName =
   pkg.name + (process.env.NODE_ENV === "test" ? "-test" : "");
 
 const config = {
-  logging: false,
+  /*
+  ***temporarily enabling logging to figure out seeding***
+  */
+  //logging: false,
 };
 
 if (process.env.LOGGING === "true") {
