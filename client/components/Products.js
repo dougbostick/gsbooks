@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default class Products extends Component {
   constructor() {
@@ -19,7 +20,11 @@ export default class Products extends Component {
   render() {
     console.log(this.state);
     const books = this.state.products.map((book) => {
-      return <li key={book.id}>{book.name}</li>;
+      return (
+        <Link to={`/product/${book.id}`}>
+          <li key={book.id}>{book.name}</li>
+        </Link>
+      );
     });
     return (
       <div>
