@@ -4,15 +4,16 @@ import { withRouter, Route, Switch, Redirect } from "react-router-dom";
 import { Login, Signup } from "./components/AuthForm";
 import Home from "./components/Home";
 import Products from "./components/Products";
+import ProductDetails from "./components/ProductDetails";
 import { me } from "./store";
-import store, {loadProducts} from "./store"
+import store, { loadProducts } from "./store";
 
 /**
  * COMPONENT
  */
 class Routes extends Component {
   async componentDidMount() {
-    await store.dispatch(loadProducts())
+    await store.dispatch(loadProducts());
     this.props.loadInitialData();
   }
 
@@ -24,6 +25,7 @@ class Routes extends Component {
         {isLoggedIn ? (
           <Switch>
             <Route path="/home" component={Home} />
+            <Route path="/products" component={Products} />
             <Redirect to="/home" />
           </Switch>
         ) : (
@@ -32,6 +34,7 @@ class Routes extends Component {
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route path="/products" component={Products} />
+            <Route path="/products/:id" component={ProductDetails} />
           </Switch>
         )}
       </div>
