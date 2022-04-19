@@ -17,23 +17,23 @@ async function seed() {
   const users = await Promise.all([
     User.create({ username: "cody", password: "123" }),
     User.create({ username: "murphy", password: "123" }),
-    User.create({ username: "evelyn", password: "123" }),
-    User.create({ username: "stefan", password: "123" }),
-    User.create({ username: "gary", password: "123" }),
-    User.create({ username: "doug", password: "123" }),
+    User.create({ username: "evelyn", password: "123", admin: true }),
+    User.create({ username: "stefan", password: "123", admin: true }),
+    User.create({ username: "gary", password: "123", admin: true }),
+    User.create({ username: "doug", password: "123", admin: true }),
   ]);
 
   const products = await Promise.all([
-    Product.create({ name: "Harry Potter and the Sorcerer's Stone" }),
-    Product.create({ name: "Pachinko" }),
-    Product.create({ name: "Left Hand of Darkness" }),
-    Product.create({ name: "The Bluest Eye" }),
-    Product.create({ name: "Dune" }),
-    Product.create({ name: "Do Androids Dream of Electric Sheep" }),
-    Product.create({ name: "For Whom The Bell Tolls" }),
-    Product.create({ name: "The Wind-Up Bird Chronicle" }),
-    Product.create({ name: "One Hundred Years of Solitude" }),
-    Product.create({ name: "1984" }),
+    Product.create({ name: "Harry Potter and the Sorcerer's Stone", price: 19.99 }),
+    Product.create({ name: "Pachinko", price: 17.99 }),
+    Product.create({ name: "Left Hand of Darkness", price: 9.99 }),
+    Product.create({ name: "The Bluest Eye", price: 15.99 }),
+    Product.create({ name: "Dune", price: 9.99 }),
+    Product.create({ name: "Do Androids Dream of Electric Sheep", price: 11.99 }),
+    Product.create({ name: "For Whom The Bell Tolls", price: 10.99 }),
+    Product.create({ name: "The Wind-Up Bird Chronicle", price: 15.99 }),
+    Product.create({ name: "One Hundred Years of Solitude", price: 15.99 }),
+    Product.create({ name: "1984", price: 8.99 })
   ]);
 
   console.log(`seeded ${users.length} users`);

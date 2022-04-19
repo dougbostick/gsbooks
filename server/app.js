@@ -57,4 +57,5 @@ app.get("/api/products", async (req, res, next) => {
     next(ex);
   }
 });
+
 //server/db/models
