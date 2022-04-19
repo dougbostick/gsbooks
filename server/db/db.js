@@ -6,7 +6,7 @@ const databaseName =
 
 const config = {
   /*
-  ***temporarily enabling logging to figure out seeding***
+  ***temporarily enabling logging to figure out seeding -ER***
   */
   //logging: false,
 };
