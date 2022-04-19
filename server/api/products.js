@@ -9,3 +9,15 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+/*
+---POST ROUTE TO CREATE PRODUCT
+router.post('/products', async(req, res, next) => {
+  try {
+    res.status(201).send(await Product.create(req.body));
+  }
+  catch(err) {
+    next(err);
+  }
+});
+*/

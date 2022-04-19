@@ -57,12 +57,3 @@ app.get("/api/products", async (req, res, next) => {
     next(ex);
   }
 });
-
-// //product details
-// app.get("/api/products/:id", (req, res, next) => {
-//   try {
-//   } catch (ex) {
-//     next(ex);
-//   }
-// });
-//server/db/models
