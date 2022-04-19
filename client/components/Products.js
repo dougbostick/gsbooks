@@ -1,36 +1,28 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-export default class Products extends Component {
-  constructor() {
-    super();
-    this.state = {
-      products: [],
-    };
-  }
-
-  async componentDidMount() {
-    const response = await axios.get("/api/products");
-    const products = response.data;
-    console.log(products);
-    this.setState({ products });
-  }
-
-  render() {
-    console.log(this.state);
-    const books = this.state.products.map((book) => {
-      return (
-        <Link to={`/product/${book.id}`}>
-          <li key={book.id}>{book.name}</li>
-        </Link>
-      );
-    });
+const Products = (props) => {
+  const books = props.products.map((book) => {
     return (
-      <div>
-        Products:
-        {books}
-      </div>
+      <Link to={`/product/${book.id}`}>
+        <li key={book.id}>{book.name}</li>
+      </Link>
     );
-  }
-}
+  });
+
+  return (
+    <div>
+      Products:
+      {books}
+    </div>
+  );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    products: state.products,
+  };
+};
+
+export default connect(mapStateToProps)(Products);
