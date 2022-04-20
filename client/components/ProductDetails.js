@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addCartItem } from "./store";
+import { addCartItem } from "../store/cart-item";
 
 const ProductDetails = (props) => {
   // console.log("props", props);
@@ -17,10 +17,12 @@ const ProductDetails = (props) => {
     <div>
       <div>Book: {book.name}</div>
       <div>Price: {book.price}</div>
-      <button onClick={() => addcartthunk}>Add to cart</button>
+      <button onClick={() => console.log(book.id)}>Add to cart</button>
     </div>
   );
 };
+
+//addCartItem(book.id)
 
 const mapStateToProps = (state) => {
   return {
@@ -28,4 +30,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(ProductDetails);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addCartItem: (bookId) => dispatch(addCartItem(bookId)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);
