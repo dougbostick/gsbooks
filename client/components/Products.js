@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 const Products = (props) => {
   const books = props.products.map((book) => {
     return (
-      <Link to={`/api/product/${book.id}`}>
+      <Link to={`/products/${book.id}`}>
         <li key={book.id}>{book.name}</li>
       </Link>
     );
