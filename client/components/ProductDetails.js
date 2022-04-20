@@ -3,13 +3,21 @@ import { connect } from "react-redux";
 
 const ProductDetails = (props) => {
   // console.log("props", props);
+
   const book = props.products.find(
     (book) => book.id === parseInt(props.match.params.id)
   );
 
   console.log(book);
-
-  return <div>{book.id ? book.name : "no books for you"}</div>;
+  if (!book) {
+    return null;
+  }
+  return (
+    <div>
+      <div>Book: {book.name}</div>
+      <div>Price: {book.price}</div>
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => {
