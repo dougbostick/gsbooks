@@ -10,8 +10,8 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-/*
----POST ROUTE TO CREATE PRODUCT
+
+// ---POST ROUTE TO CREATE PRODUCT
 router.post('/products', async(req, res, next) => {
   try {
     res.status(201).send(await Product.create(req.body));
@@ -20,4 +20,16 @@ router.post('/products', async(req, res, next) => {
     next(err);
   }
 });
-*/
+
+
+router.get("/", async (req, res, next) => {
+  try {
+    const products = await Product.findAll();
+    console.log("/api/produtcs", products);
+    res.send(products);
+  } catch (ex) {
+    next(ex);
+  }
+});
+
+
