@@ -44,26 +44,3 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).send(err.message || "Internal server error.");
 });
 
-//product route
-
-const Product = require("./db/models/Product");
-
-app.get("/api/products", async (req, res, next) => {
-  try {
-    const products = await Product.findAll();
-    console.log("/api/produtcs", products);
-    res.send(products);
-  } catch (ex) {
-    next(ex);
-  }
-});
-
-app.get("/api/products/:id", async (req, res, next) => {
-  try {
-    const book = await Product.findByPk(req.params.id);
-    console.log("/api/products/:id", book);
-    res.send(book);
-  } catch (ex) {
-    next(ex);
-  }
-});
