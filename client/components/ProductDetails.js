@@ -2,11 +2,14 @@ import React from "react";
 import { connect } from "react-redux";
 
 const ProductDetails = (props) => {
-  const book = props.products.find((book) => {
-    book.id === match.params.id;
-    console.log(book);
-  });
-  return <hr />;
+  // console.log("props", props);
+  const book = props.products.find(
+    (book) => book.id === parseInt(props.match.params.id)
+  );
+
+  console.log(book);
+
+  return <div>{book.id ? book.name : "no books for you"}</div>;
 };
 
 const mapStateToProps = (state) => {

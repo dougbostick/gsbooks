@@ -57,3 +57,13 @@ app.get("/api/products", async (req, res, next) => {
     next(ex);
   }
 });
+
+app.get("/api/products/:id", async (req, res, next) => {
+  try {
+    const book = await Product.findByPk(req.params.id);
+    console.log("/api/products/:id", book);
+    res.send(book);
+  } catch (ex) {
+    next(ex);
+  }
+});
