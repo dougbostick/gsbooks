@@ -36,7 +36,7 @@ export const loadProducts = () => {
 export const addProducts = (product) => {
     return async(dispatch) => {
         const response = await axios.post('/api/products', product);
-        dispatch({type: ADD_PRODUCT, products: response.data})
+        dispatch({type: ADD_PRODUCT, product: response.data})
     }
 }
 
