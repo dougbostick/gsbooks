@@ -4,8 +4,11 @@ const ADD_CARTITEM = "ADD_CARTITEM";
 
 export default function cartItem(state = [], action) {
   if (action.type === "ADD_CARTITEM") {
-    return [...state, action.cartItem]; // if there is an issue maybe look here??? -GS
+    console.log("cart reducer action", action);
+    console.log("cartitem state", state);
+    return { ...state, cart: action.cartItem }; // if there is an issue maybe look here??? -GS
   }
+
   return state;
 }
 
