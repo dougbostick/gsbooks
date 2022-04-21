@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
+import { addCartItem } from "../store/cart-item";
 
 const ProductDetails = (props) => {
   // console.log("props", props);
-
+  const { addCartItem } = props;
   const book = props.products.find(
     (book) => book.id === parseInt(props.match.params.id)
   );
@@ -16,9 +17,12 @@ const ProductDetails = (props) => {
     <div>
       <div>Book: {book.name}</div>
       <div>Price: {book.price}</div>
+      <button onClick={() => addCartItem(book.id)}>Add to cart</button>
     </div>
   );
 };
+
+//addCartItem(book.id)
 
 const mapStateToProps = (state) => {
   return {
@@ -26,4 +30,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(ProductDetails);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addCartItem: (bookId) => dispatch(addCartItem(bookId)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);
