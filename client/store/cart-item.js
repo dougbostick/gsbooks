@@ -11,7 +11,16 @@ export default function cartItem(state = [], action) {
 
 export const addCartItem = (cartItem) => {
   return async (dispatch) => {
-    let response = await axios.post("/api/cartItem", cartItem);
+    let token = window.localStorage.getItem("token");
+    let response = await axios.post(
+      "/api/cartItem",
+      { cartItem },
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
     console.log("cartitem thunk response", response);
     dispatch({ type: ADD_CARTITEM, cartItem: response.data });
   };

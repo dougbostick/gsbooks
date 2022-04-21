@@ -4,7 +4,7 @@ import { addCartItem } from "../store/cart-item";
 
 const ProductDetails = (props) => {
   // console.log("props", props);
-
+  const { addCartItem } = props;
   const book = props.products.find(
     (book) => book.id === parseInt(props.match.params.id)
   );
@@ -17,7 +17,7 @@ const ProductDetails = (props) => {
     <div>
       <div>Book: {book.name}</div>
       <div>Price: {book.price}</div>
-      <button onClick={() => console.log(book.id)}>Add to cart</button>
+      <button onClick={() => addCartItem(book.id)}>Add to cart</button>
     </div>
   );
 };
