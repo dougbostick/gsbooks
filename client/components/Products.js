@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import {deleteProduct} from '../store/products'
+import AddProduct from './AddProduct'
 
 const Products = (props) => {
   const {isAdmin, remove} = props
@@ -10,7 +11,9 @@ const Products = (props) => {
       <div>
       <Link to={`/products/${book.id}`} key={book.id}>
         <li>{book.name}</li>
+        <div>Price: {book.price}</div>
       </Link> 
+    
       {isAdmin ? <button onClick={ () => remove(book) } > X </button> : ''}
       </div>
     );
@@ -18,6 +21,7 @@ const Products = (props) => {
 
   return (
     <div>
+    {isAdmin ? <AddProduct/>: ''}
       Products:
       {books}
     </div>
