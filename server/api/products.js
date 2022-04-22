@@ -46,7 +46,7 @@ router.delete('/:id', async(req, res, next)=>{
   }
 });
 
-// ---POST ROUTE TO UPDATE PRODUCT
+// ---PUT ROUTE TO UPDATE PRODUCT
 router.put('/:id', async(req,res,next) => {
     try {
         const product = await Product.findByPk(req.params.id)
