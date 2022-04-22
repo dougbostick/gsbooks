@@ -47,10 +47,10 @@ export const deleteProduct = (product) => {
     }
 }
 
-export const updateProduct = (product) => {
+export const updateProduct = (product, history) => {
     return async(dispatch) => {
-        const response = await axios.put(`/api/products/${product.id}`)
-        dispatch({type: DELETE_PRODUCT, product})
+        const response = await axios.put(`/api/products/${product.id}`, product)
+        dispatch({type: UPDATE_PRODUCT, product: response.data})
     }
 }
 

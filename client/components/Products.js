@@ -8,9 +8,9 @@ const Products = (props) => {
   const {isAdmin, remove} = props
   const books = props.products.map((book) => {
     return (
-      <div>
-      <Link to={`/products/${book.id}`} key={book.id}>
-        <li>{book.name}</li>
+      <div key={book.id}>
+      <Link to={`/products/${book.id}`} >
+        <li >{book.name}</li>
         <div>Price: {book.price}</div>
       </Link> 
     

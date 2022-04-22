@@ -1,7 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Route } from 'react-router-dom';
 import { addCartItem } from "../store/cart-item";
-import {updateProduct} from '../store/products'
+import {updateProduct} from '../store/products';
+import UpdateProduct from './UpdateProduct';
 
 
 const ProductDetails = (props) => {
@@ -17,6 +19,9 @@ const ProductDetails = (props) => {
       <div>Book: {book.name}</div>
       <div>Price: {book.price}</div>
       <button onClick={() => addCartItem(book.id)}>Add to cart</button>
+      <div>
+        {isAdmin ? <Route path='/products/:id' component={ UpdateProduct } /> : ''}
+      </div>
     </div>
   );
 };
