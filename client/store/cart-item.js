@@ -8,7 +8,8 @@ export default function cartItem(state = [], action) {
     console.log("cart reducer action", action);
     console.log("cartitem state", state);
 
-    return [...state, action.cartItem]; // if there is an issue maybe look here??? -GS
+  
+return [...state.filter(item => item.productId !== action.cartItem.productId), action.cartItem]
   }
   if (action.type === LOAD_CARTITEM) {
     return action.cartItem;
