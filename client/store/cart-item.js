@@ -7,21 +7,8 @@ export default function cartItem(state = [], action) {
   if (action.type === ADD_CARTITEM) {
     console.log("cart reducer action", action);
     console.log("cartitem state", state);
-    const duplicate = state.includes(action.cartItem.productId);
-    if (duplicate) {
-      //cart update
-      state = state.map((item) => {
-        if (item.productId === action.cartItem.productId) {
-          return action.cartItem;
-        } else {
-          return item;
-        }
-      });
-      console.log("duplicate state", state);
-      return state;
-    } else {
-      return [...state, action.cartItem]; // if there is an issue maybe look here??? -GS
-    }
+
+    return [...state, action.cartItem]; // if there is an issue maybe look here??? -GS
   }
   if (action.type === LOAD_CARTITEM) {
     return action.cartItem;
