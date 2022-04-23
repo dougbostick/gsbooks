@@ -7,7 +7,7 @@ import Products from "./components/Products";
 import ProductDetails from "./components/ProductDetails";
 import CartItem from "./components/CartItem";
 import { me } from "./store";
-import store, { loadProducts } from "./store";
+import store, { loadProducts, getCart } from "./store";
 
 /**
  * COMPONENT
@@ -15,6 +15,8 @@ import store, { loadProducts } from "./store";
 class Routes extends Component {
   async componentDidMount() {
     await store.dispatch(loadProducts());
+    await store.dispatch(getCart());
+    // this.props.getCart();
     this.props.loadInitialData();
   }
 
@@ -62,6 +64,7 @@ const mapDispatch = (dispatch) => {
     loadInitialData() {
       dispatch(me());
     },
+    getCart: () => dispatch(getCart()),
   };
 };
 
