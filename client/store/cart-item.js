@@ -4,15 +4,27 @@ const ADD_CARTITEM = "ADD_CARTITEM";
 const LOAD_CARTITEM = "LOAD_CARTITEM";
 
 export default function cartItem(state = [], action) {
-
   if (action.type === ADD_CARTITEM) {
     console.log("cart reducer action", action);
     console.log("cartitem state", state);
-    return { ...state, cart: action.cartItem }; // if there is an issue maybe look here??? -GS
+    const duplicate = state.includes(action.cartItem.productId);
+    if (duplicate) {
+      //cart update
+      state = state.map((item) => {
+        if (item.productId === action.cartItem.productId) {
+          return action.cartItem;
+        } else {
+          return item;
+        }
+      });
+      console.log("duplicate state", state);
+      return state;
+    } else {
+      return [...state, action.cartItem]; // if there is an issue maybe look here??? -GS
+    }
   }
   if (action.type === LOAD_CARTITEM) {
-    return { ...state, cart: action.cartItem };
-
+    return action.cartItem;
   }
   return state;
 }
