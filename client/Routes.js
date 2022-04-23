@@ -5,8 +5,9 @@ import { Login, Signup } from "./components/AuthForm";
 import Home from "./components/Home";
 import Products from "./components/Products";
 import ProductDetails from "./components/ProductDetails";
+import Users from "./components/Users";
 import { me } from "./store";
-import store, { loadProducts } from "./store";
+import store, { loadProducts, loadUsers } from "./store";
 
 /**
  * COMPONENT
@@ -14,6 +15,7 @@ import store, { loadProducts } from "./store";
 class Routes extends Component {
   async componentDidMount() {
     await store.dispatch(loadProducts());
+    await store.dispatch(loadUsers());
     this.props.loadInitialData();
   }
 
@@ -27,6 +29,7 @@ class Routes extends Component {
             <Route path="/home" component={Home} />
             <Route exact path="/products" component={Products} />
             <Route path="/products/:id" component={ProductDetails} />
+            <Route path="/users" component={Users} />
             { <Redirect to="/home" /> }
           </Switch>
         ) : (
