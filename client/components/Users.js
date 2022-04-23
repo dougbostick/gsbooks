@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const Users = (props) => {
-  console.log('PROPS BEFORE', props)
    const users = props.users.map(
      (user) => {
        return (
