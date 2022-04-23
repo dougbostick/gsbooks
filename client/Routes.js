@@ -7,7 +7,9 @@ import Products from "./components/Products";
 import ProductDetails from "./components/ProductDetails";
 import Users from "./components/Users";
 import { me } from "./store";
-import store, { loadProducts, loadUsers } from "./store";
+import store, { loadProducts, loadUsers, getCart } from "./store";
+import CartItem from "./components/CartItem";
+
 
 /**
  * COMPONENT
@@ -16,6 +18,8 @@ class Routes extends Component {
   async componentDidMount() {
     await store.dispatch(loadProducts());
     await store.dispatch(loadUsers());
+    await store.dispatch(getCart());
+   
     this.props.loadInitialData();
   }
 
@@ -30,7 +34,9 @@ class Routes extends Component {
             <Route exact path="/products" component={Products} />
             <Route path="/products/:id" component={ProductDetails} />
             <Route path="/users" component={Users} />
-            { <Redirect to="/home" /> }
+            <Route path="/cartItem" component={CartItem} />
+            {<Redirect to="/home" />}
+
           </Switch>
         ) : (
           <Switch>
@@ -38,6 +44,7 @@ class Routes extends Component {
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route exact path="/products" component={Products} />
+            <Route path="/cartItem" component={CartItem} />
             <Route path="/products/:id" component={ProductDetails} />
           </Switch>
         )}
@@ -62,6 +69,7 @@ const mapDispatch = (dispatch) => {
     loadInitialData() {
       dispatch(me());
     },
+    getCart: () => dispatch(getCart()),
   };
 };
 
