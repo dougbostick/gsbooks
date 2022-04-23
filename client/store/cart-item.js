@@ -4,6 +4,7 @@ const ADD_CARTITEM = "ADD_CARTITEM";
 const LOAD_CARTITEM = "LOAD_CARTITEM";
 
 export default function cartItem(state = [], action) {
+
   if (action.type === ADD_CARTITEM) {
     console.log("cart reducer action", action);
     console.log("cartitem state", state);
@@ -11,6 +12,7 @@ export default function cartItem(state = [], action) {
   }
   if (action.type === LOAD_CARTITEM) {
     return { ...state, cart: action.cartItem };
+
   }
   return state;
 }
