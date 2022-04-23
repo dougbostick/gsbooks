@@ -5,9 +5,11 @@ import { Login, Signup } from "./components/AuthForm";
 import Home from "./components/Home";
 import Products from "./components/Products";
 import ProductDetails from "./components/ProductDetails";
-import CartItem from "./components/CartItem";
+import Users from "./components/Users";
 import { me } from "./store";
-import store, { loadProducts, getCart } from "./store";
+import store, { loadProducts, loadUsers, getCart } from "./store";
+import CartItem from "./components/CartItem";
+
 
 /**
  * COMPONENT
@@ -15,8 +17,9 @@ import store, { loadProducts, getCart } from "./store";
 class Routes extends Component {
   async componentDidMount() {
     await store.dispatch(loadProducts());
+    await store.dispatch(loadUsers());
     await store.dispatch(getCart());
-    // this.props.getCart();
+   
     this.props.loadInitialData();
   }
 
@@ -30,8 +33,10 @@ class Routes extends Component {
             <Route path="/home" component={Home} />
             <Route exact path="/products" component={Products} />
             <Route path="/products/:id" component={ProductDetails} />
+            <Route path="/users" component={Users} />
             <Route path="/cartItem" component={CartItem} />
             {<Redirect to="/home" />}
+
           </Switch>
         ) : (
           <Switch>
