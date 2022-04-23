@@ -1,10 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Route } from 'react-router-dom';
+import { Route } from "react-router-dom";
 import { addCartItem } from "../store/cart-item";
-import {updateProduct} from '../store/products';
-import UpdateProduct from './UpdateProduct';
-
+import { updateProduct } from "../store/products";
+import UpdateProduct from "./UpdateProduct";
 
 const ProductDetails = (props) => {
   // console.log("props", props);
@@ -13,14 +12,38 @@ const ProductDetails = (props) => {
   if (!book) {
     return null;
   }
+  let quantity = 0;
+  const inventory = new Array(10);
+  for (let i = 0; i < inventory.length; i++) {
+    inventory[i] = i + 1;
+  }
+  console.log("inventory", inventory);
   //isAdmin would go in this return as a "if/else", trying to figure out if we need a form to update the product like jpfp, which I would need to change page to have a constructor, or if there is an easier way. -GS
   return (
     <div>
       <div>Book: {book.name}</div>
       <div>Price: {book.price}</div>
-      <button onClick={() => addCartItem(book.id)}>Add to cart</button>
+      <form onSubmit={() => addCartItem(book.id, quantity)}>
+        <select
+          value={quantity}
+          onChange={(ev) => (quantity = ev.target.value)}
+        >
+          {inventory.map((inv) => {
+            return (
+              <option value={inv} key={inv}>
+                {inv}
+              </option>
+            );
+          })}
+        </select>
+        <button type="submit">Add to cart</button>
+      </form>
       <div>
-        {isAdmin ? <Route path='/products/:id' component={ UpdateProduct } /> : ''}
+        {isAdmin ? (
+          <Route path="/products/:id" component={UpdateProduct} />
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
@@ -28,18 +51,18 @@ const ProductDetails = (props) => {
 
 //addCartItem(book.id)
 
-const mapStateToProps = (state, {match}) => {
+const mapStateToProps = (state, { match }) => {
   return {
     isAdmin: state.auth.admin,
     products: state.products,
-    book: state.products.find(book => book.id === parseInt(match.params.id))
+    book: state.products.find((book) => book.id === parseInt(match.params.id)),
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addCartItem: (bookId) => dispatch(addCartItem(bookId)),
-    update: async(book) => await dispatch(updateProduct(book))
+    addCartItem: (bookId, quantity) => dispatch(addCartItem(bookId, quantity)),
+    update: async (book) => await dispatch(updateProduct(book)),
   };
 };
 

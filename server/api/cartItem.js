@@ -6,7 +6,7 @@ module.exports = router;
 
 router.post("/", async (req, res, next) => {
   try {
-    console.log("req.headers/api/cartitem", req.headers);
+    console.log("req.body/api/cartitem", req.body);
     const user = await User.findByToken(req.headers.authorization);
     const duplicate = await CartItem.findOne({
       where: {
@@ -15,7 +15,7 @@ router.post("/", async (req, res, next) => {
       },
     });
     if (duplicate) {
-      duplicate.quantity++;
+      duplicate.quantity += req.body.quantity;
       await duplicate.save();
       //await duplicate.update({ quantity: duplicate.quantity+1 });
       res.send(duplicate);
@@ -23,7 +23,7 @@ router.post("/", async (req, res, next) => {
       const book = await CartItem.create({
         productId: req.body.cartItem,
         userId: user.id,
-        quantity: 1,
+        quantity: req.body.quantity,
       });
       res.status(201).send(book);
     }
