@@ -1,18 +1,38 @@
 import React from "react";
 import { connect } from "react-redux";
+import { getCart } from "../store/cart-item";
 
 const CartItem = (props) => {
+  console.log("cartitem props", props);
+  const cartInfo = props.state.cartItem.cart
+    ? props.state.cartItem.cart.map((item) => {
+        return (
+          <div key={item.id}>
+            <div>User: {item.userId}</div>
+            <div>Product: {item.productId}</div>
+            <div>Quantity: {item.quantity}</div>
+          </div>
+        );
+      })
+    : "no items";
   return (
     <div>
-      <div>Cart: {props.cartItem.productId} </div>
+      <div>Cart: {cartInfo} </div>
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    cartItem: state.cartItem,
+    // cartItem: state.cartItem,
+    state,
   };
 };
 
-export default connect(mapStateToProps)(CartItem);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getCart: () => dispatch(getCart()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartItem);

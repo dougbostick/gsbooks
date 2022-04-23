@@ -31,3 +31,16 @@ router.post("/", async (req, res, next) => {
     next(err);
   }
 });
+
+router.get("/", async (req, res, next) => {
+  try {
+    const user = await User.findByToken(req.headers.authorization);
+    res.send(await CartItem.findAll());
+  } catch (ex) {
+    next(ex);
+  }
+});
+
+//   where: {
+//     userId: user.id,
+//   },
