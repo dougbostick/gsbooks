@@ -9,7 +9,7 @@ import CartItem from "./components/CartItem";
 import { me } from "./store";
 import store, { loadProducts, getCart } from "./store";
 
-/**
+/*
  * COMPONENT
  */
 class Routes extends Component {
