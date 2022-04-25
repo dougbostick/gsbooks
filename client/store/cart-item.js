@@ -8,8 +8,10 @@ export default function cartItem(state = [], action) {
     console.log("cart reducer action", action);
     console.log("cartitem state", state);
 
-  
-return [...state.filter(item => item.productId !== action.cartItem.productId), action.cartItem]
+    return [
+      ...state.filter((item) => item.productId !== action.cartItem.productId),
+      action.cartItem,
+    ];
   }
   if (action.type === LOAD_CARTITEM) {
     return action.cartItem;
@@ -17,12 +19,12 @@ return [...state.filter(item => item.productId !== action.cartItem.productId), a
   return state;
 }
 
-export const addCartItem = (cartItem) => {
+export const addCartItem = (cartItem, quantity) => {
   return async (dispatch) => {
     let token = window.localStorage.getItem("token");
     let response = await axios.post(
       "/api/cartItem",
-      { cartItem },
+      { cartItem, quantity },
       {
         headers: {
           authorization: token,

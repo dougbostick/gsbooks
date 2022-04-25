@@ -11,7 +11,8 @@ import store, { loadProducts, loadUsers, getCart } from "./store";
 import CartItem from "./components/CartItem";
 
 
-/**
+
+/*
  * COMPONENT
  */
 class Routes extends Component {
