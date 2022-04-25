@@ -4,21 +4,6 @@ import { getCart, deleteCartItem } from "../store/cart-item";
 
 const CartItem = (props) => {
   console.log("cart item props", props);
-  // let userId;
-  // let productId;
-  // props.state.cartItem.length > 0
-  //   ? props.state.cartItem.map((item) => {
-  //       userId = item.userId;
-  //       productId = item.productId;
-  //     })
-  //   : null;
-
-  // const userName =
-  //   props.state.users.length > 0
-  //     ? props.state.users.find((userlist) => {
-  //         userlist.id === userId;
-  //       })
-  //     : null;
   const cartInfo =
     props.state.cartItem.length > 0
       ? props.state.cartItem.map((item) => {
