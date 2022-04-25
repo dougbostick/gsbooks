@@ -27,7 +27,7 @@ const ProductDetails = (props) => {
         <select
           onChange={(ev) => quantity = ev.target.value}
         >
-        <option value=''> Pick a quantity </option>
+        <option disabled selected hidden> Pick a quantity </option>
           {inventory.map((inv) => {
             return (
               <option value={inv} key={inv}>
