@@ -12,22 +12,18 @@ const ProductDetails = (props) => {
   if (!book) {
     return null;
   }
-  let quantity = 0;
+  let quantity = 1;
   const inventory = new Array(10);
   for (let i = 0; i < inventory.length; i++) {
     inventory[i] = i + 1;
   }
   console.log("inventory", inventory);
-  //isAdmin would go in this return as a "if/else", trying to figure out if we need a form to update the product like jpfp, which I would need to change page to have a constructor, or if there is an easier way. -GS
   return (
     <div>
       <div>Book: {book.name}</div>
       <div>Price: {book.price}</div>
       <form onSubmit={() => addCartItem(book.id, quantity)}>
-        <select
-          onChange={(ev) => quantity = ev.target.value}
-        >
-        <option disabled selected hidden> Pick a quantity </option>
+        <select onChange={(ev) => quantity = ev.target.value} >
           {inventory.map((inv) => {
             return (
               <option value={inv} key={inv}>
