@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getCart } from "../store/cart-item";
+import { getCart, deleteCartItem } from "../store/cart-item";
 
 const CartItem = (props) => {
   console.log("cartitem props", props);
@@ -12,6 +12,7 @@ const CartItem = (props) => {
               <div>User: {item.userId}</div>
               <div>Product: {item.productId}</div>
               <div>Quantity: {item.quantity}</div>
+              <button onClick={() => props.deleteCartItem(item)}> remove </button>
             </div>
           );
         })
@@ -33,6 +34,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getCart: () => dispatch(getCart()),
+    deleteCartItem: (cartItem) => dispatch(deleteCartItem(cartItem))
   };
 };
 
