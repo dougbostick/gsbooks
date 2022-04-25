@@ -15,7 +15,7 @@ router.post("/", async (req, res, next) => {
       },
     });
     if (duplicate) {
-      duplicate.quantity += req.body.quantity;
+      duplicate.quantity += Number(req.body.quantity);
       await duplicate.save();
       //await duplicate.update({ quantity: duplicate.quantity+1 });
       res.send(duplicate);

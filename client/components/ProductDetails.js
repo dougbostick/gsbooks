@@ -25,9 +25,9 @@ const ProductDetails = (props) => {
       <div>Price: {book.price}</div>
       <form onSubmit={() => addCartItem(book.id, quantity)}>
         <select
-          value={quantity}
-          onChange={(ev) => (quantity = ev.target.value)}
+          onChange={(ev) => quantity = ev.target.value}
         >
+        <option value=''> Pick a quantity </option>
           {inventory.map((inv) => {
             return (
               <option value={inv} key={inv}>
