@@ -52,24 +52,21 @@ const CartItem = (props) => {
     <div>
       <div>
         {" "}
-        {props.state.cartItem.length > 0
+        {/* {props.state.cartItem.length > 0
           ? props.state.cartItem.map((item) => {
               return props.state.users.find((user) => {
                 return user.id === item.userId;
               }).username;
             })
-          : null}{" "}
-        {/* {props.state.cartItem.length > 0
-          ? props.state.cartItem.map((item) => {
-              let user = null;
-              if (!user) {
-                return props.state.users.find((user) => {
-                  return (user = (user.id === item.userId).username);
-                });
-              }
-              return user;
-            })
           : null}{" "} */}
+        {props.state.users.length > 0
+          ? props.state.users.find((user) => {
+              return props.state.cartItem.map((item) => {
+                return user.id === item.userId;
+              });
+            }).username
+          : null}
+        {"'s "}
         Cart: {cartInfo}
       </div>
     </div>
