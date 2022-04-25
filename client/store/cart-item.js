@@ -2,8 +2,14 @@ import axios from "axios";
 
 const ADD_CARTITEM = "ADD_CARTITEM";
 const LOAD_CARTITEM = "LOAD_CARTITEM";
+const DELETE_CARTITEM = "DELETE_CARTITEM"
 
 export default function cartItem(state = [], action) {
+  
+  if (action.type === LOAD_CARTITEM) {
+    return action.cartItem;
+  }
+  
   if (action.type === ADD_CARTITEM) {
     console.log("cart reducer action", action);
     console.log("cartitem state", state);
@@ -13,9 +19,13 @@ export default function cartItem(state = [], action) {
       action.cartItem,
     ];
   }
-  if (action.type === LOAD_CARTITEM) {
-    return action.cartItem;
+  
+  
+  if (action.type === DELETE_CARTITEM) {
+    return state.filter((item) => item.productId !== action.cartItem.productId)
   }
+  
+  
   return state;
 }
 
@@ -48,3 +58,15 @@ export const getCart = () => {
     dispatch({ type: LOAD_CARTITEM, cartItem: response.data });
   };
 };
+
+export const deleteCartItem = (cartItem) => {
+  return async (dispatch) => {
+     let token = window.localStorage.getItem("token");
+    const response = await axios.delete(`/api/cartitem/${cartItem.id}`, {
+      headers: {
+        authorization: token,
+      },
+    });
+    dispatch({type: DELETE_CARTITEM, cartItem})
+  }
+}

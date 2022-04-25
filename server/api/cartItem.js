@@ -41,6 +41,18 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.delete("/:id", async(req,res,next)=> {
+  try {
+    const user = await User.findByToken(req.headers.authorization);
+    const cartItem = await CartItem.findByPk(req.params.id)
+    await cartItem.destroy()
+    res.sendStatus(204)
+  }
+  catch(err) {
+    next(err)
+  }
+})
+
 //   where: {
 //     userId: user.id,
 //   },
