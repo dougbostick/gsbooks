@@ -24,13 +24,6 @@ const CartItem = (props) => {
       ? props.state.cartItem.map((item) => {
           return (
             <div key={item.id}>
-              {/* <div>
-                User:{" "}
-                {props.state.users.find((user) => {
-                  let _user;
-                  return (_user = user.id === item.userId);
-                })}
-              </div> */}
               <div>
                 Product:{" "}
                 {
@@ -52,13 +45,6 @@ const CartItem = (props) => {
     <div>
       <div>
         {" "}
-        {/* {props.state.cartItem.length > 0
-          ? props.state.cartItem.map((item) => {
-              return props.state.users.find((user) => {
-                return user.id === item.userId;
-              }).username;
-            })
-          : null}{" "} */}
         {props.state.users.length > 0
           ? props.state.users.find((user) => {
               return props.state.cartItem.map((item) => {
