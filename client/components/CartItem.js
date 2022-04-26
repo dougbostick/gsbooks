@@ -3,50 +3,71 @@ import { connect } from "react-redux";
 import { getCart, deleteCartItem, updateQuantity } from "../store/cart-item";
 
 const CartItem = (props) => {
-  console.log("cartitem props", props);
-  
-  
-   const inventory = new Array(10);
+  const inventory = new Array(10);
   for (let i = 0; i < inventory.length; i++) {
     inventory[i] = i + 1;
   }
-
+  console.log("cartitem props", props);
+  console.log("cart item props", props);
   const cartInfo =
-         props.state.cartItem.map((item) => {
+    props.state.cartItem.length > 0
+      ? props.state.cartItem.map((item) => {
           return (
             <div key={item.id}>
-              <div>User: {item.userId}</div>
-              <div>Product: {item.productId}</div>
-              <div>Quantity: {item.quantity}
-                  <form>
-                    <select onChange={(ev) => props.updateQuantity(item, Number(ev.target.value))}>
-                      <option>{item.quantity}</option>
-                        {inventory.map((inv) => {
-                          return (
-                            <option value={inv} key={inv}>
-                              {inv}
-                            </option>
-                          );
-                        })}
-                    </select>
+              <div>
+                Product:{" "}
+                {
+                  props.state.products.find((product) => {
+                    return product.id === item.productId;
+                  }).name
+                }
+              </div>
+              <div>
+                Quantity: {item.quantity}
+                <form>
+                  <select
+                    onChange={(ev) =>
+                      props.updateQuantity(item, Number(ev.target.value))
+                    }
+                  >
+                    <option>{item.quantity}</option>
+                    {inventory.map((inv) => {
+                      return (
+                        <option value={inv} key={inv}>
+                          {inv}
+                        </option>
+                      );
+                    })}
+                  </select>
                 </form>
               </div>
-              <button onClick={() => props.deleteCartItem(item)}> remove </button>
+              <button onClick={() => props.deleteCartItem(item)}>
+                {" "}
+                remove{" "}
+              </button>
             </div>
           );
-         })
+        })
+      : "no items";
   return (
     <div>
-  { props.state.cartItem.length > 0 ? 
-    <div> Cart: {cartInfo} </div>
-      : <p>no items</p> }
+      <div>
+        {props.state.users.length > 0
+          ? props.state.users.find((user) => {
+              return props.state.cartItem.map((item) => {
+                return user.id === item.userId;
+              });
+            }).username
+          : null}
+        {"'s "}
+        Cart: {cartInfo}
+      </div>
     </div>
-  )
-}
+  );
+};
 
 const mapStateToProps = (state) => {
   return {
-    // cartItem: state.cartItem,
     state,
   };
 };
@@ -55,7 +76,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getCart: () => dispatch(getCart()),
     deleteCartItem: (cartItem) => dispatch(deleteCartItem(cartItem)),
-    updateQuantity: async(cartItem, quantity) => await dispatch(updateQuantity(cartItem, quantity))
+    updateQuantity: async (cartItem, quantity) =>
+      await dispatch(updateQuantity(cartItem, quantity)),
   };
 };
 
