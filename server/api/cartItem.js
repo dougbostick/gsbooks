@@ -53,6 +53,17 @@ router.delete("/:id", async(req,res,next)=> {
   }
 })
 
+router.put("/:id", async(req,res,next) => {
+  try {
+    const user = await User.findByToken(req.headers.authorization);
+    const cartItem = await CartItem.findByPk(req.params.id)
+    res.send(await cartItem.update(req.body))
+  }
+  catch(err) {
+    next(err)
+  }
+})
+
 //   where: {
 //     userId: user.id,
 //   },
