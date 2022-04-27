@@ -35,34 +35,38 @@ router.post("/", async (req, res, next) => {
 router.get("/", async (req, res, next) => {
   try {
     const user = await User.findByToken(req.headers.authorization);
-    res.send(await CartItem.findAll());
+    console.log("/cartitem get user", user);
+    res.send(
+      await CartItem.findAll({
+        where: {
+          userId: user.id,
+        },
+      })
+    );
   } catch (ex) {
     next(ex);
   }
 });
 
-router.delete("/:id", async(req,res,next)=> {
+router.delete("/:id", async (req, res, next) => {
   try {
-    const user = await User.findByToken(req.headers.authorization);
-    const cartItem = await CartItem.findByPk(req.params.id)
-    await cartItem.destroy()
-    res.sendStatus(204)
+    const cartItem = await CartItem.findByPk(req.params.id);
+    await cartItem.destroy();
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
   }
-  catch(err) {
-    next(err)
-  }
-})
+});
 
-router.put("/:id", async(req,res,next) => {
+router.put("/:id", async (req, res, next) => {
   try {
     const user = await User.findByToken(req.headers.authorization);
-    const cartItem = await CartItem.findByPk(req.params.id)
-    res.send(await cartItem.update(req.body))
+    const cartItem = await CartItem.findByPk(req.params.id);
+    res.send(await cartItem.update(req.body));
+  } catch (err) {
+    next(err);
   }
-  catch(err) {
-    next(err)
-  }
-})
+});
 
 //   where: {
 //     userId: user.id,

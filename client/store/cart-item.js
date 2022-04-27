@@ -2,15 +2,14 @@ import axios from "axios";
 
 const ADD_CARTITEM = "ADD_CARTITEM";
 const LOAD_CARTITEM = "LOAD_CARTITEM";
-const DELETE_CARTITEM = "DELETE_CARTITEM"
-const UPDATE_CARTITEM = "UPDATE_CARTITEM"
+const DELETE_CARTITEM = "DELETE_CARTITEM";
+const UPDATE_CARTITEM = "UPDATE_CARTITEM";
 
 export default function cartItem(state = [], action) {
-  
   if (action.type === LOAD_CARTITEM) {
     return action.cartItem;
   }
-  
+
   if (action.type === ADD_CARTITEM) {
     console.log("cart reducer action", action);
     console.log("cartitem state", state);
@@ -20,17 +19,16 @@ export default function cartItem(state = [], action) {
       action.cartItem,
     ];
   }
-  
-  
+
   if (action.type === DELETE_CARTITEM) {
-    return state.filter((item) => item.productId !== action.cartItem.productId)
+    return state.filter((item) => item.productId !== action.cartItem.productId);
   }
-  
-  if(action.type === UPDATE_CARTITEM) {
-     return state.map(item => item.id === action.cartItem.id ? action.cartItem : item)
+
+  if (action.type === UPDATE_CARTITEM) {
+    return state.map((item) =>
+      item.id === action.cartItem.id ? action.cartItem : item
+    );
   }
-  
-  
   return state;
 }
 
@@ -66,27 +64,24 @@ export const getCart = () => {
 
 export const deleteCartItem = (cartItem) => {
   return async (dispatch) => {
-     let token = window.localStorage.getItem("token");
-    const response = await axios.delete(`/api/cartitem/${cartItem.id}`, {
-      headers: {
-        authorization: token,
-      },
-    });
-    dispatch({type: DELETE_CARTITEM, cartItem})
-  }
-}
+    await axios.delete(`/api/cartitem/${cartItem.id}`);
+    dispatch({ type: DELETE_CARTITEM, cartItem });
+  };
+};
 
 export const updateQuantity = (cartItem, quantity) => {
-  console.log(cartItem)
+  console.log(cartItem);
   return async (dispatch) => {
-     let token = window.localStorage.getItem("token");
-    const response = await axios.put(`/api/cartitem/${cartItem.id}`, {quantity}, {
-      headers: {
-        authorization: token,
-      },
-    });
-    dispatch({type: UPDATE_CARTITEM, cartItem: response.data})
-  }
-}
-
-
+    let token = window.localStorage.getItem("token");
+    const response = await axios.put(
+      `/api/cartitem/${cartItem.id}`,
+      { quantity },
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+    dispatch({ type: UPDATE_CARTITEM, cartItem: response.data });
+  };
+};
