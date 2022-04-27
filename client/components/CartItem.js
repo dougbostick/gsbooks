@@ -9,46 +9,32 @@ const CartItem = (props) => {
     inventory[i] = i + 1;
   }
   console.log("cart item props", props);
+
   const cartInfo =
-    props.state.cartItem.length > 0
-      ? props.state.cartItem.map((item) => {
+         props.state.cartItem.map((item) => {
           return (
             <div key={item.id}>
-              <div>
-                Product:{" "}
-                {
-                  props.state.products.find((product) => {
-                    return product.id === item.productId;
-                  }).name
-                }
-              </div>
-              <div>
-                Quantity: {item.quantity}
-                <form>
-                  <select
-                    onChange={(ev) =>
-                      props.updateQuantity(item, Number(ev.target.value))
-                    }
-                  >
-                    <option>{item.quantity}</option>
-                    {inventory.map((inv) => {
-                      return (
-                        <option value={inv} key={inv}>
-                          {inv}
-                        </option>
-                      );
-                    })}
-                  </select>
+              <div>User: {item.userId}</div>
+              <div>Product: {item.productId}</div>
+              <div>Quantity: {item.quantity}
+                  <form>
+                    <select onChange={(ev) => props.updateQuantity(item, Number(ev.target.value))}>
+                      <option>{item.quantity}</option>
+                        {inventory.map((inv) => {
+                          return (
+                            <option value={inv} key={inv}> 
+                              {inv}
+                            </option>
+                          );
+                        })}
+                    </select>
                 </form>
               </div>
-              <button onClick={() => props.deleteCartItem(item)}>
-                {" "}
-                remove{" "}
-              </button>
+              <button onClick={() => props.deleteCartItem(item)}> remove </button>
             </div>
           );
-        })
-      : "no items";
+         })
+         
   return (
     <div>
       <div>
@@ -57,11 +43,12 @@ const CartItem = (props) => {
         Cart: {cartInfo}
       </div>
     </div>
-  );
-};
+  )
+}
 
 const mapStateToProps = (state) => {
   return {
+    // cartItem: state.cartItem,
     state,
   };
 };
@@ -69,8 +56,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteCartItem: (cartItem) => dispatch(deleteCartItem(cartItem)),
-    updateQuantity: async (cartItem, quantity) =>
-      await dispatch(updateQuantity(cartItem, quantity)),
+    updateQuantity: async(cartItem, quantity) => await dispatch(updateQuantity(cartItem, quantity))
   };
 };
 
