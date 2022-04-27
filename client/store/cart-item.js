@@ -85,3 +85,21 @@ export const updateQuantity = (cartItem, quantity) => {
     dispatch({ type: UPDATE_CARTITEM, cartItem: response.data });
   };
 };
+
+export const checkout = (cartItem) => {
+  console.log(cartItem);
+  return async (dispatch) => {
+    let token = window.localStorage.getItem("token");
+    const response = await axios.put(
+      `/api/cartitem/${cartItem.id}`,
+      { purchased: true },
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+    dispatch({ type: UPDATE_CARTITEM, cartItem: response.data });
+  };
+};
+

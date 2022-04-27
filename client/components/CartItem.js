@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getCart, deleteCartItem, updateQuantity } from "../store/cart-item";
+import { getCart, deleteCartItem, updateQuantity, checkout } from "../store/cart-item";
 
 const CartItem = (props) => {
   console.log("cartitem state", props.state);
@@ -15,7 +15,7 @@ const CartItem = (props) => {
           return (
             <div key={item.id}>
               <div>User: {item.userId}</div>
-              <div>Product: {item.productId}</div>
+              <div>Product: {props.state.products.find(product => product.id === item.productId).name}</div>
               <div>Quantity: {item.quantity}
                   <form>
                     <select onChange={(ev) => props.updateQuantity(item, Number(ev.target.value))}>
@@ -38,15 +38,19 @@ const CartItem = (props) => {
   return (
     <div>
       <div>
-        {props.state.auth.username}
-        {"'s "}
+        {props.state.auth.username}'s
         Cart: {cartInfo}
       </div>
+     
+     
+      <button onClick={() => props.state.cartItem.forEach(item => props.checkout(item))}> Checkout </button>
     </div>
   )
 }
+ //the checkout button on line 46 is really gonna link into some type of payment, right now its just to checkout if the thunk I set up works to update the purchased boolean on the cartItem -GS
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
     // cartItem: state.cartItem,
     state,
@@ -56,7 +60,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteCartItem: (cartItem) => dispatch(deleteCartItem(cartItem)),
-    updateQuantity: async(cartItem, quantity) => await dispatch(updateQuantity(cartItem, quantity))
+    updateQuantity: async(cartItem, quantity) => await dispatch(updateQuantity(cartItem, quantity)),
+    checkout: async(cartItem) => await dispatch(checkout(cartItem))
   };
 };
 
