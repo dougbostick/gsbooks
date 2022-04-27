@@ -3,13 +3,12 @@ import { connect } from "react-redux";
 import { getCart, deleteCartItem, updateQuantity } from "../store/cart-item";
 
 const CartItem = (props) => {
-  console.log("cartitem props", props);
-  
-  
-   const inventory = new Array(10);
+  console.log("cartitem state", props.state);
+  const inventory = new Array(10);
   for (let i = 0; i < inventory.length; i++) {
     inventory[i] = i + 1;
   }
+  console.log("cart item props", props);
 
   const cartInfo =
          props.state.cartItem.map((item) => {
@@ -35,11 +34,14 @@ const CartItem = (props) => {
             </div>
           );
          })
+         
   return (
     <div>
-      { props.state.cartItem.length > 0 ? 
-        <div> Cart: {cartInfo} </div>
-          : <p>no items</p> }
+      <div>
+        {props.state.auth.username}
+        {"'s "}
+        Cart: {cartInfo}
+      </div>
     </div>
   )
 }
@@ -53,7 +55,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCart: () => dispatch(getCart()),
     deleteCartItem: (cartItem) => dispatch(deleteCartItem(cartItem)),
     updateQuantity: async(cartItem, quantity) => await dispatch(updateQuantity(cartItem, quantity))
   };
