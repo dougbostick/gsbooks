@@ -23,7 +23,7 @@ const CartItem = (props) => {
                       <option>{item.quantity}</option>
                         {inventory.map((inv) => {
                           return (
-                            <option value={inv} key={inv}>
+                            <option value={inv} key={inv}> 
                               {inv}
                             </option>
                           );
