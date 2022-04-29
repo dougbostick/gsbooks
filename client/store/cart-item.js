@@ -35,17 +35,55 @@ export default function cartItem(state = [], action) {
 export const addCartItem = (cartItem, quantity) => {
   return async (dispatch) => {
     let token = window.localStorage.getItem("token");
-    let response = await axios.post(
-      "/api/cartItem",
-      { cartItem, quantity },
-      {
-        headers: {
-          authorization: token,
-        },
+    if (token) {
+      let response = await axios.post(
+        "/api/cartItem",
+        { cartItem, quantity },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      dispatch({ type: ADD_CARTITEM, cartItem: response.data });
+    } else {
+      if (window.localStorage.getItem("guest_cart")) {
+        const gcToken = window.localStorage.getItem("guest_cart");
+        const guestCart = JSON.parse(gcToken);
+        console.log(guestCart);
+        const dup = guestCart.find((item) => item.cartItem === cartItem);
+        console.log("dup", dup);
+        if (dup) {
+          dup.quantity += parseInt(quantity);
+          guestCart.map((item) => {
+            if (item.cartItem === dup.cartItem) {
+              return dup;
+            } else {
+              return item;
+            }
+          });
+          console.log("dup/ gc after dup", dup, guestCart);
+          window.localStorage.setItem("guest_cart", JSON.stringify(guestCart));
+        } else {
+          guestCart.push({ cartItem, quantity });
+          window.localStorage.setItem("guest_cart", JSON.stringify(guestCart));
+        }
+      } else {
+        window.localStorage.setItem(
+          "guest_cart",
+          JSON.stringify([{ cartItem, quantity }])
+        );
       }
-    );
-    console.log("cartitem thunk response", response);
-    dispatch({ type: ADD_CARTITEM, cartItem: response.data });
+
+      // console.log(window.localStorage.getItem("guest_cart"));
+      //check local storage for cart
+      //if there is a cart, json.parse the cart, then add to that, set the local storage with the new state of the cart
+      //if no cart, set a cart with an array/ object of that item
+      //instead of communicating with DB we commun with local storage --> local is new backend
+      //grab guest cart from localstorage, instead of DB, then add it to the store
+      //local storage is new DB
+      //need to be able to CRUD localy stored cart (create, read, update (quantity), destroy)
+    }
   };
 };
 
@@ -90,6 +128,7 @@ export const checkout = (cartItem) => {
   console.log(cartItem);
   return async (dispatch) => {
     let token = window.localStorage.getItem("token");
+    console.log("no token", token);
     const response = await axios.put(
       `/api/cartitem/${cartItem.id}`,
       { purchased: true },
@@ -102,4 +141,3 @@ export const checkout = (cartItem) => {
     dispatch({ type: UPDATE_CARTITEM, cartItem: response.data });
   };
 };
-

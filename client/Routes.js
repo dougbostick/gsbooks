@@ -9,25 +9,24 @@ import Users from "./components/Users";
 import { me } from "./store";
 import store, { loadProducts, loadUsers, getCart } from "./store";
 import CartItem from "./components/CartItem";
-import PastOrders from "./components/PastOrders"
-
-
+import PastOrders from "./components/PastOrders";
 
 /*
  * COMPONENT
  */
 class Routes extends Component {
   async componentDidMount() {
+    if (this.props.isLoggedIn) {
+      await store.dispatch(getCart());
+    }
     await store.dispatch(loadProducts());
     await store.dispatch(loadUsers());
-    await store.dispatch(getCart());
-   
     this.props.loadInitialData();
   }
 
   render() {
     const { isLoggedIn } = this.props;
-
+    console.log("routes props", this.props);
     return (
       <div>
         {isLoggedIn ? (
@@ -37,9 +36,8 @@ class Routes extends Component {
             <Route path="/products/:id" component={ProductDetails} />
             <Route path="/users" component={Users} />
             <Route path="/cartItem" component={CartItem} />
-            <Route path='/pastOrders' component={PastOrders}/>
+            <Route path="/pastOrders" component={PastOrders} />
             {<Redirect to="/home" />}
-
           </Switch>
         ) : (
           <Switch>

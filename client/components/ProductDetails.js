@@ -6,9 +6,8 @@ import { updateProduct } from "../store/products";
 import UpdateProduct from "./UpdateProduct";
 
 const ProductDetails = (props) => {
-  // console.log("props", props);
+  console.log("product details props", props);
   const { addCartItem, book, isAdmin } = props;
-  console.log(book);
   if (!book) {
     return null;
   }
@@ -17,13 +16,18 @@ const ProductDetails = (props) => {
   for (let i = 0; i < inventory.length; i++) {
     inventory[i] = i + 1;
   }
-  console.log("inventory", inventory);
+  //can add isLoggedin ? to seperate addtocart or addtoguestcart
   return (
     <div>
       <div>Book: {book.name}</div>
       <div>Price: {book.price}</div>
-      <form onSubmit={() => addCartItem(book.id, quantity)}>
-        <select onChange={(ev) => quantity = ev.target.value} >
+      <form
+        onSubmit={(ev) => {
+          ev.preventDefault();
+          addCartItem(book.id, quantity);
+        }}
+      >
+        <select onChange={(ev) => (quantity = ev.target.value)}>
           {inventory.map((inv) => {
             return (
               <option value={inv} key={inv}>
@@ -49,6 +53,7 @@ const ProductDetails = (props) => {
 
 const mapStateToProps = (state, { match }) => {
   return {
+    isLoggedin: state.auth,
     isAdmin: state.auth.admin,
     products: state.products,
     book: state.products.find((book) => book.id === parseInt(match.params.id)),

@@ -8,6 +8,7 @@ router.post("/", async (req, res, next) => {
   try {
     console.log("req.body/api/cartitem", req.body);
     const user = await User.findByToken(req.headers.authorization);
+    console.log("no user", user);
     const duplicate = await CartItem.findOne({
       where: {
         productId: req.body.cartItem,
@@ -35,7 +36,7 @@ router.post("/", async (req, res, next) => {
 router.get("/", async (req, res, next) => {
   try {
     const user = await User.findByToken(req.headers.authorization);
-    console.log("/cartitem get user", user);
+
     res.send(
       await CartItem.findAll({
         where: {
@@ -67,7 +68,3 @@ router.put("/:id", async (req, res, next) => {
     next(err);
   }
 });
-
-//   where: {
-//     userId: user.id,
-//   },
