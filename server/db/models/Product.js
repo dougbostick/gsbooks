@@ -7,11 +7,17 @@ const Product = db.define("product", {
   },
   price: {
     type: Sequelize.DECIMAL(10, 2)
+  }, 
+  ISBN: {
+    type: Sequelize.INTEGER
+  },
+  author:  {
+    type: Sequelize.STRING
+  },
+  genre: {
+    type: Sequelize.STRING
   }
 });
 
 module.exports = Product;
 
-/*
-book1 --> 'book1' , $5
-*/

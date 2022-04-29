@@ -10,7 +10,7 @@ import { me } from "./store";
 import store, { loadProducts, loadUsers, getCart } from "./store";
 import CartItem from "./components/CartItem";
 import PastOrders from "./components/PastOrders"
-
+import Profile from "./components/Profile"
 
 
 /*
@@ -38,7 +38,8 @@ class Routes extends Component {
             <Route path="/users" component={Users} />
             <Route path="/cartItem" component={CartItem} />
             <Route path='/pastOrders' component={PastOrders}/>
-            {<Redirect to="/home" />}
+            <Route path='/profile' component={Profile}/>
+            <Redirect to="/home" />
 
           </Switch>
         ) : (
