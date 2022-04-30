@@ -10,6 +10,7 @@ import { me } from "./store";
 import store, { loadProducts, loadUsers, getCart } from "./store";
 import CartItem from "./components/CartItem";
 import PastOrders from "./components/PastOrders";
+import GuestCartItem from "./components/GuestCartItem";
 
 /*
  * COMPONENT
@@ -45,7 +46,7 @@ class Routes extends Component {
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route exact path="/products" component={Products} />
-            <Route path="/cartItem" component={CartItem} />
+            <Route path="/cartItem" component={GuestCartItem} />
             <Route path="/products/:id" component={ProductDetails} />
           </Switch>
         )}
