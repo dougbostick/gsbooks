@@ -1,14 +1,15 @@
-export const addGuestCartItem = (productId, quantity) => {
+export const addGuestCartItem = (product, quantity) => {
+  console.log("product", product);
   if (window.localStorage.getItem("guest_cart")) {
     const gcToken = window.localStorage.getItem("guest_cart");
     const guestCart = JSON.parse(gcToken);
-    // console.log(guestCart);
-    const dup = guestCart.find((item) => item.productId === productId);
-
+    console.log("GC", guestCart);
+    const dup = guestCart.find((item) => item.product.id === product.id);
+    console.log("dup", dup);
     if (dup) {
       dup.quantity += parseInt(quantity);
       guestCart.map((item) => {
-        if (item.productId === dup.productId) {
+        if (item.product.id === dup.product.id) {
           return dup;
         } else {
           return item;
@@ -17,13 +18,13 @@ export const addGuestCartItem = (productId, quantity) => {
 
       window.localStorage.setItem("guest_cart", JSON.stringify(guestCart));
     } else {
-      guestCart.push({ productId, quantity });
+      guestCart.push({ product, quantity });
       window.localStorage.setItem("guest_cart", JSON.stringify(guestCart));
     }
   } else {
     window.localStorage.setItem(
       "guest_cart",
-      JSON.stringify([{ productId, quantity }])
+      JSON.stringify([{ product, quantity }])
     );
   }
 

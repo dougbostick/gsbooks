@@ -27,7 +27,7 @@ const ProductDetails = (props) => {
           ev.preventDefault();
           props.isLoggedin.id
             ? addCartItem(book.id, quantity)
-            : addGuestCartItem(book.id, quantity * 1);
+            : addGuestCartItem(book, quantity * 1);
         }}
       >
         <select onChange={(ev) => (quantity = ev.target.value)}>
