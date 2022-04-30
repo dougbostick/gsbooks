@@ -32,19 +32,18 @@ export default function cartItem(state = [], action) {
   return state;
 }
 
-export const addCartItem = (cartItem, quantity) => {
+export const addCartItem = (productId, quantity) => {
   return async (dispatch) => {
     let token = window.localStorage.getItem("token");
     let response = await axios.post(
       "/api/cartItem",
-      { cartItem, quantity },
+      { productId, quantity },
       {
         headers: {
           authorization: token,
         },
       }
     );
-    console.log("cartitem thunk response", response);
     dispatch({ type: ADD_CARTITEM, cartItem: response.data });
   };
 };
@@ -90,6 +89,7 @@ export const checkout = (cartItem) => {
   console.log(cartItem);
   return async (dispatch) => {
     let token = window.localStorage.getItem("token");
+    console.log("no token", token);
     const response = await axios.put(
       `/api/cartitem/${cartItem.id}`,
       { purchased: true },
@@ -102,4 +102,3 @@ export const checkout = (cartItem) => {
     dispatch({ type: UPDATE_CARTITEM, cartItem: response.data });
   };
 };
-
