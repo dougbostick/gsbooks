@@ -12,22 +12,22 @@ import CartItem from "./components/CartItem";
 import PastOrders from "./components/PastOrders"
 import Profile from "./components/Profile"
 
-
 /*
  * COMPONENT
  */
 class Routes extends Component {
   async componentDidMount() {
+    if (this.props.isLoggedIn) {
+      await store.dispatch(getCart());
+    }
     await store.dispatch(loadProducts());
     await store.dispatch(loadUsers());
-    await store.dispatch(getCart());
-   
     this.props.loadInitialData();
   }
 
   render() {
     const { isLoggedIn } = this.props;
-
+    // console.log("routes props", this.props);
     return (
       <div>
         {isLoggedIn ? (
@@ -40,7 +40,6 @@ class Routes extends Component {
             <Route path='/pastOrders' component={PastOrders}/>
             <Route path='/profile' component={Profile}/>
             <Redirect to="/home" />
-
           </Switch>
         ) : (
           <Switch>
