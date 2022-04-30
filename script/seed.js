@@ -31,16 +31,17 @@ async function seed() {
   //  )
 
   const products = await Promise.all([
-    Product.create({ name: "Harry Potter and the Sorcerer's Stone", price: 19.99 }),
-    Product.create({ name: "Pachinko", price: 17.99 }),
-    Product.create({ name: "Left Hand of Darkness", price: 9.99 }),
-    Product.create({ name: "The Bluest Eye", price: 15.99 }),
-    Product.create({ name: "Dune", price: 9.99 }),
-    Product.create({ name: "Do Androids Dream of Electric Sheep", price: 11.99 }),
-    Product.create({ name: "For Whom The Bell Tolls", price: 10.99 }),
-    Product.create({ name: "The Wind-Up Bird Chronicle", price: 15.99 }),
-    Product.create({ name: "One Hundred Years of Solitude", price: 15.99 }),
-    Product.create({ name: "1984", price: 8.99 })
+    Product.create({ name: "Harry Potter and the Sorcerer's Stone", price: 19.99, author: "J.K. Rowling" }),
+    Product.create({ name: "Pachinko", price: 17.99, author: "Min Jin Lee" }),
+    Product.create({ name: "Left Hand of Darkness", price: 9.99, author: "Ursula K. Le Guin" }),
+    Product.create({ name: "The Bluest Eye", price: 15.99, author: "Toni Morrison" }),
+    Product.create({ name: "Dune", price: 9.99, author: "Frank Herbert" }),
+    Product.create({ name: "Do Androids Dream of Electric Sheep", price: 11.99, author: "Philip K. Dick" }),
+    Product.create({ name: "For Whom The Bell Tolls", price: 10.99, author: "Ernest Hemingway" }),
+    Product.create({ name: "The Wind-Up Bird Chronicle", price: 15.99, author: "Haruki Murakami" }),
+    Product.create({ name: "Hard Boiled Wonderland and the End of the World", price: 15.99, author: "Haruki Murakami" }),
+    Product.create({ name: "One Hundred Years of Solitude", price: 15.99, author: "Gabriel Garcia Marquez" }),
+    Product.create({ name: "1984", price: 8.99, author: "George Orwell" })
   ]);
 
   console.log(`seeded ${users.length} users`);

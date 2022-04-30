@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { logout } from "../store";
 
 const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => (
@@ -28,6 +28,8 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => (
           <Link to="/signup">Sign Up</Link>
           <Link to="/products">Products</Link>
           <Link to="/cartItem">Cart</Link>
+          <Link to="/profile"> Profile </Link>
+
         </div>
       )}
     </nav>

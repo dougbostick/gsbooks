@@ -50,6 +50,9 @@ class Routes extends Component {
             <Route exact path="/products" component={Products} />
             <Route path="/cartItem" component={CartItem} />
             <Route path="/products/:id" component={ProductDetails} />
+            <Route path="/profile" component={Profile}>
+              <Redirect to="/login" />
+            </Route>
           </Switch>
         )}
       </div>
