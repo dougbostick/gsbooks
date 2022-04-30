@@ -11,7 +11,7 @@ router.post("/", async (req, res, next) => {
     console.log("no user", user);
     const duplicate = await CartItem.findOne({
       where: {
-        productId: req.body.cartItem,
+        productId: req.body.productId,
         userId: user.id,
       },
     });
@@ -22,7 +22,7 @@ router.post("/", async (req, res, next) => {
       res.send(duplicate);
     } else {
       const book = await CartItem.create({
-        productId: req.body.cartItem,
+        productId: req.body.productId,
         userId: user.id,
         quantity: req.body.quantity,
       });

@@ -4,9 +4,9 @@ import { Route } from "react-router-dom";
 import { addCartItem } from "../store/cart-item";
 import { updateProduct } from "../store/products";
 import UpdateProduct from "./UpdateProduct";
+import { addGuestCartItem } from "./GuestCartItem";
 
 const ProductDetails = (props) => {
-  console.log("product details props", props);
   const { addCartItem, book, isAdmin } = props;
   if (!book) {
     return null;
@@ -16,6 +16,7 @@ const ProductDetails = (props) => {
   for (let i = 0; i < inventory.length; i++) {
     inventory[i] = i + 1;
   }
+
   //can add isLoggedin ? to seperate addtocart or addtoguestcart
   return (
     <div>
@@ -24,7 +25,9 @@ const ProductDetails = (props) => {
       <form
         onSubmit={(ev) => {
           ev.preventDefault();
-          addCartItem(book.id, quantity);
+          props.isLoggedin.id
+            ? addCartItem(book.id, quantity)
+            : addGuestCartItem(book.id, quantity);
         }}
       >
         <select onChange={(ev) => (quantity = ev.target.value)}>
