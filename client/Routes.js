@@ -9,8 +9,10 @@ import Users from "./components/Users";
 import { me } from "./store";
 import store, { loadProducts, loadUsers, getCart } from "./store";
 import CartItem from "./components/CartItem";
-import PastOrders from "./components/PastOrders"
+import PastOrders from "./components/PastOrders";
+import GuestCartItem from "./components/GuestCartItem";
 import Profile from "./components/Profile"
+
 
 /*
  * COMPONENT
@@ -47,7 +49,7 @@ class Routes extends Component {
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route exact path="/products" component={Products} />
-            <Route path="/cartItem" component={CartItem} />
+            <Route path="/cartItem" component={GuestCartItem} />
             <Route path="/products/:id" component={ProductDetails} />
             <Route path="/profile" component={Profile}>
               <Redirect to="/login" />

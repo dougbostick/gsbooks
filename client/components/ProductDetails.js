@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 import { addCartItem } from "../store/cart-item";
 import { updateProduct } from "../store/products";
 import UpdateProduct from "./UpdateProduct";
-import { addGuestCartItem } from "./GuestCartItem";
+import { addGuestCartItem } from "./AddGuestCartItem";
 
 const ProductDetails = (props) => {
   const { addCartItem, book, isAdmin } = props;
@@ -27,7 +27,7 @@ const ProductDetails = (props) => {
           ev.preventDefault();
           props.isLoggedin.id
             ? addCartItem(book.id, quantity)
-            : addGuestCartItem(book.id, quantity);
+            : addGuestCartItem(book, quantity * 1);
         }}
       >
         <select onChange={(ev) => (quantity = ev.target.value)}>
