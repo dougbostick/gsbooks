@@ -16,6 +16,17 @@ const setAuth = (auth) => ({ type: SET_AUTH, auth });
 /**
  * THUNK CREATORS
  */
+ export const updateProfile = (username, firstName, lastName, email, address) => async dispatch => {
+  const token = window.localStorage.getItem(TOKEN)
+  const res = await axios.put('/auth/me', {username, firstName, lastName, email, address}, {
+      headers: {
+        authorization: token
+      }
+    })
+    return dispatch(setAuth(res.data))
+  }
+
+
 export const me = () => async (dispatch) => {
   const token = window.localStorage.getItem(TOKEN);
   if (token) {

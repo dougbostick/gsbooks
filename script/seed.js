@@ -1,5 +1,6 @@
 "use strict";
 
+const faker = require('@faker-js/faker');
 const {
   db,
   models: { User, Product },
@@ -15,25 +16,32 @@ async function seed() {
 
   // Creating Users
   const users = await Promise.all([
-    User.create({ username: "cody", password: "123" }),
-    User.create({ username: "murphy", password: "123" }),
-    User.create({ username: "evelyn", password: "123", admin: true }),
-    User.create({ username: "stefan", password: "123", admin: true }),
-    User.create({ username: "gary", password: "123", admin: true }),
-    User.create({ username: "doug", password: "123", admin: true }),
+    User.create({ username: "cody", email: "cody@fullstack.com", password: "123", firstName: "Cody", lastName: "Banks", address: "123 Main Street" }),
+    User.create({ username: "murphy", email: "murphy@fullstack.com", password: "123", firstName: "Murphy", lastName: "Murph", address: "123 Main Street"  }),
+    User.create({ username: "evelyn", email: "evelyn@fullstack.com", password: "123", admin: true, firstName: "Evelyn", lastName: "Rodriguez", address: "123 Main Street"  }),
+    User.create({ username: "stefan", email: "stefan@fullstack.com", password: "123", admin: true, firstName: "Stefan", lastName: "Mitrovic", address: "123 Main Street"  }),
+    User.create({ username: "gary", email: "gary@fullstack.com", password: "123", admin: true, firstName: "Gary", lastName: "Smith", address: "123 Main Street"  }),
+    User.create({ username: "doug", email: "doug@fullstack.com", password: "123", admin: true, firstName: "Doug", lastName: "Bostick", address: "123 Main Street"  }),
   ]);
 
+  //  await Promise.all(
+  //    Array(100).fill().map( (user) => {
+  //      User.create({ username: faker.name.firstName(), password: "123"})
+  //    })
+  //  )
+
   const products = await Promise.all([
-    Product.create({ name: "Harry Potter and the Sorcerer's Stone", price: 19.99 }),
-    Product.create({ name: "Pachinko", price: 17.99 }),
-    Product.create({ name: "Left Hand of Darkness", price: 9.99 }),
-    Product.create({ name: "The Bluest Eye", price: 15.99 }),
-    Product.create({ name: "Dune", price: 9.99 }),
-    Product.create({ name: "Do Androids Dream of Electric Sheep", price: 11.99 }),
-    Product.create({ name: "For Whom The Bell Tolls", price: 10.99 }),
-    Product.create({ name: "The Wind-Up Bird Chronicle", price: 15.99 }),
-    Product.create({ name: "One Hundred Years of Solitude", price: 15.99 }),
-    Product.create({ name: "1984", price: 8.99 })
+    Product.create({ name: "Harry Potter and the Sorcerer's Stone", price: 19.99, author: "J.K. Rowling" }),
+    Product.create({ name: "Pachinko", price: 17.99, author: "Min Jin Lee" }),
+    Product.create({ name: "Left Hand of Darkness", price: 9.99, author: "Ursula K. Le Guin" }),
+    Product.create({ name: "The Bluest Eye", price: 15.99, author: "Toni Morrison" }),
+    Product.create({ name: "Dune", price: 9.99, author: "Frank Herbert" }),
+    Product.create({ name: "Do Androids Dream of Electric Sheep", price: 11.99, author: "Philip K. Dick" }),
+    Product.create({ name: "For Whom The Bell Tolls", price: 10.99, author: "Ernest Hemingway" }),
+    Product.create({ name: "The Wind-Up Bird Chronicle", price: 15.99, author: "Haruki Murakami" }),
+    Product.create({ name: "Hard Boiled Wonderland and the End of the World", price: 15.99, author: "Haruki Murakami" }),
+    Product.create({ name: "One Hundred Years of Solitude", price: 15.99, author: "Gabriel Garcia Marquez" }),
+    Product.create({ name: "1984", price: 8.99, author: "George Orwell" })
   ]);
 
   console.log(`seeded ${users.length} users`);

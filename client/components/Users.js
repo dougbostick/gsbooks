@@ -6,9 +6,12 @@ const Users = (props) => {
      (user) => {
        return (
          <div key={user.id}>
-           <li>
-             {user.username}
-           </li>
+          <li>
+            {user.username}
+          </li>
+          {/* why won't this info show??? */}
+          <div>{user.firstName}</div>
+          <div>{user.lastName}</div>
          </div>
        )
      });
