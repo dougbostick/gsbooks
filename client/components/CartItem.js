@@ -17,6 +17,7 @@ const CartItem = (props) => {
   // console.log("cart item props", props);
 
   const cartInfo = userCartItems.map((item) => {
+    if (item.purchased === false)
     return (
       <div key={item.id}>
         <div>User: {item.userId}</div>
@@ -73,8 +74,6 @@ const CartItem = (props) => {
 
 const mapStateToProps = (state) => {
   const userCartItems = state.cartItem.filter(item => item.userId === state.auth.id)
-  console.log(userCartItems)
-  console.log(state)
   return {
     userCartItems,
     state,

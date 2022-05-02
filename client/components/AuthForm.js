@@ -7,8 +7,6 @@ import { authenticate, addCartItem } from "../store";
 
  */
  
- 
- 
 const AuthForm = (props) => {
   const { name, displayName, error, authenticate, addCartItem } = props;
   
