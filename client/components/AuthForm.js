@@ -24,6 +24,16 @@ const AuthForm = (props) => {
           </label>
           <input name="password" type="password" />
         </div>
+        
+        {//this will only show if we are on the sign up page
+        displayName === "Sign Up" ? 
+         <div>
+          <label htmlFor="email">
+            <small>Email</small>
+          </label>
+          <input name="email" type="text" />
+        </div> : ''
+        }
         <div>
           <button type="submit">{displayName}</button>
         </div>
@@ -63,7 +73,9 @@ const mapDispatch = (dispatch) => {
       const formName = evt.target.name;
       const username = evt.target.username.value;
       const password = evt.target.password.value;
-      dispatch(authenticate(username, password, formName));
+      const email = evt.target.email.value
+      //if there is no email, it should be sign in instead of signup.
+      email === '' ? dispatch(authenticate(username, password, formName)) : dispatch(authenticate(username, password, email, formName));
     },
   };
 };
