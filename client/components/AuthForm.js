@@ -22,18 +22,23 @@ const AuthForm = (props) => {
   const handleSubmit = async (evt) => {
       evt.preventDefault();
       console.log(evt)
+      
+       //This component is set so in the form, email is only seen so if we are on the sign up page. You cant sign up without an email. 
+      //So if email even exists...line 29 runs
+      if(evt.target.email) {
       const formName = evt.target.name;
       const username = evt.target.username.value;
       const password = evt.target.password.value;
       const email = evt.target.email.value
-      //This component is set so in the form, email is only seen so if we are on the sign up page. You cant sign up without an email. 
-      //So if email is not an empty string...line 20 runs
-      if (email !== '') {
+     
         await authenticate(username, password, formName, email);
         return isGuestCart()
       }
        //The rest of this function below is the function to sign in, where you currently dont need an email.
       else {
+        const formName = evt.target.name;
+        const username = evt.target.username.value;
+        const password = evt.target.password.value;
         authenticate(username, password, formName)
       }
     }
