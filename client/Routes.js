@@ -86,7 +86,8 @@ const mapDispatch = (dispatch) => {
     loadUpdatedData: () => {
       dispatch(me())
       dispatch(getCart())
-    
+      //after a user is logged in and the updated data renders, if theres a guest cart in localStorage, remove it.
+      window.localStorage.getItem("guest_cart") ? window.localStorage.removeItem("guest_cart") : null
     },
     getCart: () => dispatch(getCart()),
   };
