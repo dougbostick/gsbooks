@@ -35,7 +35,6 @@ export default function cartItem(state = [], action) {
 export const addCartItem = (productId, quantity) => {
   return async (dispatch) => {
     let token = window.localStorage.getItem("token");
-    console.log(window.localStorage.getItem("token"))
     let response = await axios.post(
       "/api/cartItem",
       { productId, quantity },

@@ -11,7 +11,6 @@ const AuthForm = (props) => {
   const { name, displayName, error, authenticate, addCartItem } = props;
   
   const isGuestCart = async() => {
-    console.log(window.localStorage.getItem("token"))
     const guestCart = JSON.parse(window.localStorage.getItem("guest_cart"))
         guestCart ?  await guestCart.forEach(item => addCartItem(item.product.id, item.quantity)) : ''
         window.localStorage.removeItem("guest_cart")
@@ -22,7 +21,7 @@ const AuthForm = (props) => {
       console.log(evt)
       
        //This component is set so in the form, email is only seen so if we are on the sign up page. You cant sign up without an email. 
-      //So if email even exists...line 29 runs
+      //So if email exists, this will create a new user
       if(evt.target.email) {
       const formName = evt.target.name;
       const username = evt.target.username.value;

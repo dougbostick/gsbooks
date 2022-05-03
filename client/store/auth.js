@@ -44,7 +44,6 @@ export const authenticate =
     try {
       const res = await axios.post(`/auth/${method}`, { username, password, email });
       window.localStorage.setItem("token", res.data.token);
-      console.log(window.localStorage.getItem("token"))
       dispatch(me());
     } catch (authError) {
       return dispatch(setAuth({ error: authError }));
