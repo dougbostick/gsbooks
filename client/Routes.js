@@ -12,6 +12,7 @@ import CartItem from "./components/CartItem";
 import PastOrders from "./components/PastOrders";
 import GuestCartItem from "./components/GuestCartItem";
 import Profile from "./components/Profile"
+import SearchResults from "./components/SearchResults"
 
 
 /*
@@ -43,6 +44,7 @@ class Routes extends Component {
             <Route path="/home" component={Home} />
             <Route exact path="/products" component={Products} />
             <Route path="/products/:id" component={ProductDetails} />
+            <Route path='/searchTerm' component={SearchResults}/>
             <Route path="/users" component={Users} />
             <Route path="/cartItem" component={CartItem} />
             <Route path='/pastOrders' component={PastOrders}/>
@@ -55,6 +57,7 @@ class Routes extends Component {
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route exact path="/products" component={Products} />
+            <Route path='/searchTerm' component={SearchResults}/>
             <Route path="/cartItem" component={GuestCartItem} />
             <Route path="/products/:id" component={ProductDetails} />
             <Route path="/profile" component={Profile}>
