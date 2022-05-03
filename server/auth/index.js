@@ -12,7 +12,7 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
-//check this out if error
+
 router.post("/signup", async (req, res, next) => {
   try {
     const user = await User.create(req.body);

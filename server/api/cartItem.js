@@ -7,6 +7,7 @@ module.exports = router;
 router.post("/", async (req, res, next) => {
   try {
     console.log("req.body/api/cartitem", req.body);
+    console.log(req.headers.authorization)
     const user = await User.findByToken(req.headers.authorization);
     console.log("no user", user);
     const duplicate = await CartItem.findOne({

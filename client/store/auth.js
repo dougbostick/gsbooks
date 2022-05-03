@@ -17,7 +17,7 @@ const setAuth = (auth) => ({ type: SET_AUTH, auth });
  * THUNK CREATORS
  */
  export const updateProfile = (username, firstName, lastName, email, address) => async dispatch => {
-  const token = window.localStorage.getItem(TOKEN)
+  const token = window.localStorage.getItem("token")
   const res = await axios.put('/auth/me', {username, firstName, lastName, email, address}, {
       headers: {
         authorization: token
@@ -28,7 +28,7 @@ const setAuth = (auth) => ({ type: SET_AUTH, auth });
 
 
 export const me = () => async (dispatch) => {
-  const token = window.localStorage.getItem(TOKEN);
+  const token = window.localStorage.getItem("token");
   if (token) {
     const res = await axios.get("/auth/me", {
       headers: {
@@ -37,14 +37,13 @@ export const me = () => async (dispatch) => {
     });
     return dispatch(setAuth(res.data));
   }
-  // return dispatch({ type: 'GUEST', });
 };
 
 export const authenticate =
-  (username, password, email, method) => async (dispatch) => {
+  (username, password, method, email) => async (dispatch) => {
     try {
       const res = await axios.post(`/auth/${method}`, { username, password, email });
-      window.localStorage.setItem(TOKEN, res.data.token);
+      window.localStorage.setItem("token", res.data.token);
       dispatch(me());
     } catch (authError) {
       return dispatch(setAuth({ error: authError }));
@@ -52,13 +51,14 @@ export const authenticate =
   };
 
 export const logout = () => {
-  window.localStorage.removeItem(TOKEN);
+  window.localStorage.removeItem("token");
   history.push("/login");
   return {
     type: SET_AUTH,
     auth: {},
   };
 };
+
 
 /**
  * REDUCER
