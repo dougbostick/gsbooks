@@ -70,6 +70,9 @@ class Routes extends Component {
             <Route path="/cartItem" component={GuestCartItem} />
             <Route path="/products/:id" component={ProductDetails} />
             <Route path='/author' component={Author}/>
+            <Route path="/profile" component={Profile}>
+              <Redirect to="/login" />
+            </Route>
           </Switch>
         )}
       </div>
