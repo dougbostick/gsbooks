@@ -22,9 +22,10 @@ const Products = (props) => {
   const categories = props.categories.map(category => {
     return (
       <div key={category.id}>
-       <Link to={`/categories/${category.id}`}>
-       <li> {category.name} </li>
+       <button> <Link to={`/categories/${category.id}`}> 
+        {category.name}
        </Link>
+       </button>
       </div>
       )
   })
