@@ -14,9 +14,6 @@ const Product = db.define("product", {
   author:  {
     type: Sequelize.STRING
   },
-  genre: {
-    type: Sequelize.STRING
-  }
 });
 
 module.exports = Product;
