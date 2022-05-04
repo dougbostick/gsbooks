@@ -18,18 +18,18 @@ import Profile from "./components/Profile"
  * COMPONENT
  */
 class Routes extends Component {
-  async componentDidMount() {
+  componentDidMount() {
     //Rearranging the order of this solved the refresh problem. -GS
-    await this.props.loadInitialData()
-    await store.dispatch(loadProducts());
-    await store.dispatch(loadUsers());
+     this.props.loadInitialData()
+     store.dispatch(loadProducts());
+     store.dispatch(loadUsers());
   }
   
   //I dont not know if this needs to be async -GS
-  async componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps) {
     //if you werent logged in and now you are we want your data, (this is getCart() and me()) -GS
     if (prevProps.isLoggedIn !== this.props.isLoggedIn && this.props.isLoggedIn === true) {
-      await this.props.loadUpdatedData()
+       this.props.loadUpdatedData()
     }
   }
 
