@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 const PastOrders = ({auth, cartItem, products}) => {
     return (
         <div>
-            <h1> {auth.username}'s past orders </h1>
+            <h2> {auth.username}'s past orders </h2>
             {cartItem.map(item => {
                 return (
                 item.purchased === true ? 

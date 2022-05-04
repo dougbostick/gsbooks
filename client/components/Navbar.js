@@ -13,8 +13,8 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => (
           <Link to="/home">Home</Link>
           <Link to="/products">Products</Link>
           { isAdmin ? <Link to='/users'>Users</Link> : ''}
+          <Link to="/categories">Categories</Link>
           <Link to="/cartItem">Cart</Link>
-          <Link to="/pastOrders">Past Orders</Link>
           <Link to="/profile">Profile</Link>
 
           <a href="#" onClick={handleClick}>

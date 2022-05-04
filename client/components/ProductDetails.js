@@ -21,6 +21,7 @@ const ProductDetails = (props) => {
   return (
     <div>
       <div>Book: {book.name}</div>
+      <div> Author: {book.author} </div>
       <div>Price: {book.price}</div>
       <div> Category: {book.categoryId} </div>
       <form

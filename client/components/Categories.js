@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const Categories = (props) => {
-  console.log("PROPS", props)
-  const { categories, products } = props
+  //const { categories, products } = props
 
   const categoryList = props.categories.map((category) => {
     const filteredBooks = props.products.filter( product => product.categoryId === category.id)
-    console.log("FILTERED BOOKS", filteredBooks)
+
     return (
       <div key={category.id} id="category-container">
         <li> {category.name} </li>
@@ -28,16 +27,10 @@ const Categories = (props) => {
   
   return (
     <div>
-      Categories:
+      <h2> Categories: </h2>
       {categoryList}
     </div>
   )
 }
-
-// const mapStateToProps = (state) => {
-//   return {
-//     categories: state.categories,
-//   };
-// };
 
 export default connect(state=>state)(Categories);
