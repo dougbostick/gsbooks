@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {updateProfile} from '../store';
+import PastOrders from './PastOrders';
 
 class Profile extends Component{
   constructor(props){
@@ -42,6 +43,8 @@ class Profile extends Component{
 
           <button> Update Details </button>
         </form>
+
+        <PastOrders />
       </div>
     )
   }

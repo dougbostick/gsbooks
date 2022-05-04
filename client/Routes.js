@@ -7,30 +7,35 @@ import Products from "./components/Products";
 import ProductDetails from "./components/ProductDetails";
 import Users from "./components/Users";
 import { me } from "./store";
-import store, { loadProducts, loadUsers, getCart } from "./store";
+import store, { loadProducts, loadUsers, getCart, loadCategories } from "./store";
 import CartItem from "./components/CartItem";
 import PastOrders from "./components/PastOrders";
 import GuestCartItem from "./components/GuestCartItem";
 import Profile from "./components/Profile"
 import SearchResults from "./components/SearchResults"
+import Categories from "./components/Categories"
+
 
 
 /*
  * COMPONENT
  */
 class Routes extends Component {
-  async componentDidMount() {
+  componentDidMount() {
     //Rearranging the order of this solved the refresh problem. -GS
-    await this.props.loadInitialData()
-    await store.dispatch(loadProducts());
-    await store.dispatch(loadUsers());
+     this.props.loadInitialData()
+     store.dispatch(loadProducts());
+     store.dispatch(loadUsers());
+     store.dispatch(loadCategories());
+  
+
   }
   
   //I dont not know if this needs to be async -GS
-  async componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps) {
     //if you werent logged in and now you are we want your data, (this is getCart() and me()) -GS
     if (prevProps.isLoggedIn !== this.props.isLoggedIn && this.props.isLoggedIn === true) {
-      await this.props.loadUpdatedData()
+       this.props.loadUpdatedData()
     }
   }
 
@@ -43,6 +48,7 @@ class Routes extends Component {
           <Switch>
             <Route path="/home" component={Home} />
             <Route exact path="/products" component={Products} />
+            <Route path="/categories" component={Categories} />
             <Route path="/products/:id" component={ProductDetails} />
             <Route path='/searchTerm' component={SearchResults}/>
             <Route path="/users" component={Users} />
@@ -58,6 +64,7 @@ class Routes extends Component {
             <Route path="/signup" component={Signup} />
             <Route exact path="/products" component={Products} />
             <Route path='/searchTerm' component={SearchResults}/>
+            <Route path="/categories" component={Categories} />
             <Route path="/cartItem" component={GuestCartItem} />
             <Route path="/products/:id" component={ProductDetails} />
             <Route path="/profile" component={Profile}>
