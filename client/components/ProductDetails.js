@@ -1,13 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import { addCartItem } from "../store/cart-item";
 import { updateProduct } from "../store/products";
 import UpdateProduct from "./UpdateProduct";
 import { addGuestCartItem } from "./AddGuestCartItem";
 
 const ProductDetails = (props) => {
-  const { addCartItem, book, isAdmin } = props;
+  const { addCartItem, book, isAdmin, categories } = props;
+   const bookCategory = categories.filter(category => category.id === book.categoryId).map(book => book.name).join('')
+  console.log(bookCategory)
   if (!book) {
     return null;
   }
@@ -21,9 +23,9 @@ const ProductDetails = (props) => {
   return (
     <div>
       <div>Book: {book.name}</div>
-      <div> Author: {book.author} </div>
+      <div> Author: <Link to={{pathname:'/author', state:{author:book.author}}}> {book.author} </Link> </div>
       <div>Price: {book.price}</div>
-      <div> Category: {book.categoryId} </div>
+      <div> Category: {bookCategory} </div>
       <form
         onSubmit={(ev) => {
           ev.preventDefault();
@@ -61,6 +63,7 @@ const mapStateToProps = (state, { match }) => {
     isLoggedin: state.auth,
     isAdmin: state.auth.admin,
     products: state.products,
+    categories: state.categories,
     book: state.products.find((book) => book.id === parseInt(match.params.id)),
   };
 };

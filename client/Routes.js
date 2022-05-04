@@ -14,6 +14,7 @@ import GuestCartItem from "./components/GuestCartItem";
 import Profile from "./components/Profile"
 import SearchResults from "./components/SearchResults"
 import Categories from "./components/Categories"
+import Author from "./components/Author"
 
 
 
@@ -55,6 +56,7 @@ class Routes extends Component {
             <Route path="/cartItem" component={CartItem} />
             <Route path='/pastOrders' component={PastOrders}/>
             <Route path='/profile' component={Profile}/>
+            <Route path='/author' component={Author}/>
             <Redirect to="/home" />
           </Switch>
         ) : (
@@ -67,6 +69,7 @@ class Routes extends Component {
             <Route path="/categories" component={Categories} />
             <Route path="/cartItem" component={GuestCartItem} />
             <Route path="/products/:id" component={ProductDetails} />
+            <Route path='/author' component={Author}/>
             <Route path="/profile" component={Profile}>
               <Redirect to="/login" />
             </Route>
