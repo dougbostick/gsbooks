@@ -15,6 +15,7 @@ import Profile from "./components/Profile"
 import SearchResults from "./components/SearchResults"
 import Categories from "./components/Categories"
 import Author from "./components/Author"
+import Category from "./components/Category"
 
 
 
@@ -49,8 +50,9 @@ class Routes extends Component {
           <Switch>
             <Route path="/home" component={Home} />
             <Route exact path="/products" component={Products} />
-            <Route path="/categories" component={Categories} />
+            <Route exact path="/categories" component={Categories} />
             <Route path="/products/:id" component={ProductDetails} />
+            <Route path="/categories/:id" component={Category} />
             <Route path='/searchTerm' component={SearchResults}/>
             <Route path="/users" component={Users} />
             <Route path="/cartItem" component={CartItem} />
@@ -66,7 +68,8 @@ class Routes extends Component {
             <Route path="/signup" component={Signup} />
             <Route exact path="/products" component={Products} />
             <Route path='/searchTerm' component={SearchResults}/>
-            <Route path="/categories" component={Categories} />
+            <Route exact path="/categories" component={Categories} />
+            <Route path="/categories/:id" component={Category} />
             <Route path="/cartItem" component={GuestCartItem} />
             <Route path="/products/:id" component={ProductDetails} />
             <Route path='/author' component={Author}/>
