@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import { addCartItem } from "../store/cart-item";
 import { updateProduct } from "../store/products";
 import UpdateProduct from "./UpdateProduct";
@@ -21,7 +21,7 @@ const ProductDetails = (props) => {
   return (
     <div>
       <div>Book: {book.name}</div>
-      <div> Author: {book.author} </div>
+      <div> Author: <Link to={{pathname:'/author', state:{author:book.author}}}> {book.author} </Link> </div>
       <div>Price: {book.price}</div>
       <div> Category: {book.categoryId} </div>
       <form
