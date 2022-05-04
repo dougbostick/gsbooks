@@ -1,13 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 import {deleteProduct} from '../store/products'
 import AddProduct from './AddProduct'
 import Searchbar from './Searchbar'
 
 const Products = (props) => {
-  const {isAdmin, remove} = props
-  const books = props.products.map((book) => {
+  const {isAdmin, remove, products} = props
+  let {searchTerm} = useLocation().state
+  console.log(searchTerm)
+        
+  const searchResults = products.filter(book => {
+    if (typeof searchTerm === Number) searchTerm = String(searchTerm)
+      const authorName = book.author.toLowerCase()
+      const bookName = book.name.toLowerCase()
+      searchTerm = searchTerm.toLowerCase()
+      return bookName.includes(searchTerm) || authorName.includes(searchTerm)
+  })
+  console.log(searchResults)
+ 
+  const books = searchResults.map((book) => {
     return (
       <div key={book.id}>
       <Link to={`/products/${book.id}`} >
@@ -24,7 +36,7 @@ const Products = (props) => {
     <div>
     <Searchbar/>
     {isAdmin ? <AddProduct/>: ''}
-      Products:
+      <h1> There {searchResults.length === 1 ? "is" : "are" } {searchResults.length} {searchResults.length === 1 ? "result" : "results" } matching {searchTerm}</h1>
       {books}
     </div>
   );

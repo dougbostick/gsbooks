@@ -12,7 +12,9 @@ import CartItem from "./components/CartItem";
 import PastOrders from "./components/PastOrders";
 import GuestCartItem from "./components/GuestCartItem";
 import Profile from "./components/Profile"
+import SearchResults from "./components/SearchResults"
 import Categories from "./components/Categories"
+
 
 
 /*
@@ -48,6 +50,7 @@ class Routes extends Component {
             <Route exact path="/products" component={Products} />
             <Route path="/categories" component={Categories} />
             <Route path="/products/:id" component={ProductDetails} />
+            <Route path='/searchTerm' component={SearchResults}/>
             <Route path="/users" component={Users} />
             <Route path="/cartItem" component={CartItem} />
             <Route path='/pastOrders' component={PastOrders}/>
@@ -60,6 +63,7 @@ class Routes extends Component {
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route exact path="/products" component={Products} />
+            <Route path='/searchTerm' component={SearchResults}/>
             <Route path="/categories" component={Categories} />
             <Route path="/cartItem" component={GuestCartItem} />
             <Route path="/products/:id" component={ProductDetails} />
