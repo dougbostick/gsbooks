@@ -30,7 +30,7 @@ const GuestCartItem = (props) => {
     }
   }
   
-  //error here
+  
   const gcdisplay = !guestCart ? null : guestCart.map((item) => {
     return (
       <div key={item.product.id}>

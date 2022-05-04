@@ -36,7 +36,8 @@ const AuthForm = (props) => {
         const formName = evt.target.name;
         const username = evt.target.username.value;
         const password = evt.target.password.value;
-        authenticate(username, password, formName)
+        await authenticate(username, password, formName)
+         return isGuestCart()
       }
     }
   
