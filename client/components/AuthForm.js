@@ -73,9 +73,9 @@ const mapDispatch = (dispatch) => {
       const formName = evt.target.name;
       const username = evt.target.username.value;
       const password = evt.target.password.value;
-      const email = evt.target.email.value
+      //const email = evt.target.email.value
       //if there is no email, it should be sign in instead of signup.
-      email === '' ? dispatch(authenticate(username, password, formName)) : dispatch(authenticate(username, password, email, formName));
+      // email === '' ? dispatch(authenticate(username, password, formName)) : dispatch(authenticate(username, password, email, formName));
     },
   };
 };

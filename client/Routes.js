@@ -7,11 +7,12 @@ import Products from "./components/Products";
 import ProductDetails from "./components/ProductDetails";
 import Users from "./components/Users";
 import { me } from "./store";
-import store, { loadProducts, loadUsers, getCart } from "./store";
+import store, { loadProducts, loadUsers, getCart, loadCategories } from "./store";
 import CartItem from "./components/CartItem";
 import PastOrders from "./components/PastOrders";
 import GuestCartItem from "./components/GuestCartItem";
 import Profile from "./components/Profile"
+import Categories from "./components/Categories"
 
 
 /*
@@ -24,6 +25,7 @@ class Routes extends Component {
     }
     await store.dispatch(loadProducts());
     await store.dispatch(loadUsers());
+    await store.dispatch(loadCategories());
     this.props.loadInitialData();
   }
 
@@ -36,6 +38,7 @@ class Routes extends Component {
           <Switch>
             <Route path="/home" component={Home} />
             <Route exact path="/products" component={Products} />
+            <Route path="/categories" component={Categories} />
             <Route path="/products/:id" component={ProductDetails} />
             <Route path="/users" component={Users} />
             <Route path="/cartItem" component={CartItem} />
@@ -49,6 +52,7 @@ class Routes extends Component {
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route exact path="/products" component={Products} />
+            <Route path="/categories" component={Categories} />
             <Route path="/cartItem" component={GuestCartItem} />
             <Route path="/products/:id" component={ProductDetails} />
             <Route path="/profile" component={Profile}>
