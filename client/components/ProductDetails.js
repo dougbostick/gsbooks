@@ -22,6 +22,7 @@ const ProductDetails = (props) => {
     <div>
       <div>Book: {book.name}</div>
       <div>Price: {book.price}</div>
+      <div> Category: {book.categoryId} </div>
       <form
         onSubmit={(ev) => {
           ev.preventDefault();

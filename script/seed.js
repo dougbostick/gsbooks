@@ -3,7 +3,7 @@
 const faker = require('@faker-js/faker');
 const {
   db,
-  models: { User, Product },
+  models: { User, Product, Category },
 } = require("../server/db");
 
 /**
@@ -29,23 +29,32 @@ async function seed() {
   //      User.create({ username: faker.name.firstName(), password: "123"})
   //    })
   //  )
+  const [ scienceFiction, fiction, worldLit, fantasy, historicalLit, childrensLit ] = await Promise.all([
+    Category.create({ name: 'Science Fiction' }),
+    Category.create({ name: 'Fiction' }),
+    Category.create({ name: 'World Literature' }),
+    Category.create({ name: 'Fantasy' }),
+    Category.create({ name: 'Historical Literature' }),
+    Category.create({ name: 'Childrens Literature' }),
+    ]);
 
   const products = await Promise.all([
-    Product.create({ name: "Harry Potter and the Sorcerer's Stone", price: 19.99, author: "J.K. Rowling" }),
-    Product.create({ name: "Pachinko", price: 17.99, author: "Min Jin Lee" }),
-    Product.create({ name: "Left Hand of Darkness", price: 9.99, author: "Ursula K. Le Guin" }),
-    Product.create({ name: "The Bluest Eye", price: 15.99, author: "Toni Morrison" }),
-    Product.create({ name: "Dune", price: 9.99, author: "Frank Herbert" }),
-    Product.create({ name: "Do Androids Dream of Electric Sheep", price: 11.99, author: "Philip K. Dick" }),
-    Product.create({ name: "For Whom The Bell Tolls", price: 10.99, author: "Ernest Hemingway" }),
-    Product.create({ name: "The Wind-Up Bird Chronicle", price: 15.99, author: "Haruki Murakami" }),
-    Product.create({ name: "Hard Boiled Wonderland and the End of the World", price: 15.99, author: "Haruki Murakami" }),
-    Product.create({ name: "One Hundred Years of Solitude", price: 15.99, author: "Gabriel Garcia Marquez" }),
-    Product.create({ name: "1984", price: 8.99, author: "George Orwell" })
+    Product.create({ name: "Harry Potter and the Sorcerer's Stone", price: 19.99, author: "J.K. Rowling", categoryId: childrensLit.id}),
+    Product.create({ name: "Pachinko", price: 17.99, author: "Min Jin Lee", categoryId: historicalLit.id }),
+    Product.create({ name: "Left Hand of Darkness", price: 9.99, author: "Ursula K. Le Guin", categoryId: scienceFiction.id }),
+    Product.create({ name: "The Bluest Eye", price: 15.99, author: "Toni Morrison", categoryId: fiction.id }),
+    Product.create({ name: "Dune", price: 9.99, author: "Frank Herbert", categoryId: scienceFiction.id }),
+    Product.create({ name: "Do Androids Dream of Electric Sheep", price: 11.99, author: "Philip K. Dick", categoryId: scienceFiction.id }),
+    Product.create({ name: "For Whom The Bell Tolls", price: 10.99, author: "Ernest Hemingway", categoryId: fiction.id }),
+    Product.create({ name: "The Wind-Up Bird Chronicle", price: 15.99, author: "Haruki Murakami", categoryId: worldLit.id }),
+    Product.create({ name: "Hard Boiled Wonderland and the End of the World", price: 15.99, author: "Haruki Murakami", categoryId: fantasy.id }),
+    Product.create({ name: "One Hundred Years of Solitude", price: 15.99, author: "Gabriel Garcia Marquez", categoryId: worldLit.id }),
+    Product.create({ name: "1984", price: 8.99, author: "George Orwell", categoryId: scienceFiction.id })
   ]);
 
   console.log(`seeded ${users.length} users`);
   console.log(`seeded ${products.length} products`);
+
   console.log(`seeded successfully`);
 
   return {

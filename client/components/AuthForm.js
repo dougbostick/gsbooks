@@ -99,6 +99,15 @@ const mapSignup = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
+    handleSubmit(evt) {
+      evt.preventDefault();
+      const formName = evt.target.name;
+      const username = evt.target.username.value;
+      const password = evt.target.password.value;
+      //const email = evt.target.email.value
+      //if there is no email, it should be sign in instead of signup.
+      // email === '' ? dispatch(authenticate(username, password, formName)) : dispatch(authenticate(username, password, email, formName));
+    },
     authenticate: (username, password, formName, email) => dispatch(authenticate(username,password,formName, email)),
     addCartItem: async(productId, quantity) => await dispatch(addCartItem(productId, quantity))
   };
