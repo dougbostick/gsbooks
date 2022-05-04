@@ -20,13 +20,21 @@ import Categories from "./components/Categories"
  */
 class Routes extends Component {
   async componentDidMount() {
-    if (this.props.isLoggedIn) {
-      await store.dispatch(getCart());
-    }
+    //Rearranging the order of this solved the refresh problem. -GS
+    await this.props.loadInitialData()
     await store.dispatch(loadProducts());
     await store.dispatch(loadUsers());
     await store.dispatch(loadCategories());
     this.props.loadInitialData();
+
+  }
+  
+  //I dont not know if this needs to be async -GS
+  async componentDidUpdate(prevProps) {
+    //if you werent logged in and now you are we want your data, (this is getCart() and me()) -GS
+    if (prevProps.isLoggedIn !== this.props.isLoggedIn && this.props.isLoggedIn === true) {
+      await this.props.loadUpdatedData()
+    }
   }
 
   render() {
@@ -80,6 +88,12 @@ const mapDispatch = (dispatch) => {
   return {
     loadInitialData() {
       dispatch(me());
+    },
+    loadUpdatedData: () => {
+      dispatch(me())
+      dispatch(getCart())
+      //after a user is logged in and the updated data renders, if theres a guest cart in localStorage, remove it.
+      window.localStorage.getItem("guest_cart") ? window.localStorage.removeItem("guest_cart") : null
     },
     getCart: () => dispatch(getCart()),
   };

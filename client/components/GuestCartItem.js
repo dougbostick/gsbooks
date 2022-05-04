@@ -30,7 +30,8 @@ const GuestCartItem = (props) => {
     }
   }
   
-  const gcdisplay = guestCart.map((item) => {
+  //error here
+  const gcdisplay = !guestCart ? null : guestCart.map((item) => {
     return (
       <div key={item.product.id}>
         <div> Book: {item.product.name}</div>

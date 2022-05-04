@@ -8,17 +8,18 @@ import {
 } from "../store/cart-item";
 
 const CartItem = (props) => {
+  const {userCartItems} = props
   // console.log("cartitem state", props.state);
   const inventory = new Array(10);
   for (let i = 0; i < inventory.length; i++) {
     inventory[i] = i + 1;
   }
-  // console.log("cart item props", props);
 
-  const cartInfo = props.state.cartItem.map((item) => {
+
+  const cartInfo = userCartItems.map((item) => {
+    if (item.purchased === false)
     return (
       <div key={item.id}>
-        <div>User: {item.userId}</div>
         <div>
           Product:{" "}
           {
@@ -71,9 +72,10 @@ const CartItem = (props) => {
 //the checkout button on line 46 is really gonna link into some type of payment, right now its just to checkout if the thunk I set up works to update the purchased boolean on the cartItem -GS
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  //For each cartItem in the cart, return if the cartitems userId matches whoever is currently logged in. This is added to props in line 78.
+  const userCartItems = state.cartItem.filter(item => item.userId === state.auth.id)
   return {
-    // cartItem: state.cartItem,
+    userCartItems,
     state,
   };
 };
