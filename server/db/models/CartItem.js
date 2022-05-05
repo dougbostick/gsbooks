@@ -6,11 +6,14 @@ const CartItem = db.define("cartitem", {
   quantity: {
     type: Sequelize.INTEGER,
   },
-  
+
   purchased: {
     type: Sequelize.BOOLEAN,
-    defaultValue: false
-  }
+    defaultValue: false,
+  },
+  price: {
+    type: Sequelize.INTEGER,
+  },
 });
 
 module.exports = CartItem;

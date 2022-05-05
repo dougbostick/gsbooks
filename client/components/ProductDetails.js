@@ -8,8 +8,11 @@ import { addGuestCartItem } from "./AddGuestCartItem";
 
 const ProductDetails = (props) => {
   const { addCartItem, book, isAdmin, categories } = props;
-   const bookCategory = categories.filter(category => category.id === book.categoryId).map(book => book.name).join('')
-  console.log(bookCategory)
+  const bookCategory = categories
+    .filter((category) => category.id === book.categoryId)
+    .map((book) => book.name)
+    .join("");
+  console.log(bookCategory);
   if (!book) {
     return null;
   }
@@ -23,14 +26,21 @@ const ProductDetails = (props) => {
   return (
     <div>
       <div>Book: {book.name}</div>
-      <div> Author: <Link to={{pathname:'/author', state:{author:book.author}}}> {book.author} </Link> </div>
+      <div>
+        {" "}
+        Author:{" "}
+        <Link to={{ pathname: "/author", state: { author: book.author } }}>
+          {" "}
+          {book.author}{" "}
+        </Link>{" "}
+      </div>
       <div>Price: {book.price}</div>
       <div> Category: {bookCategory} </div>
       <form
         onSubmit={(ev) => {
           ev.preventDefault();
           props.isLoggedin.id
-            ? addCartItem(book.id, quantity)
+            ? addCartItem(book, quantity)
             : addGuestCartItem(book, quantity * 1);
         }}
       >
@@ -70,7 +80,7 @@ const mapStateToProps = (state, { match }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addCartItem: (bookId, quantity) => dispatch(addCartItem(bookId, quantity)),
+    addCartItem: (book, quantity) => dispatch(addCartItem(book, quantity)),
     update: async (book) => await dispatch(updateProduct(book)),
   };
 };
