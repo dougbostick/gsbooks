@@ -12,6 +12,7 @@ const Products = (props) => {
       <div key={book.id}>
       <Link to={`/products/${book.id}`} >
         <li >{book.name}</li>
+        <div>Author: {book.author}</div>
         <div>Price: {book.price}</div>
       </Link> 
       {isAdmin ? <button onClick={ () => remove(book) } > X </button> : ''}
@@ -19,21 +20,11 @@ const Products = (props) => {
     );
   });
   
-  const categories = props.categories.map(category => {
-    return (
-      <div key={category.id}>
-       <button> <Link to={`/categories/${category.id}`}> 
-        {category.name}
-       </Link>
-       </button>
-      </div>
-      )
-  })
-
+  
   return (
     <div>
     <Searchbar/>
-    {categories}
+   
     {isAdmin ? <AddProduct/>: ''}
       Products:
       {books}

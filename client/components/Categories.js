@@ -4,6 +4,16 @@ import { Link } from 'react-router-dom';
 
 const Categories = (props) => {
   //const { categories, products } = props
+  const categories = props.categories.map(category => {
+    return (
+      <div key={category.id}>
+       <button> <Link to={`/categories/${category.id}`}> 
+        {category.name}
+       </Link>
+       </button>
+      </div>
+      )
+  })
 
   const categoryList = props.categories.map((category) => {
     const filteredBooks = props.products.filter( product => product.categoryId === category.id)
@@ -28,6 +38,7 @@ const Categories = (props) => {
   return (
     <div>
       <h2> Categories: </h2>
+      {categories}
       {categoryList}
     </div>
   )

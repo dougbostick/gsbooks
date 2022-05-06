@@ -8,17 +8,18 @@ class AddProduct extends Component {
         
         this.state = {
             name: '',
-            price: ''
+            price: '',
+            categoryId: ''
         }
         this.submit = this.submit.bind(this)
     }
     
     submit(ev) {
         ev.preventDefault()
-        const {name,price} = this.state
+        const { name,price, categoryId } = this.state
         
         const product = {
-            name, price
+            name, price, categoryId
         }
         
         this.props.add(product)
@@ -26,13 +27,24 @@ class AddProduct extends Component {
     
     
     render() {
-        const {submit} = this
-        const {name, price} = this.state
+        const { submit } = this
+        const { categories } = this.props
+        const { name, price, categoryId } = this.state
         return (
-            <form onSubmit={submit}> 
+            <form onSubmit={ submit }> 
                 <input onChange={ev => this.setState({name: ev.target.value})} name='name' value={name} placeholder='Product Name' />
                 <input onChange={ev => this.setState({price: ev.target.value})} name='price' value={price} placeholder='Product Price' />
-                 <button disabled={!name || !price }>Add Product</button>
+                <select value={ categoryId } name='categoryId' onChange={ ev => this.setState({ categoryId: ev.target.value })}>
+                        <option value=''> Select A Category </option>
+                    {
+                        categories.map(  category => {
+                            return (
+                                <option value={category.id} key={category.id}> { category.name }</option>
+                            )
+                        })
+                    }
+                    </select>
+                 <button disabled={!name || !price || !categoryId }>Add Product</button>
             </form>
             )
     }
@@ -46,4 +58,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(AddProduct)
+export default connect(state => state, mapDispatchToProps)(AddProduct)

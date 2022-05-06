@@ -1,6 +1,6 @@
 "use strict";
 
-const faker = require("@faker-js/faker");
+//const faker = require("@faker-js/faker");
 const {
   db,
   models: { User, Product, Category },
@@ -70,11 +70,6 @@ async function seed() {
     }),
   ]);
 
-  //  await Promise.all(
-  //    Array(100).fill().map( (user) => {
-  //      User.create({ username: faker.name.firstName(), password: "123"})
-  //    })
-  //  )
   const [
     scienceFiction,
     generalFiction,
@@ -371,7 +366,7 @@ async function seed() {
       categoryId: generalFiction.id,
     }),
     Product.create({
-      name: "Atomic Habbits",
+      name: "Atomic Habits",
       price: 17.99,
       author: "James Clear",
       categoryId: selfHelp.id,
@@ -383,7 +378,7 @@ async function seed() {
       categoryId: generalFiction.id,
     }),
     Product.create({
-      name: "The Girl Whoe Smiles Beads",
+      name: "The Girl Who Smiles Beads",
       price: 14.99,
       author: "Clemantine Wamariya and Elizabeth Weil",
       categoryId: generalFiction.id,
@@ -408,6 +403,12 @@ async function seed() {
     }),
     Product.create({
       name: "The Death of Vivek Oji",
+      price: 14.99,
+      author: "Akwaeke Emezi",
+      categoryId: generalFiction.id,
+    }),
+    Product.create({
+      name: "Freshwater",
       price: 14.99,
       author: "Akwaeke Emezi",
       categoryId: generalFiction.id,

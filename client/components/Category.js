@@ -24,7 +24,6 @@ const Category = (props) => {
     <div>
     <Searchbar/>
     <h3> {category} </h3>
-    {isAdmin ? <AddProduct/>: ''}
       {books}
     </div>
   );

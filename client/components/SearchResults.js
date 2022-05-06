@@ -5,7 +5,7 @@ import {deleteProduct} from '../store/products'
 import AddProduct from './AddProduct'
 import Searchbar from './Searchbar'
 
-const Products = (props) => {
+const SearchResults = (props) => {
   const {isAdmin, remove, products} = props
   let {searchTerm} = useLocation().state
   console.log(searchTerm)
@@ -24,6 +24,7 @@ const Products = (props) => {
       <div key={book.id}>
       <Link to={`/products/${book.id}`} >
         <li >{book.name}</li>
+        <div>Author: {book.author}</div>
         <div>Price: {book.price}</div>
       </Link> 
     
@@ -34,8 +35,7 @@ const Products = (props) => {
 
   return (
     <div>
-    <Searchbar/>
-    {isAdmin ? <AddProduct/>: ''}
+    {/* <Searchbar/> */}
       <h1> There {searchResults.length === 1 ? "is" : "are" } {searchResults.length} {searchResults.length === 1 ? "result" : "results" } matching {searchTerm}</h1>
       {books}
     </div>
@@ -57,4 +57,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchResults);
