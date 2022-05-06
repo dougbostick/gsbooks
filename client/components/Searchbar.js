@@ -14,7 +14,7 @@ export default class Searchbar extends Component {
         return (
         <form>
             <input name='value' value={value} onChange={(ev) => this.setState({value: ev.target.value})} placeholder="Search"/>
-            <Link to={{pathname: '/searchTerm', state: {searchTerm:value}}}> Search </Link>
+            <Link to={{pathname: '/searchTerm', state: {searchTerm:value}}}><button>Search </button>  </Link>
         </form>
             )
     }

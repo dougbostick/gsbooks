@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Products from './Products'
+import AddProduct from './AddProduct';
 
 const Users = (props) => {
    const users = props.users.map(
@@ -18,8 +20,13 @@ const Users = (props) => {
 
     return (
     <div>
-      Users:
-      {users}
+      <div>
+        Users:
+        {users}
+      </div>
+      <div>
+        <AddProduct />
+      </div>
     </div>
   );
 };
