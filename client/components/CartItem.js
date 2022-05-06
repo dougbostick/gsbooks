@@ -1,11 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import {
-  getCart,
-  deleteCartItem,
-  updateQuantity,
-  checkout,
-} from "../store/cart-item";
+import { getCart, deleteCartItem, updateQuantity } from "../store/cart-item";
 import Stripe from "./Stripe";
 
 const CartItem = (props) => {
@@ -58,14 +53,6 @@ const CartItem = (props) => {
         {props.state.auth.username}'s Cart: {cartInfo}
       </div>
 
-      <button
-        onClick={() =>
-          props.state.cartItem.forEach((item) => props.checkout(item))
-        }
-      >
-        {" "}
-        Checkout
-      </button>
       <Stripe />
     </div>
   );
@@ -88,7 +75,6 @@ const mapDispatchToProps = (dispatch) => {
     deleteCartItem: (cartItem) => dispatch(deleteCartItem(cartItem)),
     updateQuantity: async (cartItem, quantity) =>
       await dispatch(updateQuantity(cartItem, quantity)),
-    checkout: async (cartItem) => await dispatch(checkout(cartItem)),
   };
 };
 
