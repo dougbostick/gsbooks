@@ -7,12 +7,12 @@ module.exports = router;
 router.post("/", async (req, res, next) => {
   try {
     console.log("req.body/api/cartitem", req.body);
-    console.log(req.headers.authorization)
+    console.log(req.headers.authorization);
     const user = await User.findByToken(req.headers.authorization);
     console.log("no user", user);
     const duplicate = await CartItem.findOne({
       where: {
-        productId: req.body.productId,
+        productId: req.body.product.id,
         userId: user.id,
       },
     });
@@ -23,9 +23,10 @@ router.post("/", async (req, res, next) => {
       res.send(duplicate);
     } else {
       const book = await CartItem.create({
-        productId: req.body.productId,
+        productId: req.body.product.id,
         userId: user.id,
         quantity: req.body.quantity,
+        price: parseInt(req.body.product.price),
       });
       res.status(201).send(book);
     }

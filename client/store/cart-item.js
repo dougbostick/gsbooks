@@ -32,12 +32,13 @@ export default function cartItem(state = [], action) {
   return state;
 }
 
-export const addCartItem = (productId, quantity) => {
+export const addCartItem = (product, quantity) => {
+  console.log("product", product);
   return async (dispatch) => {
     let token = window.localStorage.getItem("token");
     let response = await axios.post(
       "/api/cartItem",
-      { productId, quantity },
+      { product, quantity },
       {
         headers: {
           authorization: token,
@@ -102,3 +103,15 @@ export const checkout = (cartItem) => {
     dispatch({ type: UPDATE_CARTITEM, cartItem: response.data });
   };
 };
+
+// export const total = () => {
+//   return async (dispatch) => {
+//     let token = window.localStorage.getItem("token");
+//     const response = await axios.get("/api/cartitem", {
+//       headers: {
+//         authorization: token,
+//       },
+//     });
+//     dispatch({});
+//   };
+// };
