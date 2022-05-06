@@ -10,9 +10,16 @@ const Stripe = (props) => {
     console.log({ token, addresses });
     props.cartItem.forEach((item) => props.checkout(item));
   };
-  const cartItems = props.cartItem.length
-    ? props.cartItem.map((item) => item.quantity * item.price)
+
+  const filtered = props.cartItem
+    ? props.cartItem.filter((item) => !item.purchased)
     : null;
+
+  const cartItems = filtered
+    ? filtered.map((item) => item.quantity * item.price)
+    : null;
+
+  console.log("cartItems after filter", cartItems);
 
   return (
     <div>
@@ -22,7 +29,7 @@ const Stripe = (props) => {
         billingAddress // = var defined from user info
         shippingAddress // = var defined from user info
         amount={
-          props.cartItem.length ? cartItems.reduce((a, b) => a + b) * 100 : 0
+          cartItems.length ? cartItems.reduce((a, b) => a + b, 0) * 100 : 0
         }
       />
     </div>
