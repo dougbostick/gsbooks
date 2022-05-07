@@ -14,9 +14,9 @@ const CartItem = (props) => {
   const total = props.state.cartItem.length
     ? props.state.cartItem
         .filter((item) => !item.purchased)
-        .map((item) => item.quantity * item.price)
+        .map((item) => item.quantity * (item.price / 100))
     : null;
-
+  console.log("total", total);
   const cartInfo = userCartItems.map((item) => {
     if (item.purchased === false)
       return (
@@ -59,7 +59,12 @@ const CartItem = (props) => {
         {props.state.auth.username}'s Cart: {cartInfo}
       </div>
       <div>
-        Total: {props.state.cartItem.length ? total.reduce((a, b) => a + b) : 0}
+        Total: $
+        {props.state.cartItem.length
+          ? total.reduce((a, b) => {
+              return a + b;
+            }, 0)
+          : 0}
       </div>
 
       <Stripe />

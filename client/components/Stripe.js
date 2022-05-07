@@ -6,6 +6,7 @@ import { checkout } from "../store/cart-item";
 const Stripe = (props) => {
   console.log("stripe state", props);
 
+  //accepting stripe input info
   const handleToken = (token, addresses) => {
     console.log({ token, addresses });
     props.cartItem.forEach((item) => props.checkout(item));
@@ -28,9 +29,7 @@ const Stripe = (props) => {
         token={handleToken}
         billingAddress // = var defined from user info
         shippingAddress // = var defined from user info
-        amount={
-          cartItems.length ? cartItems.reduce((a, b) => a + b, 0) * 100 : 0
-        }
+        amount={cartItems.length ? cartItems.reduce((a, b) => a + b, 0) : 0}
       />
     </div>
   );
