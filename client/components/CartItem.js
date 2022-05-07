@@ -66,8 +66,7 @@ const CartItem = (props) => {
             }, 0)
           : 0}
       </div>
-
-      <Stripe />
+      {total > 0 ? <Stripe /> : null}
     </div>
   );
 };
