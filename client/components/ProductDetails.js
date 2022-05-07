@@ -34,6 +34,7 @@ const ProductDetails = (props) => {
           {book.author}{" "}
         </Link>{" "}
       </div>
+      <div>ISBN: {book.isbn}</div>
       <div>Price: {book.price}</div>
       <div> Category: {bookCategory} </div>
       <form

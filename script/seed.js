@@ -71,8 +71,8 @@ async function seed() {
   ]);
 
   const [
-    scienceFiction,
     generalFiction,
+    scienceFiction,
     worldLit,
     fantasy,
     historicalFiction,
@@ -85,8 +85,8 @@ async function seed() {
     nonfiction,
     graphicNovelManga,
   ] = await Promise.all([
-    Category.create({ name: "Science Fiction" }),
     Category.create({ name: "General Fiction" }),
+    Category.create({ name: "Science Fiction" }),
     Category.create({ name: "World Literature" }),
     Category.create({ name: "Fantasy" }),
     Category.create({ name: "Historical Fiction" }),

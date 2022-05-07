@@ -37,6 +37,9 @@ const SearchResults = (props) => {
     <div>
     {/* <Searchbar/> */}
       <h1> There {searchResults.length === 1 ? "is" : "are" } {searchResults.length} {searchResults.length === 1 ? "result" : "results" } matching {searchTerm}</h1>
+      <button> 
+        <Link to={'/categories'}> BACK </Link>
+      </button>
       {books}
     </div>
   );

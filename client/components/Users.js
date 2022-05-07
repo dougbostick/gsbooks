@@ -1,39 +1,58 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Products from './Products'
 import AddProduct from './AddProduct';
+import Products from './Products';
+
 
 const Users = (props) => {
+  const {isAdmin} = props
+
    const users = props.users.map(
      (user) => {
        return (
-         <div key={user.id}>
-          <li>
-            {user.username}
-          </li>
-          {/* why won't this info show??? */}
-          <div>{user.firstName}</div>
-          <div>{user.lastName}</div>
-         </div>
+         <tr key={user.id}>
+          <td> {user.username} </td>
+          <td> {user.email} </td>
+          <td> {user.firstName} </td>
+          <td> {user.lastName} </td>
+          <td> {user.address} </td>
+         </tr>
        )
      });
 
     return (
-    <div>
       <div>
-        Users:
-        {users}
+        <div className='user-table'>
+          <h2> Users </h2>
+          <table>
+            <tbody>
+              <tr>
+                <th> Username </th>
+                <th> Email </th>
+                <th> First Name </th>
+                <th> Last Name </th>
+                <th> Address </th>
+              </tr>
+              {users}
+            </tbody>
+          </table>
+        </div>
+
+        <div className='admin-product-container'>
+          <h2> Products </h2>
+            <AddProduct/>
+          <div>
+            <Products/>
+          </div>
+        </div>
+        
       </div>
-      <div>
-        <AddProduct />
-      </div>
-    </div>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    users: state.users
+    users: state.users,
   };
 };
 
