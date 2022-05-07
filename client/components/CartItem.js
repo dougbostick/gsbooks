@@ -5,12 +5,18 @@ import Stripe from "./Stripe";
 
 const CartItem = (props) => {
   const { userCartItems } = props;
-  // console.log("cartitem state", props.state);
+  console.log("cartitem state", props.state);
   const inventory = new Array(10);
   for (let i = 0; i < inventory.length; i++) {
     inventory[i] = i + 1;
   }
 
+  const total = props.state.cartItem.length
+    ? props.state.cartItem
+        .filter((item) => !item.purchased)
+        .map((item) => item.quantity * (item.price / 100))
+    : null;
+  console.log("total", total);
   const cartInfo = userCartItems.map((item) => {
     if (item.purchased === false)
       return (
@@ -51,6 +57,14 @@ const CartItem = (props) => {
     <div>
       <div>
         {props.state.auth.username}'s Cart: {cartInfo}
+      </div>
+      <div>
+        Total: $
+        {props.state.cartItem.length
+          ? total.reduce((a, b) => {
+              return a + b;
+            }, 0)
+          : 0}
       </div>
 
       <Stripe />

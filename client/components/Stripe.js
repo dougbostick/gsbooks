@@ -6,13 +6,21 @@ import { checkout } from "../store/cart-item";
 const Stripe = (props) => {
   console.log("stripe state", props);
 
+  //accepting stripe input info
   const handleToken = (token, addresses) => {
     console.log({ token, addresses });
     props.cartItem.forEach((item) => props.checkout(item));
   };
-  const cartItems = props.cartItem.length
-    ? props.cartItem.map((item) => item.quantity * item.price)
+
+  const filtered = props.cartItem
+    ? props.cartItem.filter((item) => !item.purchased)
     : null;
+
+  const cartItems = filtered
+    ? filtered.map((item) => item.quantity * item.price)
+    : null;
+
+  console.log("cartItems after filter", cartItems);
 
   return (
     <div>
@@ -21,9 +29,7 @@ const Stripe = (props) => {
         token={handleToken}
         billingAddress // = var defined from user info
         shippingAddress // = var defined from user info
-        amount={
-          props.cartItem.length ? cartItems.reduce((a, b) => a + b) * 100 : 0
-        }
+        amount={cartItems.length ? cartItems.reduce((a, b) => a + b, 0) : 0}
       />
     </div>
   );

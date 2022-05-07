@@ -26,7 +26,7 @@ router.post("/", async (req, res, next) => {
         productId: req.body.product.id,
         userId: user.id,
         quantity: req.body.quantity,
-        price: parseInt(req.body.product.price),
+        price: parseInt(req.body.product.price * 100),
       });
       res.status(201).send(book);
     }
