@@ -30,3 +30,23 @@ input {
 #category-container{
   margin: 1rem;
 }
+.user-table{
+  margin: 1rem;
+}
+.admin-product-container{
+  margin: 1rem;
+}
+table,
+th,
+td {
+  border: 1px solid #222222;
+}
+
+th,
+td {
+  padding: 5px;
+}
+
+tr:hover {
+  background-color: #f2f2f2;
+}
