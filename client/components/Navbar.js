@@ -10,7 +10,7 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => (
     <h1>Grace Shopper Books</h1>
     <nav>
       {isLoggedIn ? (
-        <div>
+        <div className='nav'>
           {/* The navbar will show these links after you log in */}
           <Link to="/home">Home</Link>
           {/* <Link to="/products">Products</Link> */}
@@ -26,7 +26,7 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => (
           </a>
         </div>
       ) : (
-        <div>
+        <div className='nav'>
           {/* The navbar will show these links before you log in */}
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
