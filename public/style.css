@@ -50,3 +50,11 @@ td {
 tr:hover {
   background-color: #f2f2f2;
 }
+
+
+
+/* NAV BAR STYLING */
+
+.nav {
+  display: flex;
+}

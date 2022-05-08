@@ -5,8 +5,8 @@ import Products from './Products';
 
 
 const Users = (props) => {
-  const {isAdmin} = props
-
+  const {isAdmin, match, history} = props
+console.log(match)
    const users = props.users.map(
      (user) => {
        return (
@@ -42,7 +42,7 @@ const Users = (props) => {
           <h2> Products </h2>
             <AddProduct/>
           <div>
-            <Products/>
+            <Products match={match} history={history}/>
           </div>
         </div>
         
@@ -50,7 +50,7 @@ const Users = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, {match}) => {
   return {
     users: state.users,
   };
