@@ -55,20 +55,20 @@ const Products = (props) => {
 const mapStateToProps = (state, {match}) => {
   const sort = match.params.sort
   if (sort === "price, asc") {
-    state.products.sort((a,b) => a.price - b.price)
+    state.products.sort((a,b) => a.price - b.price);
   }
   
   if (sort === "price, desc") {
-    state.products.sort((a,b) => b.price - a.price)
+    state.products.sort((a,b) => b.price - a.price);
   }
   
   if (sort === "name, asc") {
-    state.products.sort((a,b) => a.name.localeCompare(b.name))
+    state.products.sort((a,b) => a.name.localeCompare(b.name));
   }
   
   
   if (sort === "name, desc") {
-    state.products.sort((a,b) => b.name.localeCompare(a.name))
+    state.products.sort((a,b) => b.name.localeCompare(a.name));
   }
   
   return {
