@@ -5,7 +5,7 @@ import Searchbar from './Searchbar'
 
 const Products = ({products}) => {
   const {author} = useLocation().state
-  console.log(author)
+  console.log("AUTHOR", author)
   
   const authorBooks = products.filter(book => book.author === author)
   const books = authorBooks.map((book) => {
@@ -24,8 +24,8 @@ const Products = ({products}) => {
         <Searchbar/>
         <div> 
             <h1>{author}</h1>
-            <p> *author description ?*</p>
-            <div>*author image?*  </div>
+            <p> {author.bio} </p>
+            <div>{author.imageUrl} </div>
         </div>
          <h3> Books this author has written: </h3>
          {books}
