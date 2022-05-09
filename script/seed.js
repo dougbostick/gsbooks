@@ -506,6 +506,7 @@ async function seed() {
     Product.create({
       name: "A Room of One's Own",
       price: 8.99,
+      author: "Virginia Woolf",
       categoryId: generalFiction.id,
     }),
     Product.create({
