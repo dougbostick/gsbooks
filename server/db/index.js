@@ -6,17 +6,14 @@ const Product = require("./models/Product");
 const CartItem = require("./models/CartItem");
 const Cart = require("./models/Cart");
 const Category = require("./models/Category");
+const Author = require("./models/Author");
 
-
-//associations could go here!
+//associations go here!
 
 CartItem.belongsTo(Product);
 CartItem.belongsTo(User);
 Product.belongsTo(Category);
-// CartItem.belongsTo(Cart);
-// Cart.hasMany(CartItem);
-// Cart.belongsTo(User);
-// User.hasOne(Cart);
+Author.hasMany(Product) /* ***do we need this??*** */
 
 module.exports = {
   db,
@@ -25,6 +22,7 @@ module.exports = {
     Product,
     CartItem,
     Cart,
-    Category
+    Category, 
+    Author
   },
 };

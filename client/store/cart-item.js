@@ -103,15 +103,3 @@ export const checkout = (cartItem) => {
     dispatch({ type: UPDATE_CARTITEM, cartItem: response.data });
   };
 };
-
-// export const total = () => {
-//   return async (dispatch) => {
-//     let token = window.localStorage.getItem("token");
-//     const response = await axios.get("/api/cartitem", {
-//       headers: {
-//         authorization: token,
-//       },
-//     });
-//     dispatch({});
-//   };
-// };

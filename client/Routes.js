@@ -36,7 +36,6 @@ class Routes extends Component {
     store.dispatch(loadCategories());
   }
 
-  //I dont not know if this needs to be async -GS
   componentDidUpdate(prevProps) {
     //if you werent logged in and now you are we want your data, (this is getCart() and me()) -GS
     if (
@@ -58,6 +57,7 @@ class Routes extends Component {
             <Route path="/home" component={Home} />
             <Route exact path="/products" component={Products} />
             <Route exact path="/categories" component={Categories} />
+            <Route exact path="/products/sort/:sort" component={Products} />
             <Route path="/products/:id" component={ProductDetails} />
             <Route path="/categories/:id" component={Category} />
             <Route path="/searchTerm" component={SearchResults} />

@@ -8,11 +8,8 @@ const Product = db.define("product", {
   price: {
     type: Sequelize.DECIMAL(10, 2),
   },
-  ISBN: {
+  isbn: {
     type: Sequelize.INTEGER,
-  },
-  author: {
-    type: Sequelize.STRING,
   },
   imgUrl: {
     type: Sequelize.STRING,
