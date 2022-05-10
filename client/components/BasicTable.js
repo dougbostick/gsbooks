@@ -12,12 +12,7 @@ import TablePagination from "@material-ui/core/TablePagination";
 import Api from "./Api";
 import TableFooter from "@material-ui/core/TableFooter";
 import Grid from "@material-ui/core/Grid";
-
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-});
+import MediaCard from "./bookCard";
 
 function BasicTable(props) {
   const [page, setPage] = React.useState(0);
@@ -33,23 +28,53 @@ function BasicTable(props) {
     setPage(0);
   };
 
+  const useStyles = makeStyles({
+    table: {
+      minWidth: 650,
+    },
+    root: {
+      flexGrow: 1,
+    },
+  });
   const classes = useStyles();
-  // React.useEffect(() => {
-  //   // useEffect componentDidUpdate
-  //   const split = () => {
-  //     const products = [];
-  //     let nestedProd = [];
-  //     props.products.forEach((book) => {
-  //       nestedProd.push(book);
-  //       if (nestedProd.length === 3) {
-  //         products.push(nestedProd);
-  //         nestedProd = [];
-  //       }
-  //     });
-  //     return products;
-  //   };
-  //   setProducts(split()); //setState for products
-  // }, [props.products]);
+
+  function FormRow() {
+    console.log("products", products);
+
+    const row = products.map((trio) => {
+      return (
+        <React.Fragment>
+          <Grid item xs={4}>
+            <MediaCard book={trio[0]} />
+          </Grid>
+          <Grid item xs={4}>
+            <MediaCard book={trio[1]} />
+          </Grid>
+          <Grid item xs={4}>
+            <MediaCard book={trio[2]} />
+          </Grid>
+        </React.Fragment>
+      );
+    });
+    return row;
+  }
+
+  React.useEffect(() => {
+    // useEffect componentDidUpdate
+    const split = () => {
+      const products = [];
+      let nestedProd = [];
+      props.products.forEach((book) => {
+        nestedProd.push(book);
+        if (nestedProd.length === 3) {
+          products.push(nestedProd);
+          nestedProd = [];
+        }
+      });
+      return products;
+    };
+    setProducts(split()); //setState for products
+  }, [props.products]);
 
   console.log(props);
   // console.log("products", products);
@@ -58,24 +83,21 @@ function BasicTable(props) {
       <Table className={classes.table} aria-label="simple table">
         <TableHead></TableHead>
         <TableBody>
-          {props.products
-            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            .map((book) => (
-              <TableRow key={book.id}>
-                <TableCell>
-                  {/* <img src={book.imgUrl} /> */}
-                  {/* <Api book={book} /> */}
-                </TableCell>
-
-                <TableCell component="th" scope="row">
-                  {book.name}
-                </TableCell>
-
-                <TableCell component="th" scope="row">
-                  {book.price}
-                </TableCell>
-              </TableRow>
-            ))}
+          <TableRow>
+            <div className={classes.root}>
+              <Grid container spacing={1}>
+                <Grid container item xs={12} spacing={3}>
+                  <FormRow />
+                </Grid>
+                <Grid container item xs={12} spacing={3}>
+                  <FormRow />
+                </Grid>
+                <Grid container item xs={12} spacing={3}>
+                  <FormRow />
+                </Grid>
+              </Grid>
+            </div>
+          </TableRow>
         </TableBody>
         <TableFooter>
           <TableRow>
@@ -96,3 +118,37 @@ function BasicTable(props) {
 }
 
 export default connect((state) => state)(BasicTable);
+
+/*
+ <TableCell>
+                  {<img src={book.imgUrl} /> }
+                  { <Api book={book} /> }
+                  </TableCell>
+
+                  <TableCell component="th" scope="row">
+                    {book.name}
+                  </TableCell>
+  
+                  <TableCell component="th" scope="row">
+                    {book.price}
+                  </TableCell>
+                   
+                  
+                  {props.products
+            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            .map((book) => (
+              <TableRow key={book.id}>
+                <Grid item xs={4}>
+                  <MediaCard />
+                </Grid>
+                <Grid item xs={4}>
+                  <MediaCard />
+                </Grid>
+                <Grid item xs={4}>
+                  <MediaCard />
+                </Grid>
+              </TableRow>
+            ))}
+                  
+                  
+                  */

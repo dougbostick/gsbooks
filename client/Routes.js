@@ -22,7 +22,9 @@ import Categories from "./components/Categories";
 import Author from "./components/Author";
 import Category from "./components/Category";
 import SearchAppBar from "./components/muiNav";
-import BasicTable from "./components/BasicTable";
+import ProductsTable from "./components/muiProducts";
+import MuiProductDetails from "./components/muiProductDetails";
+import Landing from "./components/Landing";
 
 /*
  * COMPONENT
@@ -55,10 +57,10 @@ class Routes extends Component {
           <Switch>
             <Route path="/home" component={SearchAppBar} />
             <Route path="/home" component={Home} />
-            <Route exact path="/products" component={Products} />
+            <Route exact path="/products" component={ProductsTable} />
             <Route exact path="/categories" component={Categories} />
             <Route exact path="/products/sort/:sort" component={Products} />
-            <Route path="/products/:id" component={ProductDetails} />
+            <Route path="/products/:id" component={MuiProductDetails} />
             <Route path="/categories/:id" component={Category} />
             <Route path="/searchTerm" component={SearchResults} />
             <Route path="/users" component={Users} />
@@ -66,7 +68,8 @@ class Routes extends Component {
             <Route path="/pastOrders" component={PastOrders} />
             <Route path="/profile" component={Profile} />
             <Route path="/author" component={Author} />
-            <Route path="/test" component={BasicTable} />
+            <Route path="/test" component={MuiProductDetails} />
+            <Route path="/test2" component={Landing} />
             <Redirect to="/home" />
           </Switch>
         ) : (
@@ -82,6 +85,7 @@ class Routes extends Component {
             <Route path="/products/:id" component={ProductDetails} />
             <Route path="/author" component={Author} />
             <Route path="/profile" component={Profile}>
+              <Route path="/test2" component={Landing} />
               <Redirect to="/login" />
             </Route>
           </Switch>
