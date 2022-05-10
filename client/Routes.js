@@ -22,6 +22,7 @@ import Categories from "./components/Categories";
 import Author from "./components/Author";
 import Category from "./components/Category";
 import SearchAppBar from "./components/muiNav";
+import BasicTable from "./components/BasicTable";
 
 /*
  * COMPONENT
@@ -65,6 +66,7 @@ class Routes extends Component {
             <Route path="/pastOrders" component={PastOrders} />
             <Route path="/profile" component={Profile} />
             <Route path="/author" component={Author} />
+            <Route path="/test" component={BasicTable} />
             <Redirect to="/home" />
           </Switch>
         ) : (

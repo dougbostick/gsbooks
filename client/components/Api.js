@@ -61,7 +61,6 @@ class Api extends React.Component {
     // console.log("api props", props);
     return (
       <div>
-        api
         <img src={this.state.thumbnail} />
       </div>
     );

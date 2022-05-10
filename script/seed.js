@@ -106,6 +106,7 @@ async function seed() {
       price: 19.99,
       author: "J.K. Rowling",
       categoryId: childrensLit.id,
+      imgUrl: `https://www.googleapis.com/books/v1/volumes?q=HarryPotterandtheSorcerer'sStone`,
     }),
     Product.create({
       name: "Pachinko",
