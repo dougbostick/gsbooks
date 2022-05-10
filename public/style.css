@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  margin: 0;
 }
 
 a {
@@ -57,4 +58,28 @@ tr:hover {
 
 .nav {
   display: flex;
+}
+
+.searchForm {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.searchForm input {
+  border-radius: 4px;
+  border: 0.5px none;
+  padding: 0.5rem;
+  margin-right: 0;
+}
+
+.searchForm button {
+  position: absolute;
+  z-index: 1;
+  right: 242px;
+  background-color: transparent;
+  border-style: none;
+}
+.searchForm button:active {
+  border: 0.5px dotted grey;
 }
