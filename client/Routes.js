@@ -70,6 +70,7 @@ class Routes extends Component {
             <Route path="/author" component={Author} />
             <Route path="/test" component={MuiProductDetails} />
             <Route path="/test2" component={Landing} />
+
             <Redirect to="/home" />
           </Switch>
         ) : (
@@ -77,15 +78,16 @@ class Routes extends Component {
             <Route path="/" exact component={Login} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
-            <Route exact path="/products" component={Products} />
+            <Route exact path="/products" component={ProductsTable} />
             <Route path="/searchTerm" component={SearchResults} />
             <Route exact path="/categories" component={Categories} />
             <Route path="/categories/:id" component={Category} />
             <Route path="/cartItem" component={GuestCartItem} />
-            <Route path="/products/:id" component={ProductDetails} />
+            <Route path="/products/:id" component={MuiProductDetails} />
             <Route path="/author" component={Author} />
+            <Route path="/test2" component={Landing} />
+
             <Route path="/profile" component={Profile}>
-              <Route path="/test2" component={Landing} />
               <Redirect to="/login" />
             </Route>
           </Switch>

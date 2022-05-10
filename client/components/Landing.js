@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: "100vh",
-    backgroundImage: `url(${"/assets/bookcase4.jpeg"})`,
+    backgroundImage: `url("/assets/bookcase4.jpeg")`,
     backgroundSize: "cover",
     display: "flex",
     justifyContent: "center",

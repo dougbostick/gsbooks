@@ -10,7 +10,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { connect } from "react-redux";
 import TablePagination from "@material-ui/core/TablePagination";
-import Api from "./Api";
+import Api from "./ImgApi";
 import TableFooter from "@material-ui/core/TableFooter";
 
 function ProductsTable(props) {

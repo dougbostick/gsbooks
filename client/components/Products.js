@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import Api from "./Api";
+import Api from "./ImgApi";
 
 import { deleteProduct } from "../store/products";
 import AddProduct from "./AddProduct";
