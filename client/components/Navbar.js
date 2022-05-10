@@ -56,7 +56,9 @@ const xNav = ({ handleClick, isLoggedIn, isAdmin }) => {
             Graceshopper
           </Typography>
           
+       
             <Link to="/categories" style={{textDecoration: "inherit", color: 'inherit'}}> <MenuItem> Books </MenuItem> </Link>
+            { isAdmin ? <Link to='/users' style={{textDecoration: "inherit", color: 'inherit'}}> <MenuItem> Users </MenuItem> </Link> : ''}
           
           <div className={classes.search}>
             <Searchbar
@@ -68,7 +70,7 @@ const xNav = ({ handleClick, isLoggedIn, isAdmin }) => {
           </div>
           
 
-         { isAdmin ? <Link to='/users' style={{textDecoration: "inherit", color: 'inherit'}}> <MenuItem> Users </MenuItem> </Link> : ''}
+         
          {isLoggedIn ? 
          <>
         <Link to="/profile" style={{textDecoration: "inherit", color: 'inherit'}}> <MenuItem> Profile </MenuItem> </Link>
