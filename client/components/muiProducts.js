@@ -10,7 +10,6 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { connect } from "react-redux";
 import TablePagination from "@material-ui/core/TablePagination";
-import Api from "./ImgApi";
 import TableFooter from "@material-ui/core/TableFooter";
 
 function ProductsTable(props) {
@@ -31,16 +30,28 @@ function ProductsTable(props) {
     table: {
       minWidth: 650,
       padding: "1rem",
+      width: "500px",
+      justifyContent: "center",
+      backgroundColor: "white",
+      boxShadow: "0 0 25px 4px rgb(0, 0, 0, .25)",
     },
     root: {
       flexGrow: 1,
+    },
+    container: {
+      display: "flex",
+      justifyContent: "center",
+      // backgroundColor: "#3f51b5",
+    },
+    cell: {
+      textAlign: "center",
     },
   });
   const classes = useStyles();
   console.log(props);
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} className={classes.container}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableCell>Title</TableCell>
@@ -52,7 +63,12 @@ function ProductsTable(props) {
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map((book) => (
               <TableRow>
-                <TableCell align="right" component="th" scope="row">
+                <TableCell
+                  align="right"
+                  component="th"
+                  scope="row"
+                  className={classes.cell}
+                >
                   {book.name}
                 </TableCell>
 

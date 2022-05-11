@@ -25,7 +25,7 @@ import SearchAppBar from "./components/muiNav";
 import ProductsTable from "./components/muiProducts";
 import MuiProductDetails from "./components/muiProductDetails";
 import Landing from "./components/Landing";
-// import { Login } from "./components/muiSignIn";
+import muiCart from "./components/muiCart";
 
 /*
  * COMPONENT
@@ -65,12 +65,12 @@ class Routes extends Component {
             <Route path="/categories/:id" component={Category} />
             <Route path="/searchTerm" component={SearchResults} />
             <Route path="/users" component={Users} />
-            <Route path="/cartItem" component={CartItem} />
+            <Route path="/cartItem" component={muiCart} />
             <Route path="/pastOrders" component={PastOrders} />
             <Route path="/profile" component={Profile} />
             <Route path="/author" component={Author} />
             <Route path="/test" component={Landing} />
-            <Route path="/test2" component={Login} />
+            <Route path="/test2" component={muiCart} />
             <Redirect to="/home" />
           </Switch>
         ) : (
@@ -86,7 +86,7 @@ class Routes extends Component {
             <Route path="/products/:id" component={MuiProductDetails} />
             <Route path="/author" component={Author} />
             <Route path="/test" component={Landing} />
-            {/* <Route path="/test2" component={Login} /> */}
+            <Route path="/test2" component={muiCart} />
             <Route path="/profile" component={Profile}>
               <Redirect to="/login" />
             </Route>
