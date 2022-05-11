@@ -39,8 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
   
   AppBar: {
-      margin:  '0 0 1.5rem 0'
-      
+      margin:  '0'
   },
   
 }));
