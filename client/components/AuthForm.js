@@ -78,6 +78,10 @@ const AuthForm = (props) => {
  
     const handleSubmit = async (evt) => {
       evt.preventDefault();
+      setUsernameError(false)
+      setPasswordError(false)
+      setEmailError(false)
+      
         if (username === '') setUsernameError(true) 
         if (password === '') setPasswordError(true)
      
