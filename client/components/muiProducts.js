@@ -37,20 +37,21 @@ function ProductsTable(props) {
     },
   });
   const classes = useStyles();
-
   console.log(props);
-  // console.log("products", products);
+
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
-        <TableHead></TableHead>
+        <TableHead>
+          <TableCell>Title</TableCell>
+          <TableCell>Price</TableCell>
+          <TableCell>Details</TableCell>
+        </TableHead>
         <TableBody>
           {props.products
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map((book) => (
               <TableRow>
-                <TableCell>{/* {<Api book={book} />} */}</TableCell>
-
                 <TableCell align="right" component="th" scope="row">
                   {book.name}
                 </TableCell>

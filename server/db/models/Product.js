@@ -9,10 +9,16 @@ const Product = db.define("product", {
     type: Sequelize.DECIMAL(10, 2),
   },
   isbn: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.TEXT,
   },
   imgUrl: {
     type: Sequelize.STRING,
+  },
+  thumbUrl: {
+    type: Sequelize.TEXT,
+  },
+  description: {
+    type: Sequelize.TEXT,
   },
 });
 
