@@ -56,5 +56,21 @@ router.put('/:id', async(req,res,next) => {
     }
 })
 
+// ---PUT ROUTE TO UPDATE PRODUCT INVENTORY LEVEL
+router.put('/inventory/:id', async(req,res,next) => {
+    try {
+        /* Issue here is having a put request that is different
+        from the one above and placing the call in the relevant spot
+        */
+        const productInv = await Product.findByPk(req.params.id).inventoryLevel
+        let product = await Product.findByPk(req.params.id)
+        let newInv = productInv - req.body;
+        console.log('product', product);
+        res.send(await product.update({inventoryLevel: newInv}));
+    } catch(err) {
+        next(err)
+    }
+})
+
 
 

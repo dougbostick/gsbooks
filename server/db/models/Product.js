@@ -14,6 +14,10 @@ const Product = db.define("product", {
   author:  {
     type: Sequelize.STRING
   },
+  inventoryLevel: {
+    type: Sequelize.INTEGER,
+    defaultValue: 15
+  }
 });
 
 module.exports = Product;
