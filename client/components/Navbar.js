@@ -54,7 +54,7 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
       <AppBar className={classes.AppBar} position="static">
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
-            Graceshopper
+           <Link to={'/home'} style={{textDecoration: "inherit", color: 'inherit'}}> Graceshopper </Link>
           </Typography>
           
        
@@ -75,7 +75,7 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
          {isLoggedIn ? 
          <>
         <Link to="/profile" style={{textDecoration: "inherit", color: 'inherit'}}> <MenuItem> Profile </MenuItem> </Link>
-        <MenuItem style={{textDecoration: "none"}}> <a href="#" onClick={handleClick}> Logout </a> </MenuItem>
+        <MenuItem onClick={handleClick}> Logout </MenuItem>
         <Link to="/cartItem" > <MenuItem> <ShoppingCartOutlinedIcon style={{color: 'white'}}/> </MenuItem></Link>
         </>
         :
