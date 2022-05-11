@@ -5,7 +5,6 @@ import Stripe from "./Stripe";
 
 const CartItem = (props) => {
   const { userCartItems } = props;
-  console.log("cartitem state", props.state);
   const inventory = new Array(10);
   for (let i = 0; i < inventory.length; i++) {
     inventory[i] = i + 1;
@@ -16,7 +15,7 @@ const CartItem = (props) => {
         .filter((item) => !item.purchased)
         .map((item) => item.quantity * (item.price / 100))
     : null;
-  console.log("total", total);
+ 
   const cartInfo = userCartItems.map((item) => {
     if (item.purchased === false)
       return (
@@ -66,14 +65,13 @@ const CartItem = (props) => {
             }, 0)
           : 0}
       </div>
-      {total > 0 ? <Stripe /> : null}
+      {userCartItems.length > 0 ? <Stripe /> : null}
     </div>
   );
 };
-//the checkout button on line 46 is really gonna link into some type of payment, right now its just to checkout if the thunk I set up works to update the purchased boolean on the cartItem -GS
+
 
 const mapStateToProps = (state) => {
-  //For each cartItem in the cart, return if the cartitems userId matches whoever is currently logged in. This is added to props in line 78.
   const userCartItems = state.cartItem.filter(
     (item) => item.userId === state.auth.id
   );
