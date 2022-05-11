@@ -7,15 +7,27 @@ import Products from "./components/Products";
 import ProductDetails from "./components/ProductDetails";
 import Users from "./components/Users";
 import { me } from "./store";
-import store, { loadProducts, loadUsers, getCart, loadCategories } from "./store";
+import store, {
+  loadProducts,
+  loadUsers,
+  getCart,
+  loadCategories,
+} from "./store";
 import CartItem from "./components/CartItem";
 import PastOrders from "./components/PastOrders";
 import GuestCartItem from "./components/GuestCartItem";
-import Profile from "./components/Profile"
-import SearchResults from "./components/SearchResults"
-import Categories from "./components/Categories"
-import Author from "./components/Author"
-import Category from "./components/Category"
+
+import Profile from "./components/Profile";
+import SearchResults from "./components/SearchResults";
+import Categories from "./components/Categories";
+import Author from "./components/Author";
+import Category from "./components/Category";
+import SearchAppBar from "./components/muiNav";
+import ProductsTable from "./components/muiProducts";
+import MuiProductDetails from "./components/muiProductDetails";
+import Landing from "./components/Landing";
+import muiCart from "./components/muiCart";
+
 
 /*
  * COMPONENT
@@ -23,18 +35,21 @@ import Category from "./components/Category"
 class Routes extends Component {
   componentDidMount() {
     //Rearranging the order of this solved the refresh problem. -GS
-     this.props.loadInitialData()
-     store.dispatch(loadProducts());
-     store.dispatch(loadUsers());
-     store.dispatch(loadCategories());
+    this.props.loadInitialData();
+    store.dispatch(loadProducts());
+    store.dispatch(loadUsers());
+    store.dispatch(loadCategories());
   }
 
-    componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps) {
     //if you werent logged in and now you are we want your data, (this is getCart() and me()) -GS
-      if (prevProps.isLoggedIn !== this.props.isLoggedIn && this.props.isLoggedIn === true) {
-         this.props.loadUpdatedData()
-      }
+    if (
+      prevProps.isLoggedIn !== this.props.isLoggedIn &&
+      this.props.isLoggedIn === true
+    ) {
+      this.props.loadUpdatedData();
     }
+  }
 
   render() {
     const { isLoggedIn } = this.props;
@@ -43,18 +58,21 @@ class Routes extends Component {
       <div>
         {isLoggedIn ? (
           <Switch>
+            <Route path="/home" component={SearchAppBar} />
             <Route path="/home" component={Home} />
-            <Route exact path="/products" component={Products} />
+            <Route exact path="/products" component={ProductsTable} />
             <Route exact path="/categories" component={Categories} />
-            <Route exact path="/products/sort/:sort" component={Products}/>
-            <Route path="/products/:id" component={ProductDetails} />
+            <Route exact path="/products/sort/:sort" component={Products} />
+            <Route path="/products/:id" component={MuiProductDetails} />
             <Route path="/categories/:id" component={Category} />
-            <Route path='/searchTerm' component={SearchResults}/>
+            <Route path="/searchTerm" component={SearchResults} />
             <Route path="/users" component={Users} />
-            <Route path="/cartItem" component={CartItem} />
-            <Route path='/pastOrders' component={PastOrders}/>
-            <Route path='/profile' component={Profile}/>
-            <Route path='/author' component={Author}/>
+            <Route path="/cartItem" component={muiCart} />
+            <Route path="/pastOrders" component={PastOrders} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/author" component={Author} />
+            <Route path="/test" component={Landing} />
+            <Route path="/test2" component={muiCart} />
             <Redirect to="/home" />
           </Switch>
         ) : (
@@ -62,13 +80,15 @@ class Routes extends Component {
             <Route path="/" exact component={Login} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
-            <Route exact path="/products" component={Products} />
-            <Route path='/searchTerm' component={SearchResults}/>
+            <Route exact path="/products" component={ProductsTable} />
+            <Route path="/searchTerm" component={SearchResults} />
             <Route exact path="/categories" component={Categories} />
             <Route path="/categories/:id" component={Category} />
             <Route path="/cartItem" component={GuestCartItem} />
-            <Route path="/products/:id" component={ProductDetails} />
-            <Route path='/author' component={Author}/>
+            <Route path="/products/:id" component={MuiProductDetails} />
+            <Route path="/author" component={Author} />
+            <Route path="/test" component={Landing} />
+            <Route path="/test2" component={muiCart} />
             <Route path="/profile" component={Profile}>
               <Redirect to="/login" />
             </Route>
@@ -96,10 +116,12 @@ const mapDispatch = (dispatch) => {
       dispatch(me());
     },
     loadUpdatedData: () => {
-      dispatch(me())
-      dispatch(getCart())
+      dispatch(me());
+      dispatch(getCart());
       //after a user is logged in and the updated data renders, if theres a guest cart in localStorage, remove it.
-      window.localStorage.getItem("guest_cart") ? window.localStorage.removeItem("guest_cart") : null
+      window.localStorage.getItem("guest_cart")
+        ? window.localStorage.removeItem("guest_cart")
+        : null;
     },
     getCart: () => dispatch(getCart()),
   };
