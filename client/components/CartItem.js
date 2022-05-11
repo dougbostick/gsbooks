@@ -17,7 +17,6 @@ const CartItem = (props) => {
     : null;
  
   const cartInfo = userCartItems.map((item) => {
-    if (item.purchased === false)
       return (
         <div key={item.id}>
           <div>
@@ -53,27 +52,29 @@ const CartItem = (props) => {
   });
 
   return (
-    <div>
+    <>
       <div>
         {props.state.auth.username}'s Cart: {cartInfo}
       </div>
-      <div>
-        Total: $
-        {props.state.cartItem.length
-          ? total.reduce((a, b) => {
-              return a + b;
-            }, 0)
-          : 0}
-      </div>
-      {userCartItems.length > 0 ? <Stripe /> : null}
-    </div>
+       {userCartItems.length > 0 ?
+        <div>
+          Total: $
+         {total.reduce((a, b) => {
+                return a + b;
+              }, 0)
+            }
+        <Stripe/>
+        </div> 
+        :
+        <p> There are no items in your cart</p>}
+    </>
   );
 };
 
 
 const mapStateToProps = (state) => {
   const userCartItems = state.cartItem.filter(
-    (item) => item.userId === state.auth.id
+    (item) => item.userId === state.auth.id && item.purchased === false
   );
   return {
     userCartItems,
