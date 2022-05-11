@@ -7,6 +7,7 @@ class UpdateProduct extends React.Component {
     super(props);
     this.state = {
       name: this.props.product ? this.props.product.name : '',
+      author: this.props.product ? this.props.product.author : '',
       ISBN: this.props.product ? this.props.product.isbn : '',
       price: this.props.product ? this.props.product.price : ''
     }
@@ -14,12 +15,12 @@ class UpdateProduct extends React.Component {
 
   componentDidUpdate(prevProps) {
     if(!prevProps.product && this.props.product) {
-      this.setState({ name: this.props.product.name, isbn: this.props.product.isbn, price: this.props.product.price })
+      this.setState({ name: this.props.product.name, author: this.props.product.author, isbn: this.props.product.isbn, price: this.props.product.price })
     }
   }
 
   render() {
-    const { name, isbn, price } = this.state;
+    const { name, author, isbn, price } = this.state;
 
     return (
       <div>
@@ -33,6 +34,12 @@ class UpdateProduct extends React.Component {
             value={ name }
             name='name'
             onChange={ ev => this.setState({ name: ev.target.value })}
+          />
+          <input
+            placeholder='Product Author'
+            value={ author }
+            name='author'
+            onChange={ ev => this.setState({ author: ev.target.value })}
           />
           <input
             placeholder='ISBN'

@@ -1,6 +1,5 @@
 "use strict";
 
-//const faker = require("@faker-js/faker");
 const {
   db,
   models: { User, Product, Category, Author },
@@ -48,7 +47,7 @@ async function seed() {
     Author.create({
       name: "Toni Morrison",
       bio: "some lady",
-      imageUrl: "placeholder"
+      imageUrl: "ToniMor.jpeg"
     }),
     Author.create({
       name: "Philip K. Dick",
@@ -262,6 +261,141 @@ async function seed() {
     }),
     Author.create({
       name: "Rachel Bloom",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Christopher McDougal",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Antoine De Saint Exupery",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Chad Harbach",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Stephen Hawking",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Shonda Rhimes",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Heather Havrilesky",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Tayari Jones",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Gail Honeyman",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Molly Baz",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Claire Saffitz",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Alison Bechdel",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Alan Moore",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Art Spiegelman",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Tsugumi Ohba",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Brene Brown",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Bill Bryson",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Kristin Hannah",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Kurt Vonnegut",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Hanya Yanagihara",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Sally Rooney",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Erin Jeanne McDowell",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Samin Nosrat",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Riley Sager",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Blake Crouch",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Joe Haldeman",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Chinua Achebe",
+      bio: "some person",
+      imageUrl: "placeholder"
+    }),
+    Author.create({
+      name: "Khaled Hosseini",
       bio: "some person",
       imageUrl: "placeholder"
     }),

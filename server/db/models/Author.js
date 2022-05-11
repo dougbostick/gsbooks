@@ -9,9 +9,8 @@ const Author = db.define("author", {
     type: Sequelize.TEXT
   }, 
   imageUrl: {
-    type: Sequelize.STRING,
-    //defaultValue: "placeholder_img.png"
-}
+    type: Sequelize.STRING
+  }
 });
 
 module.exports = Author;

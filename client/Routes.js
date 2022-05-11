@@ -7,7 +7,7 @@ import Products from "./components/Products";
 import ProductDetails from "./components/ProductDetails";
 import Users from "./components/Users";
 import { me } from "./store";
-import store, { loadProducts, loadUsers, getCart, loadCategories } from "./store";
+import store, { loadProducts, loadUsers, getCart, loadCategories, loadAuthors } from "./store";
 import CartItem from "./components/CartItem";
 import PastOrders from "./components/PastOrders";
 import GuestCartItem from "./components/GuestCartItem";
@@ -16,8 +16,6 @@ import SearchResults from "./components/SearchResults"
 import Categories from "./components/Categories"
 import Author from "./components/Author"
 import Category from "./components/Category"
-
-
 
 /*
  * COMPONENT
@@ -29,6 +27,7 @@ class Routes extends Component {
      store.dispatch(loadProducts());
      store.dispatch(loadUsers());
      store.dispatch(loadCategories());
+     store.dispatch(loadAuthors());  
   }
 
     componentDidUpdate(prevProps) {
