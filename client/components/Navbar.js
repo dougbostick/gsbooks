@@ -39,13 +39,14 @@ const useStyles = makeStyles((theme) => ({
   },
   
   AppBar: {
-      marginBottom:  '1.5rem'
+      margin:  '0 0 1.5rem 0'
+      
   },
   
 }));
 
 
-const xNav = ({ handleClick, isLoggedIn, isAdmin }) => {
+const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
   const classes = useStyles();
 
   return (
@@ -114,5 +115,5 @@ const mapDispatch = (dispatch) => {
   };
 };
 
-export default connect(mapState, mapDispatch)(xNav);
+export default connect(mapState, mapDispatch)(Navbar);
 

@@ -83,3 +83,28 @@ tr:hover {
 .searchForm button:active {
   border: 0.5px dotted grey;
 }
+
+/*Drop down menu stuff, will be shifting these over to navbar mui styling -GS */
+/*.book {*/
+/*  position: relative;*/
+/*  display: inline-block;*/
+/*}*/
+
+/*.book-submenu {*/
+/*  display:none;*/
+/*  position: absolute;*/
+/*  background-color: #f1f1f1;*/
+/*  color:black;*/
+/*  min-width: 160px;*/
+/*  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+/*  z-index: 1;*/
+/*  border-radius: 5px;*/
+/*}*/
+
+/*.book:hover .book-submenu {*/
+/*  display: block;*/
+/*}*/
+
+/* .submenu-item:hover {*/
+/*  background: red;*/
+/*}*/

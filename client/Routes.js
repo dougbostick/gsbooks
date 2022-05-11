@@ -17,8 +17,6 @@ import Categories from "./components/Categories"
 import Author from "./components/Author"
 import Category from "./components/Category"
 
-
-
 /*
  * COMPONENT
  */
