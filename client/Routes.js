@@ -16,6 +16,7 @@ import store, {
 import CartItem from "./components/CartItem";
 import PastOrders from "./components/PastOrders";
 import GuestCartItem from "./components/GuestCartItem";
+
 import Profile from "./components/Profile";
 import SearchResults from "./components/SearchResults";
 import Categories from "./components/Categories";
@@ -26,6 +27,7 @@ import ProductsTable from "./components/muiProducts";
 import MuiProductDetails from "./components/muiProductDetails";
 import Landing from "./components/Landing";
 import muiCart from "./components/muiCart";
+
 
 /*
  * COMPONENT
