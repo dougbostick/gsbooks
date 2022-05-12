@@ -5,6 +5,7 @@ const {
   models: { User, Product, Category, Author },
 } = require("../server/db");
 
+const axios = require("axios");
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -72,6 +73,7 @@ async function seed() {
     Author.create({
       name: "Marjin Haverbeke",
       bio: "some person",
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Mark Lutz",
@@ -100,17 +102,17 @@ async function seed() {
     Author.create({
       name: "Wendy Leigh",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Dan Harris",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Lindsay Hunter",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Lena Dunham",
@@ -130,17 +132,17 @@ async function seed() {
     Author.create({
       name: "Susan Cain",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Rose Levy Beranbaum",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Paula Hawkins",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Patrick Rothfuss",
@@ -150,17 +152,17 @@ async function seed() {
     Author.create({
       name: "Lawrence Wright",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Peter Hessler",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Leigh Bardugo",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Jeffrey Eugenides",
@@ -170,7 +172,7 @@ async function seed() {
     Author.create({
       name: "Taylor Jenkins Reid",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Isabel Wilkerson",
@@ -180,82 +182,82 @@ async function seed() {
     Author.create({
       name: "Michelle Alexander",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Gillian Flynn",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Miranda July",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Thomas Maier",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Augusten Burroughs",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Cormac McCarthy",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Kristin Hanna",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "James Clear",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Brit Bennett",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Roxane Gay",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Eddie Huang",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Emily X.R. Pan",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Akwaeke Emezi",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Nicola Yoon",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "John Boyne",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Rachel Bloom",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "placeholder",
     }),
     Author.create({
       name: "Christopher McDougal",
@@ -1091,7 +1093,6 @@ async function seed() {
   console.log(`seeded ${users.length} users`);
   console.log(`seeded ${products.length} products`);
   console.log(`seeded ${authors.length} authors`);
-
 
   console.log(`seeded successfully`);
 
