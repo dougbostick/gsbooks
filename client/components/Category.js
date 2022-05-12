@@ -48,7 +48,9 @@ const Category = (props) => {
             <CardActionArea>
                 <CardContent>
                     <CardMedia className={classes.media} style={{display: 'flex', justifyContent:'center', alignItems:'center'}}> 
-                     <img src={book.thumbUrl} style={{height: '200px'}}/>
+                         <Link to={`/products/${book.id}`} >
+                            <img src={book.thumbUrl} style={{height: '200px'}}/>
+                         </Link>
                     </CardMedia>
                     
                     <div className={classes.info}>
