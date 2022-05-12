@@ -16,7 +16,6 @@ import UpdateProduct from "./UpdateProduct";
 import { addGuestCartItem } from "./AddGuestCartItem";
 import DescApi from "./DescApi";
 import ISBNApi from "./ISBNApi";
-import AuthorApi from "./AuthorApi";
 import ImgApi from "./ImgApi";
 
 const useStyles = makeStyles({
@@ -62,11 +61,9 @@ function MuiProductDetails(props) {
               {book.name}
             </Typography>
             <Typography gutterBottom variant="h5" component="h4">
-              Author: <AuthorApi book={book} />
-              {/* <Link to={{ pathname: "/author", state: { author: book.author } }}>
-//             {" "}
-//             {book.author}{" "}
-//           </Link>{" "} */}
+              Author: <Link to={{ pathname: "/author", state: { author: book.author } }}>
+               {book.author}
+             </Link>
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               <DescApi book={book} />
