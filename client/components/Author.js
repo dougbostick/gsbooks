@@ -3,11 +3,14 @@ import { Link, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 import Searchbar from './Searchbar'
 
-const Products = ({products}) => {
+const Products = (props) => {
   const {author} = useLocation().state
   console.log("AUTHOR", author)
+  const {products, authors } = props
+  console.log("PROPS", props)
   
   const authorBooks = products.filter(book => book.author === author)
+  const authorInfo = props.authors.filter( auth => auth.name === author)
   const books = authorBooks.map((book) => {
     return (
       <div key={book.id}>
@@ -19,15 +22,25 @@ const Products = ({products}) => {
     );
   });
 
+  console.log("AUTHOR INFO", authorInfo)
+
   return (
     <div>
         <Searchbar/>
-        <div> 
+        <div > 
             <h1>{author}</h1>
-            <p> {author.bio} </p>
-            <div>{author.imageUrl} </div>
+           {
+             authorInfo.map( _author => {
+               return (
+                 <div className='about-author' key={_author.id}>
+                  <img className='author-img' src={`authorPhotos/${_author.imageUrl}`} />
+                  <p className='author-bio'> {_author.bio} </p>
+                 </div>
+               )
+             })
+           }
         </div>
-         <h3> Books this author has written: </h3>
+         <h3> Books by {author}: </h3>
          {books}
     </div>
   );
@@ -35,7 +48,8 @@ const Products = ({products}) => {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.products
+    products: state.products,
+    authors: state.authors
   };
 };
 

@@ -83,3 +83,18 @@ tr:hover {
 .searchForm button:active {
   border: 0.5px dotted grey;
 }
+
+.author-img{
+  height: 200px;
+  width: 200px;
+  margin: 1rem
+}
+
+.about-author {
+  display: flex;
+  align-items: center;
+}
+.author-bio {
+  padding: 2rem;
+  margin: 1rem
+}

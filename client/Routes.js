@@ -7,16 +7,10 @@ import Products from "./components/Products";
 import ProductDetails from "./components/ProductDetails";
 import Users from "./components/Users";
 import { me } from "./store";
-import store, {
-  loadProducts,
-  loadUsers,
-  getCart,
-  loadCategories,
-} from "./store";
+import store, { loadProducts, loadUsers, getCart, loadCategories, loadAuthors } from "./store"
 import CartItem from "./components/CartItem";
 import PastOrders from "./components/PastOrders";
 import GuestCartItem from "./components/GuestCartItem";
-
 import Profile from "./components/Profile";
 import SearchResults from "./components/SearchResults";
 import Categories from "./components/Categories";
@@ -27,17 +21,17 @@ import MuiProductDetails from "./components/muiProductDetails";
 import Landing from "./components/Landing";
 import muiCart from "./components/muiCart";
 
-
 /*
  * COMPONENT
  */
 class Routes extends Component {
   componentDidMount() {
     //Rearranging the order of this solved the refresh problem. -GS
-    this.props.loadInitialData();
-    store.dispatch(loadProducts());
-    store.dispatch(loadUsers());
-    store.dispatch(loadCategories());
+     this.props.loadInitialData()
+     store.dispatch(loadProducts());
+     store.dispatch(loadUsers());
+     store.dispatch(loadCategories());
+     store.dispatch(loadAuthors());  
   }
 
   componentDidUpdate(prevProps) {
