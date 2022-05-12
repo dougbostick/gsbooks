@@ -20,6 +20,9 @@ const Product = db.define("product", {
   description: {
     type: Sequelize.TEXT,
   },
+  author: {
+    type: Sequelize.STRING
+  }
 });
 
 module.exports = Product;
