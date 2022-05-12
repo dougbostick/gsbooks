@@ -53,7 +53,7 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
       <AppBar className={classes.AppBar} position="static">
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
-           <Link to={'/home'} style={{textDecoration: "inherit", color: 'inherit'}}> Graceshopper </Link>
+           <Link to={'/'} style={{textDecoration: "inherit", color: 'inherit'}}> Graceshopper </Link>
           </Typography>
           
        

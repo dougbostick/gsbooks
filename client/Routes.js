@@ -22,7 +22,6 @@ import SearchResults from "./components/SearchResults";
 import Categories from "./components/Categories";
 import Author from "./components/Author";
 import Category from "./components/Category";
-import SearchAppBar from "./components/muiNav";
 import ProductsTable from "./components/muiProducts";
 import MuiProductDetails from "./components/muiProductDetails";
 import Landing from "./components/Landing";
@@ -58,7 +57,6 @@ class Routes extends Component {
       <div>
         {isLoggedIn ? (
           <Switch>
-            <Route path="/home" component={SearchAppBar} />
             <Route path="/home" component={Home} />
             <Route exact path="/products" component={ProductsTable} />
             <Route exact path="/categories" component={Categories} />
