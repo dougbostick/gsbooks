@@ -27,21 +27,20 @@ const Products = (props) => {
   return (
     <div>
         <Searchbar/>
-        <div> 
+        <div > 
             <h1>{author}</h1>
            {
              authorInfo.map( _author => {
                return (
-                 <div key={_author.id}>
-                   <p> {_author.imageUrl} </p>
-                   <p> {_author.bio} </p>
-
+                 <div className='about-author' key={_author.id}>
+                  <img className='author-img' src={`authorPhotos/${_author.imageUrl}`} />
+                  <p className='author-bio'> {_author.bio} </p>
                  </div>
                )
              })
            }
         </div>
-         <h3> Books this author has written: </h3>
+         <h3> Books by {author}: </h3>
          {books}
     </div>
   );

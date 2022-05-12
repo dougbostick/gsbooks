@@ -9,7 +9,7 @@ const Author = db.define("author", {
     type: Sequelize.TEXT
   }, 
   imageUrl: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING, 
   }
 });
 

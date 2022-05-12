@@ -16,93 +16,86 @@ async function seed() {
   const authors = await Promise.all([
     Author.create({
       name: "Haruki Murakami",
-      bio: "some Japanese dude",
-      imageUrl: "placeholder"
+      bio: "A leading figure in postmodern literature, Haruki Murakami was born in Kyoto in 1949. His first novel, Hear the Wind Sing, won the Gunzou Literature prize for budding writers, which he followed with many other novels, including Kafka on the Shore; The Wind-Up Bird Chronicle; 1Q84; Hard-Boiled Wonderland and the End of the World; and Norwegian Wood, which saw a film adaptation released in Japan in 2010. In 2015, he was named one of the Time 100 most influential people. His work has been translated into more than fifty languages worldwide.",
+      imageUrl: "auth-HarukiMurakami.jpeg"
     }),
     Author.create({
       name: "J.K. Rowling",
-      bio: "some English lady",
-      imageUrl: "placeholder"
+      bio: "The author of the celebrated Harry Potter series, J. K. Rowling is one of the world's most successful authors. Her books have created a fantastic world — filled with wizards and muggles — that has completely revitalized a love of reading in both kids and adults. In addition to books, the Harry Potter Series includes the play Harry Potter and the Cursed Child, which debuted on the London stage to a sold-out audience. Rowling has also published the novel A Casual Vacancy and several books in the Cormoran Strike series under the pen name Robert Galbraith.",
+      imageUrl: "auth-JKRowling.jpeg"
     }),
     Author.create({
       name: "George R.R. Martin",
-      bio: "some American dude",
-      imageUrl: "placeholder"
+      bio: "An American author and screenwriter, George R. R. Martin is best known for his epic fantasy series A Song of Ice and Fire. The bestselling series, which began with A Game of Thrones, inspired the popular HBO television series of the same name. The series will conclude with the forthcoming books The Winds of Winter and A Dream of Spring. Other works set in or about Westeros include The World of Ice and Fire, and A Knight of the Seven Kingdoms. His science fiction novella Nightflyers has also been adapted as a television series; and he is the creator of the shared-world Wild Cards universe, working with the finest writers in the genre.",
+      imageUrl: "auth-GRRM.jpeg"
     }),
     Author.create({
       name: "Min Jin Lee",
-      bio: "some Korean lady",
-      imageUrl: "placeholder"
+      bio: "Min Jin Lee is a recipient of fiction fellowships from the Guggenheim Foundation and the Radcliffe Institute of Advanced Study at Harvard. Her second novel Pachinko (2017) was a finalist for the National Book Award for Fiction, runner-up for the Dayton Literary Peace Prize, winner of the Medici Book Club Prize, and a New York Times 10 Best Books of 2017. A New York Times Bestseller, Pachinko was also a Top 10 Books of the Year for BBC, Canadian Broadcasting Corporation, and the New York Public Library. Pachinko was a selection for “Now Read This,” the joint book club of PBS NewsHour and The New York Times. It was on over 75 best books of the year lists, including NPR, PBS, and CNN. Pachinko will be translated into 25 languages. Lee’s debut novel Free Food for Millionaires (2007) was a Top 10 Books of the Year for The Times of London, NPR's Fresh Air, USA Today, and a national bestseller. Her writings have appeared in The New Yorker, NPR's Selected Shorts, One Story, The New York Review of Books, The New York Times Magazine, The New York Times Book Review, The Times Literary Supplement, The Guardian, Conde Nast Traveler, The Times of London, and Wall Street Journal. She served three consecutive seasons as a Morning Forum columnist of the Chosun Ilbo of South Korea. In 2018, Lee was named as an Adweek Creative 100 for being one of the “10 Writers and Editors Who are Changing the National Conversation” and a Frederick Douglass 200. She received an honorary degree of Doctor of Humane Letters from Monmouth College. She will be a Writer-in-Residence at Amherst College from 2019-2022.",
+      imageUrl: "auth-MinJinLee.jpeg"
     }),
     Author.create({
       name: "Ursula K. LeGuin",
-      bio: "some lady",
-      imageUrl: "placeholder"
+      bio: "Ursula Kroeber Le Guin is an American author of novels, children's books, and short stories, mainly in the genres of fantasy and science fiction. She has also written poetry and essays. First published in the 1960s, her work has often depicted futuristic or imaginary alternative worlds in politics, the natural environment, gender, religion, sexuality and ethnography. She has won the Hugo Award, Nebula Award, Locus Award, and World Fantasy Award, each more than once. In 2014, she was awarded the National Book Foundation Medal for Distinguished Contribution to American Letters. ",
+      imageUrl: "auth-UrsulaLeguin.jpeg"
     }),
     Author.create({
       name: "Frank Herbert",
-      bio: "some dude",
-      imageUrl: "placeholder"
+      bio: "Frank Herbert (1920-1986) was born in Tacoma, Washington, and educated at the University of Washington, Seattle. He worked a wide variety of jobs—including TV cameraman, radio commentator, oyster diver, jungle survival instructor, lay analyst, creative writing teacher, reporter and editor of several West Coast newspapers—before becoming a full-time writer. He is best known for his classic science fiction novel Dune and its five sequels.",
+      imageUrl: "auth-FrankHerbert.jpeg"
     }),
     Author.create({
       name: "Toni Morrison",
-      bio: "some lady",
-      imageUrl: "ToniMor.jpeg"
+      bio: "Toni Morrison was awarded the Nobel Prize for Literature in 1993. She is the author of several novels, including The Bluest Eye, Beloved (made into a major film), and Love. She has received the National Book Critics Circle Award and a Pulitzer Prize. She is the Robert F. Goheen Professor at Princeton University.",
+      imageUrl: "auth-ToniMor.jpeg"
     }),
     Author.create({
       name: "Philip K. Dick",
-      bio: "some person",
-      imageUrl: "placeholder"
+      bio: "Over a writing career that spanned three decades, Philip K. Dick (1928-1982) published 36 science fiction novels and 121 short stories in which he explored the essence of what makes man human and the dangers of centralized power. Toward the end of his life, his work turned toward deeply personal, metaphysical questions concerning the nature of God. Eleven novels and short stories have been adapted to film; notably: Blade Runner (based on Do Androids Dream of Electric Sheep?), Total Recall, Minority Report, and A Scanner Darkly. The recipient of critical acclaim and numerous awards throughout his career, Dick was inducted into the Science Fiction Hall of Fame in 2005, and in 2007 the Library of America published a selection of his novels in three volumes. His work has been translated into more than twenty-five languages.",
+      imageUrl: "auth-PKD.jpeg"
     }),
     Author.create({
       name: "Ernest Hemingway",
-      bio: "some person",
-      imageUrl: "placeholder"
-    }),
-    Author.create({
-      name: "Ernest Hemingway",
-      bio: "some person",
-      imageUrl: "placeholder"
+      bio: "The preeminent American novelist and short story writer of his time, Ernest Hemingway (1899-1961) wrote provocative fiction steeped in the experiences of the Lost Generation that came of age during World War I. Hemingway's four best-known books — The Sun Also Rises, A Farewell to Arms, For Whom the Bell Tolls, and the Pulitzer Prize-winning The Old Man and the Sea — highlight the author's trademark economy of style while depicting lives shaped by futility, frustration, and disappointment. He won the Nobel Prize in Literature in 1954.",
+      imageUrl: "auth-hemingway.jpeg"
     }),
     Author.create({
       name: "Gabriel Garcia Marquez",
-      bio: "some person",
-      imageUrl: "placeholder"
+      bio: "One of the most important writers of the 20th century, Gabriel Garcí­a Márquez (1927-2014) was a Colombian novelist, short-story writer, screenwriter, and journalist who popularized magical realism, a technique which uses magical elements and events in order to explain real experiences. In 1982, he was awarded the Nobel Prize in Literature. He is perhaps best known for his book One Hundred Years of Solitude (1967), a novel that was both a critical and commercial success.",
+      imageUrl: "auth-GabrielGM.jpeg"
     }),
     Author.create({
       name: "George Orwell",
-      bio: "some person",
-      imageUrl: "placeholder"
+      bio: "George Orwell (1903¿1950) was an English novelist, essayist, journalist, and critic. Best known for his dystopian book 1984 and the allegorical novella Animal Farm, Orwell is the author of six novels as well as numerous essays and works of nonfiction. His writing continues to influence popular culture: The term 'Orwellian' (describing a repressive, totalitarian state) has entered the language, along with several of his own neologisms, such as 'Big Brother' and 'cold war.'",
+      imageUrl: "auth-GeorgeOrwell.jpeg"
     }),
     Author.create({
       name: "Marjin Haverbeke",
       bio: "some person",
-      imageUrl: "placeholder"
     }),
     Author.create({
       name: "Mark Lutz",
       bio: "some person",
-      imageUrl: "placeholder"
     }),
     Author.create({
       name: "Carl Sagan",
-      bio: "some person",
-      imageUrl: "placeholder"
+      bio: "Carl Sagan was Professor of Astronomy and Space Sciences and Director of the Laboratory for Planetary Studies at Cornell University. He played a leading role in the Mariner, Viking, and Voyager spacecraft expeditions to the planets, for which he received the NASA medals for Exceptional Scientific Achievement. Dr. Sagan received the Pulitzer Prize and the highest awards of both the National Academy of Sciences and the National Science Foundation, and many other awards, for his contributions to science, literature, education, and the preservation of the environment. His book Cosmos (accompanying his Emmy- and Peabody Award-winning television series of the same name) was the bestselling science book ever published in the English language, and his bestselling novel, Contact, was turned into a major motion picture.",
+      imageUrl: "auth-CarlSagan.jpeg"
     }),
     Author.create({
-      name: "",
-      bio: "Tara Westover",
+      name: "Tara Westover",
+      bio: "some person",
       imageUrl: "placeholder"
     }),
     Author.create({
       name: "Shel Silverstein",
-      bio: "some person",
-      imageUrl: "placeholder"
+      bio: "Shel Silverstein, the author-artist of many books of prose and poetry, was a cartoonist, playwright, poet, performer, recording artist, and Grammy-winning, Oscar-nominated songwriter. A man of many talents, Shel Silverstein reached out to children as well as adults with his writing and illustrations, and his numerous books include The Giving Tree, Where the Sidewalk Ends, A Light in the Attic, Falling Up, and Every Thing On It.",
+      imageUrl: "auth-ShelSilver.jpeg"
     }),
     Author.create({
       name: "Sheryl Sandberg",
-      bio: "some person",
-      imageUrl: "placeholder"
+      bio: "Sheryl Sandberg is Chief Operating Officer at Facebook and the author of Lean In: Women, Work, and the Will to Lead. Prior to Facebook, Sandberg was vice president of Global Online Sales and Operations at Google. She previously served as Chief of Staff for the United States Treasury Department under President Bill Clinton and began her career as an economist with the World Bank. She received B.A. and M.B.A degrees from Harvard University.",
+      imageUrl: "auth-SherylSandberg.jpeg"
     }),
     Author.create({
       name: "Wendy Leigh",
@@ -121,18 +114,18 @@ async function seed() {
     }),
     Author.create({
       name: "Lena Dunham",
-      bio: "some person",
-      imageUrl: "placeholder"
+      bio: "Lena Dunham is an American filmmaker and actress. She wrote and directed the independent film Tiny Furniture (2010), and is the creator and star of the HBO series Girls. In 2013, Dunham was named one of Time's most influential people in the world.",
+      imageUrl: "auth-LenaDunham.jpeg"
     }),
     Author.create({
       name: "Michael Cunningham",
-      bio: "some person",
-      imageUrl: "placeholder"
+      bio: "Michael Cunningham (b. 1952) was raised in Los Angeles and lives in New York City. He is the author of the novels A Home at the End of the World, Flesh and Blood, The Hours (winner of the PEN/Faulkner Award and the Pulitzer Prize), Specimen Days, and By Nightfall, as well as Land’s End: A Walk in Provincetown. The Hours was chosen as a Best Book of 1998 by The New York Times and was the basis for a feature film.",
+      imageUrl: "auth-MichaelC.jpeg"
     }),
     Author.create({
       name: "Virginia Woolf",
       bio: "some person",
-      imageUrl: "placeholder"
+      imageUrl: "auth-VirginiaWoolf.jpeg"
     }),
     Author.create({
       name: "Susan Cain",
@@ -151,8 +144,8 @@ async function seed() {
     }),
     Author.create({
       name: "Patrick Rothfuss",
-      bio: "some person",
-      imageUrl: "placeholder"
+      bio: "Patrick Rothfuss had the good fortune to be born in Wisconsin in 1973, where the long winters and lack of cable television encouraged a love of reading and writing. After abandoning his chosen field of chemical engineering, Pat became an itinerant student, wandering through clinical psychology, philosophy, medieval history, theater, and sociology. Nine years later, Pat was forced by university policy to finally complete his undergraduate degree in English.",
+      imageUrl: "auth-PatrickRoth.jpeg"
     }),
     Author.create({
       name: "Lawrence Wright",
@@ -171,8 +164,8 @@ async function seed() {
     }),
     Author.create({
       name: "Jeffrey Eugenides",
-      bio: "some person",
-      imageUrl: "placeholder"
+      bio: "Jeffrey Eugenides was born in Detroit and attended Brown and Stanford Universities. His first novel, The Virgin Suicides, was published by Farrar, Straus, & Giroux to great acclaim in 1993, and he has received numerous awards for his work.",
+      imageUrl: "auth-jeffreyEug.jpeg"
     }),
     Author.create({
       name: "Taylor Jenkins Reid",
@@ -181,8 +174,8 @@ async function seed() {
     }),
     Author.create({
       name: "Isabel Wilkerson",
-      bio: "some person",
-      imageUrl: "placeholder"
+      bio: "Isabel Wilkerson, winner of the Pulitzer Prize and the National Humanities Medal, is the author the critically acclaimed New York Times bestsellers The Warmth of Other Suns, and Caste: The Origins of Our Discontents. Wilkerson won the Pulitzer Prize for her work as Chicago Bureau Chief of The New York Times in 1994, making her the first black woman in the history of American journalism to win a Pulitzer and the first African-American to win for individual reporting. In 2016, President Barack Obama awarded her the National Humanities Medal for 'championing the stories of an unsung history.'",
+      imageUrl: "auth-isabelWilk.jpeg"
     }),
     Author.create({
       name: "Michelle Alexander",
