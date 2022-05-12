@@ -7,7 +7,13 @@ import Products from "./components/Products";
 import ProductDetails from "./components/ProductDetails";
 import Users from "./components/Users";
 import { me } from "./store";
-import store, { loadProducts, loadUsers, getCart, loadCategories, loadAuthors } from "./store"
+import store, {
+  loadProducts,
+  loadUsers,
+  getCart,
+  loadCategories,
+  loadAuthors,
+} from "./store";
 import CartItem from "./components/CartItem";
 import PastOrders from "./components/PastOrders";
 import GuestCartItem from "./components/GuestCartItem";
@@ -27,11 +33,11 @@ import muiCart from "./components/muiCart";
 class Routes extends Component {
   componentDidMount() {
     //Rearranging the order of this solved the refresh problem. -GS
-     this.props.loadInitialData()
-     store.dispatch(loadProducts());
-     store.dispatch(loadUsers());
-     store.dispatch(loadCategories());
-     store.dispatch(loadAuthors());  
+    this.props.loadInitialData();
+    store.dispatch(loadProducts());
+    store.dispatch(loadUsers());
+    store.dispatch(loadCategories());
+    store.dispatch(loadAuthors());
   }
 
   componentDidUpdate(prevProps) {
@@ -64,7 +70,7 @@ class Routes extends Component {
             <Route path="/profile" component={Profile} />
             <Route path="/author" component={Author} />
             <Route path="/test" component={Landing} />
-            <Route path="/test2" component={muiCart} />
+            <Route path="/test2" component={ProductsTable} />
             <Redirect to="/home" />
           </Switch>
         ) : (

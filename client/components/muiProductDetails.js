@@ -24,6 +24,8 @@ const useStyles = makeStyles({
   },
   media: {
     margin: "18px",
+    height: "250px",
+    width: "175px",
   },
   main: {
     display: "flex",
@@ -52,24 +54,26 @@ function MuiProductDetails(props) {
 
   return (
     <div className={classes.main}>
-      <ImgApi className={classes.media} book={book} />
+      {<img src={book.thumbUrl} className={classes.media}></img>}
       <Card className={classes.root}>
         <CardActionArea>
-          {/* <ImgApi className={classes.media} book={book} /> */}
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               {book.name}
             </Typography>
             <Typography gutterBottom variant="h5" component="h4">
-              Author: <Link to={{ pathname: "/author", state: { author: book.author } }}>
-               {book.author}
-             </Link>
+              Author:{" "}
+              <Link
+                to={{ pathname: "/author", state: { author: book.author } }}
+              >
+                {book.author}
+              </Link>
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              <DescApi book={book} />
+              {book.description}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              ISBN: <ISBNApi book={book} />
+              ISBN: {book.isbn}
             </Typography>
           </CardContent>
         </CardActionArea>
