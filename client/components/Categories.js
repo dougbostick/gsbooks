@@ -25,7 +25,6 @@ const useStyles = makeStyles({
   },
 
   categoryButton: {
-    marginBottom: "1rem",
     paddingLeft: "0.8rem",
   },
 
@@ -33,15 +32,12 @@ const useStyles = makeStyles({
     textAlign: "left",
   },
 
-  grid: {
-    marginTop: "1.5rem",
-  },
 
   productContainer: {
     padding: "1rem 0",
   },
   media: {
-    margin: "8px",
+    height: '200px',
   },
 });
 
@@ -81,10 +77,8 @@ const Categories = (props) => {
                   >
                     <Link to={`/products/${product.id}`}>
                       <Card className={classes.threeProducts}>
-                        <CardMedia className={classes.media}>
-                          {<img src={product.thumbUrl}></img>}
+                        <CardMedia className={classes.media} style={{background: `url(${product.thumbUrl})`, backgroundSize: 'cover'}}>
                         </CardMedia>
-                        {product.name}
                       </Card>
                     </Link>
                   </Grid>
@@ -112,10 +106,7 @@ const Categories = (props) => {
 
   return (
     <>
-      <div className={classes.title}>
-        {" "}
-        <h1> Categories </h1>{" "}
-      </div>
+      <Typography variant='h4' style={{padding: '1rem', marginLeft: '9rem', marginTop: '0.5rem', marginBottom: '0.5rem'}}> Categories </Typography>
       <Grid
         container
         spacing={10}
