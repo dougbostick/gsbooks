@@ -11,9 +11,6 @@ const Product = db.define("product", {
   isbn: {
     type: Sequelize.TEXT,
   },
-  imgUrl: {
-    type: Sequelize.STRING,
-  },
   thumbUrl: {
     type: Sequelize.TEXT,
   },
@@ -21,8 +18,8 @@ const Product = db.define("product", {
     type: Sequelize.TEXT,
   },
   author: {
-    type: Sequelize.STRING
-  }
+    type: Sequelize.STRING,
+  },
 });
 
 module.exports = Product;

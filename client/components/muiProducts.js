@@ -63,6 +63,7 @@ function ProductsTable(props) {
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map((book) => (
               <TableRow>
+                <TableCell>{<img src={book.thumbUrl}></img>}</TableCell>
                 <TableCell
                   align="right"
                   component="th"
@@ -85,7 +86,7 @@ function ProductsTable(props) {
           <TableRow>
             <TablePagination
               component="div"
-              rowsPerPageOptions={[5, 10, 15]}
+              rowsPerPageOptions={[101]}
               count={101}
               page={page}
               onPageChange={handleChangePage}
