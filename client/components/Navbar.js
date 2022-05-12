@@ -58,7 +58,7 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
           
        
             <Link to="/categories" style={{textDecoration: "inherit", color: 'inherit'}}> <MenuItem> Books </MenuItem> </Link>
-            { isAdmin ? <Link to='/users' style={{textDecoration: "inherit", color: 'inherit'}}> <MenuItem> Users </MenuItem> </Link> : ''}
+            { isAdmin ? <Link to='/users' style={{textDecoration: "inherit", color: 'inherit'}}> <MenuItem> Admin </MenuItem> </Link> : ''}
           
           <div className={classes.search}>
             <Searchbar
