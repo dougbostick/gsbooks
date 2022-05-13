@@ -26,13 +26,21 @@ const useStyles = makeStyles({
   },
   
   product: {
-     margin: '0 1rem',
+     margin: '1rem 1rem',
+     maxWidth: 500,
+     minHeight: 450,
+     maxHeight: 450,
+     '&:hover': {
+       boxShadow: "5px 8px #FF6363" 
+     },
+     background: '#FAF5E4'
   },
   
   info: {
       display: 'flex',
+      direction: 'column',
       alignItems: 'center',
-      justifyContent: 'space-between'
+      justifyContent: 'space-between', 
   }
     
  

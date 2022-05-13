@@ -106,13 +106,13 @@ async function seed() {
     }),
     Author.create({
       name: "Dan Harris",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Dan Harris is a correspondent for ABC News and the co-anchor for the weekend edition of Good Morning America. Before that, he was the anchor of the Sunday edition of World News. He regularly contributes stories for such shows as Nightline, 20/20, World News with Diane Sawyer and GMA. Harris has reported from all over the planet, covering wars in Afghanistan, Israel/Palestine and Iraq, and producing investigative reports in Haiti, Cambodia, and the Congo. He has also spent many years covering America’s faith scene, with a focus on evangelicals -- who have treated him kindly despite the fact that he is openly agnostic. He has been at ABC News for 13 years. Before that, he was in local news in Boston and Maine. He grew up outside of Boston and currently lives with his wife, Bianca, in New York City.",
+      imageUrl: "auth-danHarris.jpeg",
     }),
     Author.create({
       name: "Lindsay Hunter",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Lindsay Hunter received her MFA in Writing from the School of the Art Institute of Chicago. She co-founded and co-hosted the groundbreaking Quickies! reading series, an event that focused on flash fiction. Her first book, Daddy’s, a collection of flash fiction, was published in 2010 by featherproof books, a boutique press in Chicago. Her second collection, DON’T KISS ME, was published by FSG Originals in 2013 and was named one of Amazon’s 10 Best Books of the Year: Short Stories. Her first novel, Ugly Girls, was published by Farrar, Straus and Giroux in November 2014. The Huffington Post called it “a story that hits a note that’s been missing from the chorus of existing feminist literature.” Her latest novel, Eat Only When You’re Hungry, was a Book of the Month Club selection, a finalist for the 2017 Chicago Review of Books Fiction Award, and a 2017 NPR Great Read. Along with the writer Alex Higley, she runs the podcast I’m a Writer But, a series about writers with kids, jobs, and/or lives, and how they make it all work (or don’t). She lives in Chicago with her family.",
+      imageUrl: "auth-LindsayHunter.jpeg",
     }),
     Author.create({
       name: "Lena Dunham",
@@ -126,23 +126,23 @@ async function seed() {
     }),
     Author.create({
       name: "Virginia Woolf",
-      bio: "some person",
+      bio: "Virginia Woolf (1882¿1941) was one of the major literary figures of the twentieth century. An admired literary critic, she authored many essays, letters, journals, and short stories in addition to her groundbreaking novels. Her best-known books include the novels Mrs. Dalloway, To the Lighthouse, and Orlando, and the book-length essay A Room of One's Own.",
       imageUrl: "auth-VirginiaWoolf.jpeg",
     }),
     Author.create({
       name: "Susan Cain",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Susan Cain is the author of the bestsellers Quiet Journal, Quiet Power: The Secret Strengths of Introverts, and Quiet: The Power of Introverts in A World That Can’t Stop Talking, which has been translated into 40 languages, is in its seventh year on the New York Times best seller list, and was named the #1 best book of the year by Fast Company magazine, which also named Cain one of its Most Creative People in Business. Her writing has appeared in The New York Times, The Atlantic, The Wall Street Journal, and many other publications. Her record-smashing TED talk has been viewed over 30 million times on TED.com and YouTube combined, and was named by Bill Gates one of his all-time favorite talks.",
+      imageUrl: "auth-SusanCain.jpeg",
     }),
     Author.create({
       name: "Rose Levy Beranbaum",
       bio: "some person",
-      imageUrl: "placeholder",
+      imageUrl: "auth-RoseLevyB.jpeg",
     }),
     Author.create({
       name: "Paula Hawkins",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Paula Hawkins worked as a journalist for fifteen years before turning her hand to fiction. Born and brought up in Zimbabwe, Paula moved to London in 1989 and has lived there ever since. Her first thriller, The Girl on the Train, has been a global phenomenon, selling 23 million copies worldwide. Published in over forty languages, it has been a No.1 bestseller around the world and was a No.1 box office hit film starring Emily Blunt. Into the Water, her second stand-alone thriller, has also been a global No.1 bestseller, spending twenty weeks in the Sunday Times hardback fiction Top 10 bestseller list, and six weeks at No.1.",
+      imageUrl: "auth-PaulaHawkins.jpg",
     }),
     Author.create({
       name: "Patrick Rothfuss",
@@ -151,8 +151,8 @@ async function seed() {
     }),
     Author.create({
       name: "Lawrence Wright",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Lawrence Wright (born August 2, 1947) is a Pulitzer Prize-winning American author, screenwriter, staff writer for The New Yorker magazine, and fellow at the Center for Law and Security at the New York University School of Law. Wright is best known as the author of the 2006 nonfiction book The Looming Tower: Al-Qaeda and the Road to 9/11. Wright is also known for his work with documentarian Alex Gibney who directed film versions of Wright's one man show My Trip to Al-Qaeda and his book Going Clear.",
+      imageUrl: "auth-LawrenceWright.jpeg",
     }),
     Author.create({
       name: "Peter Hessler",
@@ -161,8 +161,8 @@ async function seed() {
     }),
     Author.create({
       name: "Leigh Bardugo",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Leigh Bardugo is a #1 New York Times bestselling author of fantasy novels and the creator of the Grishaverse (now a Netflix original series) which spans the Shadow and Bone Trilogy, the Six of Crows Duology, The Language of Thorns, and King of Scars—with more to come. Her short stories can be found in multiple anthologies, including the Best American Science Fiction & Fantasy. Her other works include Wonder Woman: Warbringer and Ninth House (Goodreads Choice Winner for Best Fantasy 2019), which is being developed for television by Amazon Studios.",
+      imageUrl: "auth-LeighBardugo.jpeg",
     }),
     Author.create({
       name: "Jeffrey Eugenides",
@@ -311,13 +311,13 @@ async function seed() {
     }),
     Author.create({
       name: "Alison Bechdel",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Alison Bechdel has been a careful archivist of her own life and kept a journal since she was ten. Since 1983 she has been chronicling the lives of various characters in the fictionalized “Dykes to Watch Out For” strip, “one of the preeminent oeuvres in the comics genre, period” (Ms.). The strip is syndicated in 50 alternative newspapers, translated into multiple languages, and collected into a book series with a quarter of a million copies in print. Utne magazine has listed DTWOF as “one of the greatest hits of the twentieth century.",
+      imageUrl: "auth-AlisonBechdel.jpeg",
     }),
     Author.create({
       name: "Alan Moore",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Alan Moore is an English writer known for his work in comic books including Watchmen, V for Vendetta, The Ballad of Halo Jones, Swamp Thing, Batman: The Killing Joke and From Hell. He is wide recognised among his peers as one of the best comic book writers in the English language. Moore has occasionally used such pseudonyms as Curt Vile, Jill de Ray, Brilburn Logue and Translucia Baboon. Despite his objections, Moore's works have provided the basis for several Hollywood films, including From Hell (2001), The League of Extraordinary Gentleman (2003), V for Vendetta (2005) and Watchmen (2009). He has lived a significant portion of his life in Northampton, England, and he has said in various interviews that his stories draw heavily from his experiences living there" ,
+      imageUrl: "auth-AlanMoore.jpg",
     }),
     Author.create({
       name: "Art Spiegelman",
@@ -346,13 +346,13 @@ async function seed() {
     }),
     Author.create({
       name: "Kurt Vonnegut",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Kurt Vonnegut was a writer, lecturer and painter. He was born in Indianapolis in 1922 and studied biochemistry at Cornell University. During WWII, as a prisoner of war in Germany, he witnessed the destruction of Dresden by Allied bombers, an experience which inspired Slaughterhouse Five. First published in 1950, he went on to write fourteen novels, four plays, and three short story collections, in addition to countless works of short fiction and nonfiction. He died in 2007.",
+      imageUrl: "auth-KurtVonnegut.jpeg",
     }),
     Author.create({
       name: "Hanya Yanagihara",
       bio: "some person",
-      imageUrl: "placeholder",
+      imageUrl: "auth-HanyaY.jpeg",
     }),
     Author.create({
       name: "Sally Rooney",
@@ -366,8 +366,8 @@ async function seed() {
     }),
     Author.create({
       name: "Samin Nosrat",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Samin Nosrat is a chef, teacher, and author of the best-selling, James Beard award-winning Salt, Fat, Acid, Heat. She has been called 'a go to resource for matching the correct techniques with the best ingredients' by The New York Times and 'the next Julia Child' by NPR's 'All Things Considered.' Samin is an EAT columnist for The New York Times Magazine and can be found eating, cooking, and laughing in the Salt, Fat, Acid, Heat documentary series on Netflix.",
+      imageUrl: "auth-SaminNosrat.jpeg",
     }),
     Author.create({
       name: "Riley Sager",
