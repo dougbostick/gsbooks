@@ -23,8 +23,19 @@ import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles({
   media: {
+
+    margin: "18px",
+    height: "250px",
+    width: "175px",
+  },
+  main: {
+    display: "flex",
+    justifyContent: "center",
+    // backgroundColor: "#3a7563",
+
     height: "300px",
     width: "200px",
+
   },
   
   update: {
