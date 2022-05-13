@@ -31,6 +31,9 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
   },
+  update: {
+    margin: "8px",
+  },
 });
 
 function MuiProductDetails(props) {
@@ -75,6 +78,11 @@ function MuiProductDetails(props) {
             <Typography variant="body2" color="textSecondary" component="p">
               ISBN: {book.isbn}
             </Typography>
+            {isAdmin ? (
+              <Route path="/products/:id" component={UpdateProduct} />
+            ) : (
+              ""
+            )}
           </CardContent>
         </CardActionArea>
         <CardActions>
