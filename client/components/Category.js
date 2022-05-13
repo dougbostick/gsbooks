@@ -93,7 +93,7 @@ const Category = (props) => {
 
   return (
       <>
-        <h3 className={classes.title}> {category} </h3>
+        <h3 className={classes.title}> {category} </h3>;
     <Grid container spacing={2}> 
          {books}
     </Grid>
