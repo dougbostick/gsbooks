@@ -5,11 +5,17 @@ import { checkout } from "../store/cart-item";
 
 const Stripe = (props) => {
   console.log("stripe state", props);
-
+  const guestCart = JSON.parse(window.localStorage.getItem("guest_cart"));
+  console.log("gc in stripe", guestCart);
   //accepting stripe input info
   const handleToken = (token, addresses) => {
     console.log({ token, addresses });
-    props.cartItem.forEach((item) => props.checkout(item));
+    if (guestCart) {
+      window.localStorage.removeItem("guest_cart");
+      props.history.push("/cartItem");
+    } else {
+      props.cartItem.forEach((item) => props.checkout(item));
+    }
   };
 
   const filtered = props.cartItem
@@ -21,7 +27,9 @@ const Stripe = (props) => {
     : null;
 
   console.log("cartItems after filter", cartItems);
-
+  const total = cartItems.length ? cartItems.reduce((a, b) => a + b, 0) : 0;
+  const guestTotal = guestCart ? props.gcTotal.reduce((a, b) => a + b, 0) : 0;
+  // console.log("gc total", guestTotal);
   return (
     <div>
       <StripeCheckout
@@ -29,7 +37,8 @@ const Stripe = (props) => {
         token={handleToken}
         billingAddress // = var defined from user info
         shippingAddress // = var defined from user info
-        amount={cartItems.length ? cartItems.reduce((a, b) => a + b, 0) : 0}
+        // amount={cartItems.length ? cartItems.reduce((a, b) => a + b, 0) : 0}
+        amount={guestCart ? guestTotal * 100 : total}
       />
     </div>
   );

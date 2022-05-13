@@ -51,7 +51,11 @@ const Products = (props) => {
             <Card className={classes.product}> 
                 <CardActionArea>
                     <CardContent>
-                        <CardMedia className={classes.media}> </CardMedia>
+                         <CardMedia className={classes.media} style={{display: 'flex', justifyContent:'center', alignItems:'center'}}> 
+                         <Link to={`/products/${book.id}`} >
+                            <img src={book.thumbUrl} style={{height: '200px'}}/>
+                         </Link>
+                    </CardMedia>
                         
                         <div className={classes.info}>
                             <Typography variant='h5'> {book.name} </Typography>

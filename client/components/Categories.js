@@ -10,6 +10,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core";
 
 const useStyles = makeStyles({
   title: {
@@ -26,18 +27,42 @@ const useStyles = makeStyles({
 
   categoryButton: {
     paddingLeft: "0.8rem",
+    // backgroundColor: "#F8B400",
+    // backgroundColor: "#FF6363",
+    // backgroundColor: "#125B50",
+
+    // color: "#FAF5E4",
+    textDecoration: "none",
   },
 
   categoryName: {
     textAlign: "left",
+    // color: "#FAF5E4",
   },
-
 
   productContainer: {
     padding: "1rem 0",
+    // backgroundColor: "#F8B400",
+    // backgroundColor: "#125B50",
+    // backgroundColor: "#FF6363",
+  },
+  card: {
+    // backgroundColor: "#F8B400",
+    // backgroundColor: "#125B50",
+    // backgroundColor: "#FF6363",
   },
   media: {
-    height: '200px',
+    height: "200px",
+  },
+
+  container: {},
+  grid: {
+    // backgroundColor: "#F8B400",
+    marginTop: "0",
+  },
+  font: {
+    textDecoration: "none",
+    // color: "#FAF5E4",
   },
 });
 
@@ -50,15 +75,15 @@ const Categories = (props) => {
       .filter((product) => product.categoryId === category.id)
       .splice(0, 3);
     return (
+
       <Grid item xs={5} key={category.id} >
                     <Link to={`/categories/${category.id}`}>
         <Card classes={classes.category}>
-          <CardContent>
+          <CardContent className={classes.card}>
             <Typography
               gutterBottom
               variant="h5"
               component="h2"
-              color="primary"
               className={classes.categoryName}
             >
               {category.name}
@@ -78,8 +103,13 @@ const Categories = (props) => {
                   >
                     <Link to={`/products/${product.id}`}>
                       <Card className={classes.threeProducts}>
-                        <CardMedia className={classes.media} style={{background: `url(${product.thumbUrl})`, backgroundSize: 'cover'}}>
-                        </CardMedia>
+                        <CardMedia
+                          className={classes.media}
+                          style={{
+                            background: `url(${product.thumbUrl})`,
+                            backgroundSize: "cover",
+                          }}
+                        ></CardMedia>
                       </Card>
                     </Link>
                   </Grid>
@@ -89,8 +119,8 @@ const Categories = (props) => {
           </CardActionArea>
 
           <CardActions className={classes.categoryButton}>
-            <Button size="small" color="primary">
-              <Link to={`/categories/${category.id}`}>
+            <Button size="small">
+              <Link to={`/categories/${category.id}`} className={classes.font}>
                 View All (
                 {
                   products.filter((item) => item.categoryId === category.id)
@@ -108,7 +138,18 @@ const Categories = (props) => {
 
   return (
     <>
-      <Typography variant='h4' style={{padding: '1rem', marginLeft: '9rem', marginTop: '0.5rem', marginBottom: '0.5rem'}}> Categories </Typography>
+      <Typography
+        variant="h4"
+        style={{
+          padding: "1rem",
+          marginLeft: "9rem",
+          marginTop: "0.5rem",
+          marginBottom: "0.5rem",
+        }}
+      >
+        {" "}
+        Categories{" "}
+      </Typography>
       <Grid
         container
         spacing={10}

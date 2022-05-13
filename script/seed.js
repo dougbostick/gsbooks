@@ -1209,37 +1209,37 @@ async function seed() {
         "A memoir done in the form of a graphic novel by a cult favorite comic artist offers a darkly funny family portrait that details her relationship with her father--a funeral home director, high school English teacher, and closeted homosexual.",
     }),
     Product.create({
-      name: "The Watchmen",
+      name: "Watchmen",
       price: 16.99,
       author: "Alan Moore",
       categoryId: graphicNovelManga.id,
       isbn: "9781497679245",
       thumbUrl:
-        "http://books.google.com/books/content?id=SoSpBgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+        "http://books.google.com/books/content?id=Jw5RAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
       description:
-        "In a CIA safe house, a reluctant interrogator and his subject find that they are the next targets on a ruthless assassin’s hit list Psychiatrist Louis Finney is still haunted by nightmares stemming from the work in mind control and psychological conditioning he helped to pioneer for the US government years ago. But when he is asked by his dying mentor to help with the questioning of Ali Zattout, an al-Qaeda operative, Finney finds he cannot refuse. Charismatic, intelligent, and unexpectedly cooperative, Zattout possesses information his masters in the Middle East cannot allow him to reveal. As Finney tries to determine if the terrorist is telling the truth or spinning a web of lies, a relentless killer closes in on the secret location where the two men are trapped together. Too late, Finney realizes that he is a pawn in a conspiracy whose dimensions stretch deep into the corridors of power. A provocative suspense story that peers into the dark corners of the war on terror, John Altman’s The Watchmen depicts the murky world of twenty-first-century espionage with thrilling style and fascinating psychological depth.",
+        "SOON TO BE A FEATURE FILM! This Hugo Award-winning graphic novel chronicles the fall from grace of a group of super-heroes plagued by all-too-human failings. Along the way, the concept of the super-hero is dissected as the heroes are stalked by an unknown assassin. One of the most influential graphic novels of all time and a perennial bestseller, WATCHMEN has been studied on college campuses across the nation and is considered a gateway title, leading readers to other graphic novels such as V FOR VENDETTA, BATMAN: THE DARK KNIGHT RETURNS and THE SANDMAN series.",
     }),
     Product.create({
-      name: "Maus 1: A Surivor's Tale: My Father Bleeds History",
+      name: "Fullmetal Alchemist: Fullmetal Edition",
       price: 14.99,
-      author: "Art Spiegelman",
+      author: "Hiromu Arakawa",
       categoryId: graphicNovelManga.id,
-      isbn: "9780394747231",
+      isbn: "9781974700479",
       thumbUrl:
-        "http://books.google.com/books/content?id=1fYEwgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+        "http://books.google.com/books/content?id=klq1xgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
       description:
-        "The author-illustrator traces his father's imprisonment in a Nazi concentration camp through a series of disarming and unusual cartoons arranged to tell the story as a novel.",
+        "Alchemy tore the Elric brothers’ bodies apart. Can their bond make them whole again? A hardcover, deluxe collector’s edition of one of the most beloved manga and anime of all time! Fully remastered with an updated translation and completely fresh lettering, and presented with color pages on large-trim archival-quality paper, this gorgeous hardcover edition presents the timeless dark adventures of the Elric brothers as they were truly meant to be seen. Includes brand-new cover art, with color insert and behind-the-scenes character sketches from author Hiromu Arakawa! In an alchemical ritual gone wrong, Edward Elric lost his arm and his leg, and his brother Alphonse became nothing but a soul in a suit of armor. The scarred man who stalks the Elric brothers’ path reemerges, this time not as the bearer of vengeance, but as the one in karma’s crosshairs.",
     }),
     Product.create({
-      name: "Maus 2: A Surivor's Tale: Here My Troubles Began",
+      name: "Fullmetal Alchemist, Vol. 14",
       price: 15.99,
-      author: "Art Spiegelman",
+      author: "Hiromu Arakawa",
       categoryId: graphicNovelManga.id,
-      isbn: "9780679729778",
+      isbn: "9781421513799",
       thumbUrl:
-        "http://books.google.com/books/content?id=am2PXS60sy8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+        "http://books.google.com/books/content?id=eIQHwDHpjdYC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
       description:
-        "In a comic-book-style tale of the author's parents, Vladek and Anja, Vladek survives Auschwitz, is reunited with Anja, and sires young Art",
+        "Breaking the laws of nature is a serious crime! In an alchemical ritual gone wrong, Edward Elric lost his arm and his leg, and his brother Alphonse became nothing but a soul in a suit of armor. Equipped with mechanical “auto-mail” limbs, Edward becomes a state alchemist, seeking the one thing that can restore his and his brother’s bodies...the legendary Philosopher’s Stone. Ed and Al come face to face with the /'father/' of the homunculi, who just so happens to be a dead ringer for their own father, Van Hohenheim--a resemblance too uncanny for coincidence. And later, when the allure of immortality proves to be too much for Prince Lin of Xin, he lets Greed take over...literally!",
     }),
     Product.create({
       name: "Death Note Complete Box Set: Volumes 1-13",
