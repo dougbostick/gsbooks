@@ -26,6 +26,10 @@ const useStyles = makeStyles({
     height: "300px",
     width: "200px",
   },
+  
+  update: {
+    margin: "8px",
+  },
 
 });
 
@@ -79,6 +83,12 @@ function MuiProductDetails(props) {
                    <Button onClick={() =>  props.isLoggedin.id
             ? addCartItem(book, 1)
             : addGuestCartItem(book, 1)} size="small" style={{marginBottom: '1rem', color: 'white', fontWeight: 'bold', backgroundColor: 'grey', padding: '0.5rem', marginTop: '1rem'}}> Add to Cart </Button>
+
+               {isAdmin ? (
+              <Route path="/products/:id" component={UpdateProduct} />
+            ) : (
+              ""
+            )}
                  
               </div>
             </CardContent>
@@ -88,14 +98,10 @@ function MuiProductDetails(props) {
                 <Typography variant="body2" color="textSecondary" component="p" style={{lineHeight: '1.5rem',}}>
                   {book.description}
                 </Typography>
-                </div>
-           
-             
+                </div> 
+
           </CardActionArea>
-      
         </Card>
-     
-      
     </div>
   );
 }
