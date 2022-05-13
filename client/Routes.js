@@ -17,6 +17,7 @@ import store, {
 import CartItem from "./components/CartItem";
 import PastOrders from "./components/PastOrders";
 import GuestCartItem from "./components/GuestCartItem";
+import MuiGuestCart from "./components/muiGuestCart";
 import Profile from "./components/Profile";
 import SearchResults from "./components/SearchResults";
 import Categories from "./components/Categories";
@@ -82,7 +83,7 @@ class Routes extends Component {
             <Route path="/searchTerm" component={SearchResults} />
             <Route exact path="/categories" component={Categories} />
             <Route path="/categories/:id" component={Category} />
-            <Route path="/cartItem" component={GuestCartItem} />
+            <Route path="/cartItem" component={MuiGuestCart} />
             <Route path="/products/:id" component={MuiProductDetails} />
             <Route path="/author" component={Author} />
             <Route path="/test" component={Landing} />
