@@ -34,7 +34,7 @@ function MuiCart(props) {
     table: {
       minWidth: 650,
       padding: "1rem",
-      width: "500px",
+      // width: "500px",
       justifyContent: "center",
       backgroundColor: "white",
       boxShadow: "0 0 25px 4px rgb(0, 0, 0, .25)",
@@ -45,6 +45,7 @@ function MuiCart(props) {
     container: {
       display: "flex",
       justifyContent: "center",
+      alignItems: "center",
       // backgroundColor: "#3f51b5",
     },
     cell: {
@@ -59,6 +60,8 @@ function MuiCart(props) {
     main: {
       display: "flex",
       flexDirection: "column",
+      marginLeft: "18rem",
+      marginRight: "18rem",
     },
     total: {
       fontSize: "18px",
