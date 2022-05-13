@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
   AppBar: {
     margin: "0",
+    backgroundColor: "#125B50",
   },
 }));
 
