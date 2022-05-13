@@ -143,7 +143,7 @@ const AuthForm = (props) => {
               margin="normal"
               fullWidth
               name="email"
-              label="mail"
+              label="Email"
               type="text"
               id="email"
                error={emailError}

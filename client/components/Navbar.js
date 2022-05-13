@@ -166,8 +166,32 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
           </>
         :
         <>
-          <Link to="/login" style={{textDecoration: "inherit", color: 'inherit'}}> <MenuItem> Login </MenuItem> </Link>
-          <Link to="/signup" style={{textDecoration: "inherit", color: 'inherit'}}> <MenuItem> Sign Up </MenuItem> </Link>
+        <div className={classes.root}>
+            <Button ref={anchorRef}
+              aria-controls={open ? 'menu-list-grow' : undefined}
+              aria-haspopup="true"
+              onClick={handleToggle}> 
+              <AccountCircleIcon style={{color: 'white'}} />
+            </Button>
+            <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+              {({ TransitionProps, placement }) => (
+                <Grow
+                  {...TransitionProps}
+                  style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                >
+                  <Paper>
+                    <ClickAwayListener onClickAway={handleClose}>
+                      <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                        <Link to="/login" style={{textDecoration: "inherit", color: 'inherit'}}><MenuItem onClick={handleClose}>Login</MenuItem></Link>
+                        <Link to="/signup" style={{textDecoration: "inherit", color: 'inherit'}}><MenuItem onClick={handleClose}>Sign Up</MenuItem></Link>
+                      </MenuList>
+                    </ClickAwayListener>
+                  </Paper>
+                </Grow>
+              )}
+            </Popper>
+          </div>
+  
           <Link to="/cartItem" > <MenuItem> <ShoppingCartOutlinedIcon style={{color: 'white'}}/> </MenuItem></Link>
         </>
          }

@@ -35,9 +35,17 @@ const useStyles = makeStyles({
     textDecoration: "none",
   },
 
+  pageTitle: {
+    textAlign: "center"
+  },
+
   categoryName: {
-    textAlign: "left",
-    // color: "#FAF5E4",
+    textAlign: "center",
+    fontWeight: "bold",
+    '&:hover': {
+      color: "black" 
+    },
+     color: "#FF6363",
   },
 
   productContainer: {
@@ -46,13 +54,19 @@ const useStyles = makeStyles({
     // backgroundColor: "#125B50",
     // backgroundColor: "#FF6363",
   },
+  categoryCard: {
+    backgroundColor: "#FAF5E4",
+    '&:hover': {
+      boxShadow: "5px 8px #FF6363" 
+    },
+  },
   card: {
     // backgroundColor: "#F8B400",
     // backgroundColor: "#125B50",
     // backgroundColor: "#FF6363",
   },
   media: {
-    height: "200px",
+    height: "225px",
   },
 
   container: {},
@@ -78,7 +92,7 @@ const Categories = (props) => {
 
       <Grid item xs={5} key={category.id} >
                     <Link to={`/categories/${category.id}`}>
-        <Card classes={classes.category}>
+        <Card classes={classes.category} className={classes.categoryCard}>
           <CardContent className={classes.card}>
             <Typography
               gutterBottom
@@ -91,15 +105,18 @@ const Categories = (props) => {
           </CardContent>
 
           <CardActionArea className={classes.productContainer}>
-            <Grid container spacing={2} justifyContent="flex-start" >
+            <Grid container spacing={2} justifyContent="center" >
               {firstThreeProducts.map((product) => {
-                //the plan is to have the first 3 book images thats in that category displayed, when clicked will link to that specific book.
+
                 return (
                   <Grid
                     item
                     xs={3}
                     key={product.id}
-                    style={{ paddingLeft: "1.5rem" }}
+                    style={{ paddingLeft: "1.5rem",
+                    minWidth: 175,
+                    maxWidth: 175
+                   }}
                   >
                     <Link to={`/products/${product.id}`}>
                       <Card className={classes.threeProducts}>
@@ -142,13 +159,29 @@ const Categories = (props) => {
         variant="h4"
         style={{
           padding: "1rem",
-          marginLeft: "9rem",
+          //marginLeft: "9rem",
           marginTop: "0.5rem",
           marginBottom: "0.5rem",
+          fontWeight: "bold", 
+          fontSize: 48
         }}
+        className={classes.pageTitle}
       >
         {" "}
-        Categories{" "}
+        From Our Bookshelves{" "}
+      </Typography>
+      <Typography
+        variant="h4"
+        style={{
+          padding: "1rem",
+          marginBottom: "0.5rem",
+          fontStyle: "italic",
+          fontSize: 14
+        }}
+        className={classes.pageTitle}
+      >
+        {" "}
+        Discover the best books to read right now including trending titles, bookseller recommendations, new releases and more{" "}
       </Typography>
       <Grid
         container
