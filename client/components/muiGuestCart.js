@@ -175,7 +175,7 @@ function MuiGuestCart(props) {
                     }, 0)
                   : 0}
                 <Box className={classes.stripe}>
-                  <Stripe />
+                  <Stripe gcTotal={total} history={props.history} />
                 </Box>
               </TableCell>
             </TableRow>
