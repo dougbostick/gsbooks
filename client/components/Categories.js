@@ -50,7 +50,8 @@ const Categories = (props) => {
       .filter((product) => product.categoryId === category.id)
       .splice(0, 3);
     return (
-      <Grid item xs={5} key={category.id}>
+      <Grid item xs={5} key={category.id} >
+                    <Link to={`/categories/${category.id}`}>
         <Card classes={classes.category}>
           <CardContent>
             <Typography
@@ -65,7 +66,7 @@ const Categories = (props) => {
           </CardContent>
 
           <CardActionArea className={classes.productContainer}>
-            <Grid container spacing={2} justifyContent="flex-start">
+            <Grid container spacing={2} justifyContent="flex-start" >
               {firstThreeProducts.map((product) => {
                 //the plan is to have the first 3 book images thats in that category displayed, when clicked will link to that specific book.
                 return (
@@ -100,6 +101,7 @@ const Categories = (props) => {
             </Button>
           </CardActions>
         </Card>
+        </Link>
       </Grid>
     );
   });

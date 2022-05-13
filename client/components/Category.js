@@ -44,39 +44,41 @@ const Category = (props) => {
   const books = products.map((book) => {
     return (
       <Grid item key={book.id} xs={3}>
-        <Card className={classes.product}> 
-            <CardActionArea>
-                <CardContent>
-                    <CardMedia className={classes.media} style={{display: 'flex', justifyContent:'center', alignItems:'center'}}> 
-                         <Link to={`/products/${book.id}`} >
-                            <img src={book.thumbUrl} style={{height: '200px'}}/>
-                         </Link>
-                    </CardMedia>
-                    
-                    <div className={classes.info}>
-                        <Typography variant='h5'> 
-                            <Link to={`/products/${book.id}`} >
-                                {book.name}
-                           </Link>
-                        </Typography>
-                        
-                        <Typography variant='subtitle2' style={{fontSize: '1.3rem'}}>
-                            ${book.price}
-                        </Typography>
-                    </div>
-                    
-                     <Typography variant='subtitle2' style={{marginTop: '0.5rem'}}> 
-                        {book.author} 
-                     </Typography>
-            
-                </CardContent>
-                <Button onClick={() =>  props.isLoggedin.id
-            ? addCartItem(book, 1)
-            : addGuestCartItem(book, 1)} size="small" style={{marginLeft: '1rem', marginBottom: '1rem', color: 'white', fontWeight: 'bold', backgroundColor: 'grey', padding: '0.5rem'}}> Add to Cart </Button>
-         
-            </CardActionArea>
-        
-        </Card>
+        <Link to={`/products/${book.id}`}>
+          <Card className={classes.product}> 
+              <CardActionArea>
+                  <CardContent>
+                      <CardMedia className={classes.media} style={{display: 'flex', justifyContent:'center', alignItems:'center'}}> 
+                          <Link to={`/products/${book.id}`} >
+                              <img src={book.thumbUrl} style={{height: '200px'}}/>
+                          </Link>
+                      </CardMedia>
+                      
+                      <div className={classes.info}>
+                          <Typography variant='h5'> 
+                              <Link to={`/products/${book.id}`} >
+                                  {book.name}
+                            </Link>
+                          </Typography>
+                          
+                          <Typography variant='subtitle2' style={{fontSize: '1.3rem'}}>
+                              ${book.price}
+                          </Typography>
+                      </div>
+                      
+                      <Typography variant='subtitle2' style={{marginTop: '0.5rem'}}> 
+                          {book.author} 
+                      </Typography>
+              
+                  </CardContent>
+                  <Button onClick={() =>  props.isLoggedin.id
+              ? addCartItem(book, 1)
+              : addGuestCartItem(book, 1)} size="small" style={{marginLeft: '1rem', marginBottom: '1rem', color: 'white', fontWeight: 'bold', backgroundColor: 'grey', padding: '0.5rem'}}> Add to Cart </Button>
+          
+              </CardActionArea>
+          
+          </Card>
+        </Link>
       </Grid>
     );
   });
