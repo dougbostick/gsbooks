@@ -96,7 +96,7 @@ function MuiCart(props) {
                         component="th"
                         scope="row"
                         className={classes.cell}
-                        style={{ width: "200px" }}
+                        style={{ width: "180px" }}
                       >
                         {
                           props.state.products.find(
@@ -109,10 +109,11 @@ function MuiCart(props) {
                         component="th"
                         scope="row"
                         className={classes.cell}
+                        style={{ width: "100px" }}
                       >
                         {item.price / 100}
                       </TableCell>
-                      <TableCell className={classes.cell}>
+                      <TableCell style={{ width: "60px" }}>
                         {item.quantity}
                       </TableCell>
                       <TableCell className={classes.quantity}>

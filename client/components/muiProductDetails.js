@@ -30,6 +30,7 @@ const useStyles = makeStyles({
   main: {
     display: "flex",
     justifyContent: "center",
+    // backgroundColor: "#3a7563",
   },
   update: {
     margin: "8px",

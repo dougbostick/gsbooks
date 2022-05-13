@@ -10,6 +10,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core";
 
 const useStyles = makeStyles({
   title: {
@@ -32,12 +33,17 @@ const useStyles = makeStyles({
     textAlign: "left",
   },
 
-
   productContainer: {
     padding: "1rem 0",
   },
   media: {
-    height: '200px',
+    height: "200px",
+  },
+
+  container: {},
+  grid: {
+    // backgroundColor: "#3a7563",
+    marginTop: "0",
   },
 });
 
@@ -50,7 +56,7 @@ const Categories = (props) => {
       .filter((product) => product.categoryId === category.id)
       .splice(0, 3);
     return (
-      <Grid item xs={5} key={category.id}>
+      <Grid item xs={5} key={category.id} className={classes.container}>
         <Card classes={classes.category}>
           <CardContent>
             <Typography
@@ -77,8 +83,13 @@ const Categories = (props) => {
                   >
                     <Link to={`/products/${product.id}`}>
                       <Card className={classes.threeProducts}>
-                        <CardMedia className={classes.media} style={{background: `url(${product.thumbUrl})`, backgroundSize: 'cover'}}>
-                        </CardMedia>
+                        <CardMedia
+                          className={classes.media}
+                          style={{
+                            background: `url(${product.thumbUrl})`,
+                            backgroundSize: "cover",
+                          }}
+                        ></CardMedia>
                       </Card>
                     </Link>
                   </Grid>
@@ -106,7 +117,18 @@ const Categories = (props) => {
 
   return (
     <>
-      <Typography variant='h4' style={{padding: '1rem', marginLeft: '9rem', marginTop: '0.5rem', marginBottom: '0.5rem'}}> Categories </Typography>
+      <Typography
+        variant="h4"
+        style={{
+          padding: "1rem",
+          marginLeft: "9rem",
+          marginTop: "0.5rem",
+          marginBottom: "0.5rem",
+        }}
+      >
+        {" "}
+        Categories{" "}
+      </Typography>
       <Grid
         container
         spacing={10}
