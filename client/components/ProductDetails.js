@@ -12,7 +12,7 @@ const ProductDetails = (props) => {
     .filter((category) => category.id === book.categoryId)
     .map((book) => book.name)
     .join("");
-  console.log(bookCategory);
+
   if (!book) {
     return null;
   }
