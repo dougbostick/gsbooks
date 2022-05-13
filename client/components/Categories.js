@@ -27,14 +27,29 @@ const useStyles = makeStyles({
 
   categoryButton: {
     paddingLeft: "0.8rem",
+    // backgroundColor: "#F8B400",
+    // backgroundColor: "#FF6363",
+    // backgroundColor: "#125B50",
+
+    // color: "#FAF5E4",
+    textDecoration: "none",
   },
 
   categoryName: {
     textAlign: "left",
+    // color: "#FAF5E4",
   },
 
   productContainer: {
     padding: "1rem 0",
+    // backgroundColor: "#F8B400",
+    // backgroundColor: "#125B50",
+    // backgroundColor: "#FF6363",
+  },
+  card: {
+    // backgroundColor: "#F8B400",
+    // backgroundColor: "#125B50",
+    // backgroundColor: "#FF6363",
   },
   media: {
     height: "200px",
@@ -42,8 +57,12 @@ const useStyles = makeStyles({
 
   container: {},
   grid: {
-    // backgroundColor: "#3a7563",
+    // backgroundColor: "#F8B400",
     marginTop: "0",
+  },
+  font: {
+    textDecoration: "none",
+    // color: "#FAF5E4",
   },
 });
 
@@ -58,12 +77,11 @@ const Categories = (props) => {
     return (
       <Grid item xs={5} key={category.id} className={classes.container}>
         <Card classes={classes.category}>
-          <CardContent>
+          <CardContent className={classes.card}>
             <Typography
               gutterBottom
               variant="h5"
               component="h2"
-              color="primary"
               className={classes.categoryName}
             >
               {category.name}
@@ -99,8 +117,8 @@ const Categories = (props) => {
           </CardActionArea>
 
           <CardActions className={classes.categoryButton}>
-            <Button size="small" color="primary">
-              <Link to={`/categories/${category.id}`}>
+            <Button size="small">
+              <Link to={`/categories/${category.id}`} className={classes.font}>
                 View All (
                 {
                   products.filter((item) => item.categoryId === category.id)
