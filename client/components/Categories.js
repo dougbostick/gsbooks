@@ -25,32 +25,37 @@ const useStyles = makeStyles({
   },
   
   category: {
+    backgroundColor: "#FAF5E4",
     '&:hover': {
-      boxShadow: "3px 3px #F8B400" 
+      boxShadow: "3px 3px #FF6363" 
     },
   },
 
   categoryButton: {
     paddingLeft: "0.8rem",
     textDecoration: "none",
+    '&:hover': {
+      fontWeight: "bold",
+    },
   },
   pageTitle: {
-    textAlign: "center"
+    textAlign: "center",
+    fontFamily: "Optima"
   },
 
   categoryName: {
-    textAlign: "left",
+    textAlign: "center",
     fontWeight: 'bold',
     backgroundColor: '#FAF5E4',
-    width: '75%',
+    //width: '75%',
     borderRadius: '10px',
-    paddingLeft: '1rem'
+    //paddingLeft: '1rem'
   },
-
 
   productContainer: {
     padding: "1rem 0",
   },
+
   categoryCard: {
     backgroundColor: "#FAF5E4",
     '&:hover': {
@@ -58,6 +63,7 @@ const useStyles = makeStyles({
       color: 'black'
     },
   },
+
   media: {
     height: '200px',
   },
@@ -73,6 +79,7 @@ const Categories = (props) => {
       .splice(0, 3);
     return (
       <Grid item xs={5} key={category.id}>
+        <Link to={`/categories/${category.id}`}>
         <Card className={classes.category}>
           <CardContent>
             <Typography
@@ -84,7 +91,7 @@ const Categories = (props) => {
           </CardContent>
 
           <CardActionArea className={classes.productContainer}>
-            <Grid container spacing={2} justifyContent="flex-start">
+            <Grid container spacing={2} justifyContent="center">
               {firstThreeProducts.map((product) => {
                 //the plan is to have the first 3 book images thats in that category displayed, when clicked will link to that specific book.
                 return (
@@ -94,7 +101,7 @@ const Categories = (props) => {
                     key={product.id}
                     style={{ paddingLeft: "1.5rem",
                     minWidth: 175,
-                    maxWidth: 175
+                    maxWidth: 175,
                    }}
                   >
                     <Link to={`/products/${product.id}`}>
@@ -109,19 +116,20 @@ const Categories = (props) => {
             </Grid>
           </CardActionArea>
 
-          <CardActions className={classes.categoryButton}>
-            <Button size="small" style={{fontWeight: 'bold'}}>
-              <Link to={`/categories/${category.id}`}>
+          <CardActions >
+            <Button className={classes.categoryButton} size="small" >
+              
                 View All (
                 {
                   products.filter((item) => item.categoryId === category.id)
                     .length
                 }
                 )
-              </Link>
+              
             </Button>
           </CardActions>
         </Card>
+        </Link>
       </Grid>
     );
   });

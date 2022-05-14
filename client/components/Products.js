@@ -22,7 +22,7 @@ const Products = (props) => {
         <td>
           {" "}
           {isAdmin ? (
-            <button onClick={() => remove(book)}> X </button>
+            <button className='delete-button' onClick={() => remove(book)}> Delete </button>
           ) : (
             ""
           )}{" "}

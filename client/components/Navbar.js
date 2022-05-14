@@ -56,16 +56,20 @@ const useStyles = makeStyles((theme) => ({
   },
   
   menuItem: {
-    color: 'white', 
+    color: 'white',
+    fontFamily: 'Optima',
+    fontSize: 20, 
     "&:hover": {
-      color: '#F8B400'
+      color: '#F8B400', 
+      fontWeight: 'bold'
     }
   },
   
   subItem: {
     color: 'black', 
     "&:hover": {
-      color: '#F8B400'
+      //color: '#F8B400',
+      fontWeight: 'bold'
     }
   }
 }));
@@ -121,7 +125,7 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin,userCartItem }) => {
 
           <Link
             to="/categories"
-            style={{ textDecoration: "inherit", color: "inherit" }}
+            style={{ textDecoration: "inherit", color: "inherit", }}
           >
             {" "}
             <MenuItem className={classes.menuItem}> Books </MenuItem>{" "}
@@ -199,8 +203,8 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin,userCartItem }) => {
                   <Paper>
                     <ClickAwayListener onClickAway={handleClose}>
                       <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                        <Link to="/login" style={{textDecoration: "inherit", color: 'inherit'}}><MenuItem className={classes.menuItem} onClick={handleClose}>Login</MenuItem></Link>
-                        <Link to="/signup" style={{textDecoration: "inherit", color: 'inherit'}}><MenuItem className={classes.menuItem} onClick={handleClose}>Sign Up</MenuItem></Link>
+                        <Link to="/login" style={{textDecoration: "inherit", color: 'inherit'}}><MenuItem className={classes.subItem} onClick={handleClose}>Login</MenuItem></Link>
+                        <Link to="/signup" style={{textDecoration: "inherit", color: 'inherit'}}><MenuItem className={classes.subItem} onClick={handleClose}>Sign Up</MenuItem></Link>
                       </MenuList>
                     </ClickAwayListener>
                   </Paper>

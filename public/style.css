@@ -99,3 +99,33 @@ tr:hover {
   padding: 2rem;
   margin: 1rem
 }
+.Sort {
+  margin: 1rem;
+}
+.add-button{
+  margin: 1rem;
+}
+
+.add-input {
+  margin: .5rem;
+  height: 1.75rem;
+  width: 200px;
+  font-size: 1em;
+}
+
+.add-select {
+  margin: .5rem;
+  height: 1.75rem;
+  width: 208px;
+  font-size: 1em;
+  text-align: center;
+}
+
+.add-button{
+  height: 1.75rem;
+  font-size: 1em;
+  
+}
+.add-button{
+  height: 1.75rem;
+}
