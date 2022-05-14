@@ -79,11 +79,11 @@ function MuiProductDetails(props) {
                 </CardMedia>
     
               <div style={{display: 'flex', flexDirection:'column', marginLeft: '3rem'}}> 
-                <Typography variant="h5">
+                <Typography variant="h5" style={{ fontWeight: 'bold'}}>
                   {book.name}
                 </Typography>
                 
-                  <Typography variant="subtitle2" style={{marginTop: '0.3rem'}}>
+                  <Typography variant="subtitle1" style={{marginTop: '0.3rem'}}>
                   <Link to={{ pathname: "/author", state: { author: book.author } }}>
                     by {book.author}
                   </Link>

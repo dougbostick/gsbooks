@@ -109,13 +109,13 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin,userCartItem }) => {
     <div className={classes.root}>
       <AppBar className={classes.AppBar} position="static">
         <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Typography className={classes.title} variant="h4" noWrap>
             <Link
               to={"/home"}
-              style={{ textDecoration: "inherit", color: "inherit" }}
+              style={{ textDecoration: "inherit", color: "inherit", fontFamily: 'Optima', fontWeight: 'bold' }}
             >
               {" "}
-             <u style={{textDecorationColor: '#F8B400'}}> Graceshopper </u>{" "}
+             <u style={{textDecorationColor: '#F8B400'}}> Folio Four </u>{" "}
             </Link>
           </Typography>
 
@@ -166,7 +166,7 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin,userCartItem }) => {
                     <ClickAwayListener onClickAway={handleClose}>
                       <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                         <Link to="/profile" style={{textDecoration: "inherit", color: 'inherit'}}><MenuItem className={classes.subItem} onClick={handleClose}>Profile</MenuItem></Link>
-                        <MenuItem className={classes.subItem} onClick={handleClose}>Logout</MenuItem>
+                        <MenuItem className={classes.subItem} onClick={handleClick}>Logout</MenuItem>
                       </MenuList>
                     </ClickAwayListener>
                   </Paper>
@@ -174,8 +174,6 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin,userCartItem }) => {
               )}
             </Popper>
           </div>
-          
-          <MenuItem onClick={handleClick} className={classes.menuItem}> Logout </MenuItem>
           <Link to="/cartItem" > <MenuItem style={{color:'white'}}> <ShoppingCartOutlinedIcon style={{color: 'white'}}/> 
             ({userCartItem.reduce((a,b) => {
               return a += b.quantity

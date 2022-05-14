@@ -17,7 +17,6 @@ const Products = (props) => {
         <td>
           <Link to={`/products/${book.id}`}> {book.name} </Link>{" "}
         </td>
-        <td> {book.ISBN} </td>
         <td> {book.author} </td>
         <td> {book.price} </td>
         <td>
@@ -50,7 +49,6 @@ const Products = (props) => {
           <tbody>
             <tr>
               <th> Title </th>
-              <th> ISBN </th>
               <th> Author </th>
               <th> Price </th>
               <th> Delete Product </th>

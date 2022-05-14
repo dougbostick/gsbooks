@@ -90,7 +90,7 @@ const Products = (props) => {
                 </div>
                 
                  <div style={{display:'flex', flexDirection: 'column', width:'50%', padding: '2rem', alignItems: 'center'}}>
-                    <Typography variant='h5'> {_author.name} </Typography>
+                    <Typography variant='h5' style={{fontWeight: 'bold'}}> {_author.name} </Typography>
                   <Typography variant='subtitle2' style={{marginTop: '0.5rem', lineHeight: '2rem'}}> {_author.bio} </Typography>
                  </div>
                  </>

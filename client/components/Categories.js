@@ -32,6 +32,10 @@ const useStyles = makeStyles({
 
   categoryButton: {
     paddingLeft: "0.8rem",
+    textDecoration: "none",
+  },
+  pageTitle: {
+    textAlign: "center"
   },
 
   categoryName: {
@@ -46,6 +50,13 @@ const useStyles = makeStyles({
 
   productContainer: {
     padding: "1rem 0",
+  },
+  categoryCard: {
+    backgroundColor: "#FAF5E4",
+    '&:hover': {
+      boxShadow: "5px 8px #FF6363",
+      color: 'black'
+    },
   },
   media: {
     height: '200px',
