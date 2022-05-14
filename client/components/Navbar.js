@@ -97,11 +97,11 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
             <Link
-              to={"/"}
+              to={"/home"}
               style={{ textDecoration: "inherit", color: "inherit" }}
             >
               {" "}
-              Graceshopper{" "}
+             <u style={{textDecorationColor: '#F8B400'}}> Graceshopper </u>{" "}
             </Link>
           </Typography>
 
@@ -160,7 +160,7 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
               )}
             </Popper>
           </div>
-
+          
           <MenuItem onClick={handleClick}> Logout </MenuItem>
           <Link to="/cartItem" > <MenuItem> <ShoppingCartOutlinedIcon style={{color: 'white'}}/> </MenuItem></Link>
           </>
