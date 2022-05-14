@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
+const Navbar = ({ handleClick, isLoggedIn, isAdmin,userCartItem }) => {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
@@ -176,7 +176,12 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
           </div>
           
           <MenuItem onClick={handleClick} className={classes.menuItem}> Logout </MenuItem>
-          <Link to="/cartItem" > <MenuItem> <ShoppingCartOutlinedIcon style={{color: 'white'}}/> </MenuItem></Link>
+          <Link to="/cartItem" > <MenuItem style={{color:'white'}}> <ShoppingCartOutlinedIcon style={{color: 'white'}}/> 
+            ({userCartItem.reduce((a,b) => {
+              return a += b.quantity
+            },0)}) 
+          </MenuItem>
+          </Link>
           </>
         :
         <>
@@ -219,7 +224,10 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
  * CONTAINER
  */
 const mapState = (state) => {
+  console.log(state.cartItem)
+  const userCartItem = state.cartItem.filter(product => product.userId === state.auth.id)
   return {
+    userCartItem,
     isLoggedIn: !!state.auth.id,
     isAdmin: state.auth.admin,
   };
