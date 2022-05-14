@@ -125,7 +125,7 @@ const Category = (props) => {
 
   return (
     <>
-      <Typography variant='h5' style={{ textAlign: "center",fontWeight: 'bold', backgroundColor: '#FAF5E4', borderRadius: '10px', paddingLeft: '1rem', marginTop: '1rem', marginLeft: '1rem'}}> {category} </Typography>;
+      <Typography variant='h5' style={{ textAlign: "center",fontWeight: 'bold', backgroundColor: '#FAF5E4', borderRadius: '10px', paddingLeft: '1rem', margin:'auto', marginTop: '1rem', width: '25%', padding:'0.3rem'}}> {category} </Typography>;
       <Grid container spacing={2}>
         {books}
       </Grid>
