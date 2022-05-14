@@ -28,7 +28,7 @@ const useStyles = makeStyles({
   categoryButton: {
     paddingLeft: "0.8rem",
     // backgroundColor: "#F8B400",
-    // backgroundColor: "#FF6363",
+     backgroundColor: "#FF6363",
     // backgroundColor: "#125B50",
 
     // color: "#FAF5E4",
