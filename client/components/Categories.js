@@ -160,8 +160,6 @@ const Categories = (props) => {
       <Typography
         variant="h4"
         style={{
-          padding: "1rem",
-          marginBottom: "0.5rem",
           fontStyle: "italic",
           fontSize: 14
         }}

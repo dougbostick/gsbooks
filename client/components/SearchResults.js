@@ -61,7 +61,18 @@ const SearchResults = (props) => {
         <Card className={classes.product} style={{marginBottom: '1rem'}}> 
             <CardActionArea>
                 <CardContent>
-                    <CardMedia className={classes.media}> </CardMedia>
+                     <CardMedia
+                          className={classes.media}
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <Link to={`/products/${book.id}`}>
+                            <img src={book.thumbUrl} style={{ height: "200px" }} />
+                          </Link>
+                    </CardMedia>
                     
                     <div className={classes.info}>
                         <Typography variant='h5'> 
@@ -87,7 +98,6 @@ const SearchResults = (props) => {
             </CardActionArea>
         
         </Card>
-        {isAdmin ? <button onClick={ () => remove(book) } > X </button> : ''}
       </Grid>
     );
   });
@@ -95,7 +105,7 @@ const SearchResults = (props) => {
   return (
     <>
       <Button style={{marginTop: '1rem', marginLeft: '1rem'}}> 
-        <Link to={'/categories'}> <ArrowBackIcon/> </Link>
+        <Link to={'/categories'}> <ArrowBackIcon style={{color: '#FF6363'}}/> </Link>
       </Button>
       
       <Typography variant='h5' style={{marginLeft: '1rem', marginBottom: '1rem'}}> There {searchResults.length === 1 ? "is" : "are" } {searchResults.length} {searchResults.length === 1 ? "result" : "results" } matching {searchTerm}</Typography>
