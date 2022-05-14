@@ -102,7 +102,7 @@ function MuiProductDetails(props) {
                       : addGuestCartItem(book, 1)} 
                       size="small"
                       className={classes.btn}
-                      style={{marginBottom: '1rem', color: 'white', fontWeight: 'bold', padding: '0.5rem', marginTop: '1rem'}}
+                      style={{marginBottom: '1rem', color: 'white', fontWeight: 'bold', padding: '0.5rem', marginTop: '1rem', marginRight:'auto'}}
                       > 
                       Add to Cart 
                   </Button>
