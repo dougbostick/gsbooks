@@ -46,6 +46,13 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2, 2),
+     backgroundColor: "black",
+     color: "white",
+    "&:hover": {
+      backgroundColor: "#125B50",
+      border: "2px solid black",
+      fontWeight: 'bold'
+    }
   },
   
   formControl: {
@@ -158,7 +165,6 @@ const AuthForm = (props) => {
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
               className={classes.submit}
             >
               {displayName}
