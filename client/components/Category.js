@@ -23,6 +23,8 @@ const useStyles = makeStyles({
 
   media: {
     height: 275,
+    background: "",
+    borderRadius: '10px'
   },
 
   product: {
@@ -31,9 +33,8 @@ const useStyles = makeStyles({
     minHeight: 450,
     maxHeight: 450,
     "&:hover": {
-      boxShadow: "5px 8px #FF6363",
+      boxShadow: "3px 3px #F8B400",
     },
-    background: "#FAF5E4",
   },
 
   info: {
@@ -42,6 +43,15 @@ const useStyles = makeStyles({
     alignItems: "center",
     justifyContent: "space-between",
   },
+  
+  btn: {
+    backgroundColor: "black",
+    "&:hover": {
+      backgroundColor: "#FF6363",
+      border: "1px solid black"
+    },
+
+  }
 });
 
 const Category = (props) => {
@@ -70,8 +80,8 @@ const Category = (props) => {
                 <div className={classes.info}>
                   <Typography variant="h5">
                     <Link to={`/products/${book.id}`}>
-                      {book.name.length > 30
-                        ? book.name.slice(0, 30) + "..."
+                      {book.name.length > 25
+                        ? book.name.slice(0, 25) + "..."
                         : book.name}
                     </Link>
                   </Typography>
@@ -89,6 +99,7 @@ const Category = (props) => {
                 </Typography>
               </CardContent>
               <Button
+              className={classes.btn}
                 onClick={() =>
                   props.isLoggedin.id
                     ? addCartItem(book, 1)
@@ -100,7 +111,7 @@ const Category = (props) => {
                   marginBottom: "1rem",
                   color: "white",
                   fontWeight: "bold",
-                  backgroundColor: "grey",
+                  fontSize: '0.8rem',
                   padding: "0.5rem",
                 }}
               >
@@ -116,7 +127,7 @@ const Category = (props) => {
 
   return (
     <>
-      <h3 className={classes.title}> {category} </h3>;
+      <Typography variant='h5' style={{ textAlign: "left",fontWeight: 'bold', backgroundColor: '#FAF5E4',width: '75%', borderRadius: '10px', paddingLeft: '1rem', marginTop: '1rem', marginLeft: '1rem'}}> {category} </Typography>;
       <Grid container spacing={2}>
         {books}
       </Grid>
