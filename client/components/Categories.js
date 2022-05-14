@@ -11,7 +11,6 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core";
-
 const useStyles = makeStyles({
   title: {
     height: "25px",
@@ -20,25 +19,22 @@ const useStyles = makeStyles({
     alignItems: "center",
     padding: "1rem",
   },
-
   root: {
     maxWidth: 345,
   },
-
   categoryButton: {
     paddingLeft: "0.8rem",
     // backgroundColor: "#F8B400",
     // backgroundColor: "#FF6363",
+     backgroundColor: "#FF6363",
     // backgroundColor: "#125B50",
 
     // color: "#FAF5E4",
     textDecoration: "none",
   },
-
   pageTitle: {
     textAlign: "center"
   },
-
   categoryName: {
     textAlign: "center",
     fontWeight: "bold",
@@ -47,7 +43,6 @@ const useStyles = makeStyles({
     },
      color: "#FF6363",
   },
-
   productContainer: {
     padding: "1rem 0",
     // backgroundColor: "#F8B400",
@@ -68,7 +63,6 @@ const useStyles = makeStyles({
   media: {
     height: "225px",
   },
-
   container: {},
   grid: {
     // backgroundColor: "#F8B400",
@@ -79,17 +73,14 @@ const useStyles = makeStyles({
     // color: "#FAF5E4",
   },
 });
-
 const Categories = (props) => {
   const { products } = props;
   const classes = useStyles();
-
   const categories = props.categories.map((category) => {
     const firstThreeProducts = products
       .filter((product) => product.categoryId === category.id)
       .splice(0, 3);
     return (
-
       <Grid item xs={5} key={category.id} >
                     <Link to={`/categories/${category.id}`}>
         <Card classes={classes.category} className={classes.categoryCard}>
@@ -103,11 +94,9 @@ const Categories = (props) => {
               {category.name}
             </Typography>
           </CardContent>
-
           <CardActionArea className={classes.productContainer}>
             <Grid container spacing={2} justifyContent="center" >
               {firstThreeProducts.map((product) => {
-
                 return (
                   <Grid
                     item
@@ -134,7 +123,6 @@ const Categories = (props) => {
               })}
             </Grid>
           </CardActionArea>
-
           <CardActions className={classes.categoryButton}>
             <Button size="small">
               <Link to={`/categories/${category.id}`} className={classes.font}>
@@ -152,7 +140,6 @@ const Categories = (props) => {
       </Grid>
     );
   });
-
   return (
     <>
       <Typography
@@ -194,5 +181,4 @@ const Categories = (props) => {
     </>
   );
 };
-
 export default connect((state) => state)(Categories);
