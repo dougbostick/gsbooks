@@ -108,7 +108,7 @@ const SearchResults = (props) => {
                      </Typography>
             
                 </CardContent>
-                <Button onClick={() =>  props.isLoggedin.id
+                <Button onClick={() =>  props.isLoggedin
             ? addCartItem(book, 1)
             : addGuestCartItem(book, 1)} size="small" className={classes.btn} style={{marginLeft: '1rem', marginBottom: '1rem', color: 'white', fontWeight: 'bold', padding: '0.5rem'}}> Add to Cart </Button>
          
