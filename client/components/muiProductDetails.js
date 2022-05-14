@@ -78,12 +78,12 @@ function MuiProductDetails(props) {
                   <img src={book.thumbUrl} className={classes.media} style={{display: 'flex', justifyContent:'center', alignItems:'center'}}/>
                 </CardMedia>
     
-              <div style={{display: 'flex', flexDirection:'column', marginLeft: '3rem'}}> 
-                <Typography variant="h5" style={{ fontWeight: 'bold'}}>
+              <div style={{display: 'flex', flexDirection:'column', marginLeft: '3rem' }}> 
+                <Typography variant="h5" style={{ fontWeight: 'bold', fontFamily: "optima"}}>
                   {book.name}
                 </Typography>
                 
-                  <Typography variant="subtitle1" style={{marginTop: '0.3rem'}}>
+                  <Typography variant="subtitle1" style={{marginTop: '0.3rem', fontFamily: "optima"}}>
                   <Link to={{ pathname: "/author", state: { author: book.author } }}>
                     by {book.author}
                   </Link>
@@ -117,7 +117,7 @@ function MuiProductDetails(props) {
             </CardContent>
             
                 <div style={{padding: '1rem'}}>
-                <Typography variant='h6'> Description </Typography>
+                <Typography variant='h6' style={{fontFamily: "optima"}}> Description </Typography>
                 <Typography variant="body2" color="textSecondary" component="p" style={{lineHeight: '1.5rem',}}>
                   {book.description}
                 </Typography>

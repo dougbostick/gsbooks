@@ -81,7 +81,6 @@ const Products = (props) => {
                     > View Details </Button>
                     </Link>
                 </CardActionArea>
-            
             </Card>
       </Grid>
       )
@@ -100,7 +99,7 @@ const Products = (props) => {
                 </div>
                 
                  <div style={{display:'flex', flexDirection: 'column', width:'50%', padding: '2rem', alignItems: 'center'}}>
-                    <Typography variant='h5' style={{fontWeight: 'bold'}}> {_author.name} </Typography>
+                    <Typography variant='h5' style={{fontWeight: 'bold', fontFamily: "optima"}} > {_author.name} </Typography>
                   <Typography variant='subtitle2' style={{marginTop: '0.5rem', lineHeight: '2rem'}}> {_author.bio} </Typography>
                  </div>
                  </>
@@ -108,7 +107,7 @@ const Products = (props) => {
              })
            }
         </Card>
-         <Typography variant="h6" style={{marginLeft: '1rem', marginBottom: '1rem'}}> All Books By {author} </Typography>
+         <Typography variant="h6" style={{marginLeft: '1rem', marginBottom: '1rem', fontFamily: "optima"}}> All Books By {author} </Typography>
          <Grid container spacing={2}>
          {books}
          </Grid>

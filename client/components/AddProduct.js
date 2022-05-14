@@ -33,10 +33,10 @@ class AddProduct extends Component {
         const { name, author, price, categoryId } = this.state
         return (
             <form onSubmit={ submit }> 
-                <input onChange={ev => this.setState({name: ev.target.value})} name='name' value={name} placeholder='Product Name' />
-                <input onChange={ev => this.setState({author: ev.target.value})} name='author' value={author} placeholder='Product Author' />
-                <input onChange={ev => this.setState({price: ev.target.value})} name='price' value={price} placeholder='Product Price' />
-                <select value={ categoryId } name='categoryId' onChange={ ev => this.setState({ categoryId: ev.target.value })}>
+                <input className='add-input' onChange={ev => this.setState({name: ev.target.value})} name='name' value={name} placeholder='Product Name' />
+                <input className='add-input' onChange={ev => this.setState({author: ev.target.value})} name='author' value={author} placeholder='Product Author' />
+                <input className='add-input' onChange={ev => this.setState({price: ev.target.value})} name='price' value={price} placeholder='Product Price' />
+                <select input className='add-select' value={ categoryId } name='categoryId' onChange={ ev => this.setState({ categoryId: ev.target.value })}>
                         <option value=''> Select A Category </option>
                     {
                         categories.map(  category => {
@@ -46,7 +46,7 @@ class AddProduct extends Component {
                         })
                     }
                     </select>
-                 <button disabled={!name || !author || !price || !categoryId }>Add Product</button>
+                 <button className='add-button' disabled={!name || !author || !price || !categoryId }>Add Product</button>
             </form>
             )
     }
