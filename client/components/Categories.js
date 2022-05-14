@@ -27,7 +27,7 @@ const useStyles = makeStyles({
   category: {
     backgroundColor: "#FAF5E4",
     '&:hover': {
-      boxShadow: "3px 3px #FF6363" 
+      boxShadow: "3px 3px #FF6363"
     },
   },
 
@@ -46,7 +46,6 @@ const useStyles = makeStyles({
   categoryName: {
     textAlign: "center",
     fontWeight: 'bold',
-    backgroundColor: '#FAF5E4',
     //width: '75%',
     borderRadius: '10px',
     //paddingLeft: '1rem'
@@ -59,7 +58,7 @@ const useStyles = makeStyles({
   categoryCard: {
     backgroundColor: "#FAF5E4",
     '&:hover': {
-      boxShadow: "5px 8px #FF6363",
+      boxShadow: "3px 3px #F8B400",
       color: 'black'
     },
   },
