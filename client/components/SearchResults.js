@@ -29,14 +29,31 @@ const useStyles = makeStyles({
   
   product: {
      margin: '0 1rem',
+       "&:hover": {
+      boxShadow: "3px 3px #F8B400",
+    },
   },
   
   info: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between'
+  },
+  
+  btn: {
+    backgroundColor: "black",
+    "&:hover": {
+      backgroundColor: "#FF6363",
+      border: "1px solid black"
+    }
+  },
+  
+  back: {
+    color: 'black',
+    "&:hover": {
+      color: "#FF6363",
+    }
   }
-    
  
 });
 
@@ -93,7 +110,7 @@ const SearchResults = (props) => {
                 </CardContent>
                 <Button onClick={() =>  props.isLoggedin.id
             ? addCartItem(book, 1)
-            : addGuestCartItem(book, 1)} size="small" style={{marginLeft: '1rem', marginBottom: '1rem', color: 'white', fontWeight: 'bold', backgroundColor: 'grey', padding: '0.5rem'}}> Add to Cart </Button>
+            : addGuestCartItem(book, 1)} size="small" className={classes.btn} style={{marginLeft: '1rem', marginBottom: '1rem', color: 'white', fontWeight: 'bold', padding: '0.5rem'}}> Add to Cart </Button>
          
             </CardActionArea>
         
@@ -105,10 +122,12 @@ const SearchResults = (props) => {
   return (
     <>
       <Button style={{marginTop: '1rem', marginLeft: '1rem'}}> 
-        <Link to={'/categories'}> <ArrowBackIcon style={{color: '#FF6363'}}/> </Link>
+        <Link to={'/categories'}> <ArrowBackIcon className={classes.back}/> </Link>
       </Button>
       
-      <Typography variant='h5' style={{marginLeft: '1rem', marginBottom: '1rem'}}> There {searchResults.length === 1 ? "is" : "are" } {searchResults.length} {searchResults.length === 1 ? "result" : "results" } matching {searchTerm}</Typography>
+      <Typography variant='h5' style={{textAlign: "left",fontWeight: 'bold', backgroundColor: '#FAF5E4',width: '75%', borderRadius: '10px', paddingLeft: '1rem', marginTop: '1rem', marginLeft: '1rem', marginBottom: '1rem'}}> 
+        There {searchResults.length === 1 ? "is" : "are" } {searchResults.length} {searchResults.length === 1 ? "result" : "results" } matching {searchTerm}
+      </Typography>
       <Grid container spacing={2}>
         {books}
       </Grid>
