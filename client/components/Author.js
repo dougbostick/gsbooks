@@ -25,12 +25,22 @@ const useStyles = makeStyles({
   
   product: {
      margin: '0 1rem',
+      "&:hover": {
+      boxShadow: "3px 3px #F8B400",
+    },
   },
   
   info: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between'
+  },
+    btn: {
+        backgroundColor: "black",
+        "&:hover": {
+          backgroundColor: "#FF6363",
+          border: "1px solid black"
+    },
   }
     
 });
@@ -67,7 +77,7 @@ const Products = (props) => {
                     </CardContent>
                     
                     <Link to={`/products/${book.id}`} >
-                    <Button style={{marginLeft: '1rem', marginBottom: '1rem', color: 'white', fontWeight: 'bold', backgroundColor: 'grey', padding: '0.5rem'}} 
+                    <Button className={classes.btn} style={{marginLeft: '1rem', marginBottom: '1rem', color: 'white', fontWeight: 'bold', padding: '0.5rem'}} 
                     > View Details </Button>
                     </Link>
                 </CardActionArea>
