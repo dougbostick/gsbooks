@@ -175,9 +175,6 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin,userCartItem }) => {
             </Popper>
           </div>
           <Link to="/cartItem" > <MenuItem style={{color:'white'}}> <ShoppingCartOutlinedIcon style={{color: 'white'}}/> 
-            ({userCartItem.reduce((a,b) => {
-              return a += b.quantity
-            },0)}) 
           </MenuItem>
           </Link>
           </>
