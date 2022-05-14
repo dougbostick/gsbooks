@@ -125,7 +125,9 @@ const SearchResults = (props) => {
         <Link to={'/categories'}> <ArrowBackIcon className={classes.back}/> </Link>
       </Button>
       
-      <Typography variant='h5' style={{marginLeft: '1rem', marginBottom: '1rem'}}> There {searchResults.length === 1 ? "is" : "are" } {searchResults.length} {searchResults.length === 1 ? "result" : "results" } matching {searchTerm}</Typography>
+      <Typography variant='h5' style={{textAlign: "left",fontWeight: 'bold', backgroundColor: '#FAF5E4',width: '75%', borderRadius: '10px', paddingLeft: '1rem', marginTop: '1rem', marginLeft: '1rem', marginBottom: '1rem'}}> 
+        There {searchResults.length === 1 ? "is" : "are" } {searchResults.length} {searchResults.length === 1 ? "result" : "results" } matching {searchTerm}
+      </Typography>
       <Grid container spacing={2}>
         {books}
       </Grid>
