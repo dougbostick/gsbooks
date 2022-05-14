@@ -86,8 +86,8 @@ async function seed() {
     }),
     Author.create({
       name: "Tara Westover",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Tara Westover is an American author living in the UK. Born in Idaho to a father opposed to public education, she never attended school. She spent her days working in her father's junkyard or stewing herbs for her mother, a self-taught herbalist and midwife. She was seventeen the first time she set foot in a classroom, and after that first taste, she pursued learning for a decade. She graduated magna cum laude from Brigham Young University in 2008 and was subsequently awarded a Gates Cambridge Scholarship. She earned an MPhil from Trinity College, Cambridge in 2009, and in 2010 was a visiting fellow at Harvard University. She returned to Cambridge, where she was awarded a PhD in history in 2014.",
+      imageUrl: "auth-TaraWestover.jpeg",
     }),
     Author.create({
       name: "Shel Silverstein",
@@ -101,8 +101,8 @@ async function seed() {
     }),
     Author.create({
       name: "Wendy Leigh",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Wendy Leigh is the New York Times bestselling author of sixteen books, including Bowie, Prince Charming: The John F. Kennedy Jr. Story, and The Secret Letters of Marilyn Monroe & Jacqueline Kennedy, and the coauthor of Life with My Sister Madonna, Jeannie Out of the Bottle, and Shirley Jones.",
+      imageUrl: "auth-WendyLeigh.jpeg",
     }),
     Author.create({
       name: "Dan Harris",
@@ -136,7 +136,7 @@ async function seed() {
     }),
     Author.create({
       name: "Rose Levy Beranbaum",
-      bio: "some person",
+      bio: "Rose Levy Beranbaum is the award-winning author of 12 cookbooks, including the latest--Rose's Ice Cream Bliss, Rose's Baking Basics, and The Baking Bible (the International Association of Culinary Professional Best Baking Book of the Year) and The Cake Bible, now in its 56th printing and the International Association of Culinary Professionals Cookbook of the Year for 1988. In 2017 it was inducted into the Culinary Classics Hall of Fame. The Cake Bible was also listed by the James Beard Foundation as one of the top 13 baking books on the Essential Book List.",
       imageUrl: "auth-RoseLevyB.jpeg",
     }),
     Author.create({
@@ -156,8 +156,8 @@ async function seed() {
     }),
     Author.create({
       name: "Peter Hessler",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Peter Hessler is a correspondent for the New Yorker and a contributor to National Geographic. He is the author of ORACLE BONES and RIVER TOWN, which won the 2001 Kiriyama Pacific Rim Book Prize. In 2011 he was awarded a MacArthur Foundation 'genius grant'. Born in Columbia, Missouri, he now lives in Cairo with his wife and daughter",
+      imageUrl: "auth-PeterHessler.jpg",
     }),
     Author.create({
       name: "Leigh Bardugo",
@@ -171,8 +171,8 @@ async function seed() {
     }),
     Author.create({
       name: "Taylor Jenkins Reid",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Taylor Jenkins Reid is the New York Times bestselling author of Daisy Jones & The Six and The Seven Husbands of Evelyn Hugo, as well as One True Loves, Maybe in Another Life, After I Do, and Forever, Interrupted. Her newest novel, Malibu Rising, is out now. She lives in Los Angeles.",
+      imageUrl: "auth-TaylorJenkins.jpeg",
     }),
     Author.create({
       name: "Isabel Wilkerson",
@@ -181,18 +181,18 @@ async function seed() {
     }),
     Author.create({
       name: "Michelle Alexander",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "A longtime civil rights advocate and litigator, Michelle Alexander won a 2005 Soros Justice Fellowship and now holds a joint appointment at the Moritz College of Law and the Kirwan Institute for the Study of Race and Ethnicity at Ohio State University. Alexander served for several years as the director of the Racial Justice Project at the ACLU of Northern California, which spearheaded the national campaign against racial profiling. At the beginning of her career she served as a law clerk on the United States Supreme Court for Justice Harry Blackmun. She lives outside Columbus, Ohio.",
+      imageUrl: "auth-MichelleAlex.jpeg",
     }),
     Author.create({
       name: "Gillian Flynn",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Gillian Flynn was the chief TV critic for ENTERTAINMENT WEEKLY and now writes full-time. Her first novel SHARP OBJECTS was the winner of two CWA DAGGERS and was shortlisted for the GOLD DAGGER. Her latest novel, GONE GIRL, is a massive No.1 bestseller. The film adaptation of GONE GIRL, directed by David Fincher and starring Ben Affleck and Rosamund Pike, won the Hollywood Film Award 2014.",
+      imageUrl: "auth-GillianFlynn.jpeg",
     }),
     Author.create({
       name: "Miranda July",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Miranda July (born Miranda Jennifer Grossinger; February 15, 1974) is an American film director, screenwriter, singer, actress and author. Her body of work includes film, fiction, monologue, digital presentations and live performance art. She wrote, directed and starred in the films Me and You and Everyone We Know (2005) and The Future (2011) and wrote and directed Kajillionaire (2020). She has authored a book of short stories, No One Belongs Here More Than You (2007); a collection of nonfiction short stories, It Chooses You (2011); and the novel The First Bad Man (2015).",
+      imageUrl: "auth-MirandaJuly.jpeg",
     }),
     Author.create({
       name: "Thomas Maier",
@@ -276,23 +276,23 @@ async function seed() {
     }),
     Author.create({
       name: "Stephen Hawking",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Stephen Hawking's ability to make science understandable and compelling to a lay audience was established with the publication of his first book, A Brief History of Time, which has sold nearly 10 million copies in 40 languages. Hawking has authored or participated in the creation of numerous other popular science books, including The Universe in a Nutshell, A Briefer History of Time, On the Shoulders of Giants, The Illustrated On the Shoulders of Giants, and George's Secret Key to the Universe.",
+      imageUrl: "auth-StephenHawk.jpg",
     }),
     Author.create({
       name: "Shonda Rhimes",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Shonda Rhimes is the prolific writer, executive producer and creator of the hit ABC series Grey's Anatomy, and Scandal. In addition to creating the “Grey’s Anatomy” spinoff series Private Practice, which ran on ABC for six seasons, Rhimes is the executive producer of the ABC series “How to Get Away with Murder,” which premiered in 2014 as the number one new show of the Fall in adults 18-49.",
+      imageUrl: "auth-Shonda.jpeg",
     }),
     Author.create({
       name: "Heather Havrilesky",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Heather Havrilesky is an essayist and critic who writes New York Magazine's popular Ask Polly advice column. She is the author of What If This Were Enough? (Doubleday, 2018), How to Be a Person in the World (Doubleday, 2016) and Disaster Preparedness (Riverhead, 2011). Her writing has appeared in The New Yorker, The New York Times Magazine, The Atlantic, Esquire, NPR's All Things Considered, and several anthologies. She lives in Los Angeles with a loud assortment of dependents, most of them non-deductible.",
+      imageUrl: "auth-HeatherH.jpeg",
     }),
     Author.create({
       name: "Tayari Jones",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Tayari Jones is the author of the novels Leaving Atlanta, The Untelling, Silver Sparrow, and An American Marriage (Algonquin Books, February 2018). Her writing has appeared in Tin House, The Believer, The New York Times, and Callaloo. A member of the Fellowship of Southern Writers, she has also been a recipient of the Hurston/Wright Legacy Award, Lifetime Achievement Award in Fine Arts from the Congressional Black Caucus Foundation, United States Artist Fellowship, NEA Fellowship and Radcliffe Institute Bunting Fellowship. Silver Sparrow was named a #1 Indie Next Pick by booksellers in 2011, and the NEA added it to its Big Read Library of classics in 2016. Jones is a graduate of Spelman College, University of Iowa, and Arizona State University.",
+      imageUrl: "auth-TayariJones.jpeg",
     }),
     Author.create({
       name: "Gail Honeyman",
@@ -301,13 +301,13 @@ async function seed() {
     }),
     Author.create({
       name: "Molly Baz",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Molly is a world-class chef, food editor, author, and also recipe tester. In addition, she is the owner of an exclusive member-only group where she provides weekly food recipes, giveaways, discounts, and many more. Molly is a senior Associate food editor at Bon Appetit and works as a Recipe Tester at Epicurious.",
+      imageUrl: "auth-MollyB.jpeg",
     }),
     Author.create({
       name: "Claire Saffitz",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Claire Saffitz is a freelance recipe developer and video host. Previously, she was Senior Food Editor at Bon Appétit magazine, where she worked for five years in the test kitchen. She is currently the host of the series Gourmet Makes on the Bon Appétit YouTube channel, where she uses her classical pastry knowledge to reverse engineer popular snack foods and candy.",
+      imageUrl: "auth-ClaireS.jpg",
     }),
     Author.create({
       name: "Alison Bechdel",
@@ -320,24 +320,24 @@ async function seed() {
       imageUrl: "auth-AlanMoore.jpg",
     }),
     Author.create({
-      name: "Art Spiegelman",
+      name: "Tsugumi Ohba",
       bio: "some person",
-      imageUrl: "placeholder",
+      imageUrl: "auth-tsugumi.jpeg",
     }),
     Author.create({
-      name: "Tsugumi Ohba",
+      name: "Hiromu Arakawa",
       bio: "some person",
       imageUrl: "placeholder",
     }),
     Author.create({
       name: "Brene Brown",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Dr. Brené Brown is a research professor at the University of Houston, where she holds the Huffington Foundation Endowed Chair at the Graduate College of Social Work. Brené is also a visiting professor in management at the University of Texas at Austin McCombs School of Business. Brené’s books have been translated into more than 30 languages, and her titles include Atlas of the Heart, Dare to Lead, Braving the Wilderness, Rising Strong, Daring Greatly, and The Gifts of Imperfection. ",
+      imageUrl: "auth-breneB.jpg",
     }),
     Author.create({
       name: "Bill Bryson",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Bill Bryson was born in Des Moines, Iowa. For twenty years he lived in England, where he worked for the Times and the Independent, and wrote for most major British and American publications. His books include travel memoirs (Neither Here Nor There; The Lost Continent; Notes from a Small Island) and books on language (The Mother Tongue; Made in America). His account of his attempts to walk the Appalachian Trail, A Walk in the Woods, was a huge New York Times bestseller. He lives in Hanover, New Hampshire, with his wife and his four children.",
+      imageUrl: "auth-BillBryson.jpeg",
     }),
     Author.create({
       name: "Kristin Hannah",
@@ -386,13 +386,13 @@ async function seed() {
     }),
     Author.create({
       name: "Chinua Achebe",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Chinua Achebe, born Albert Chinualumogu Achebe; 16 November 1930 – 21 March 2013) was a Nigerian novelist, poet, professor, and critic. His first novel Things Fall Apart (1958) was considered his magnum opus, and is the most widely read book in modern African literature. He gained worldwide attention for Things Fall Apart in the late 1950s; his later novels include No Longer at Ease (1960), Arrow of God (1964), A Man of the People (1966), and Anthills of the Savannah (1987). Achebe wrote his novels in English and defended the use of English, a 'language of colonisers', in African literature. ",
+      imageUrl: "auth-chinua.jpeg",
     }),
     Author.create({
       name: "Khaled Hosseini",
-      bio: "some person",
-      imageUrl: "placeholder",
+      bio: "Khaled Hosseini is one of the most widely read and beloved novelists in the world, with over thirty eight million copies of his books sold in more than seventy countries. The Kite Runner was a major film and was a Book of the Decade, chosen by The Times, Daily Telegraph and Guardian. A Thousand Splendid Suns was the Richard & Judy Best Read of the Year in 2008. Hosseini is also a Goodwill Envoy to the United Nations High Commissioner for Refugees, the UN Refugee Agency and the founder of The Khaled Hosseini Foundation, a not-for-profit organisation which provides humanitarian assistance to the people of Afghanistan. He was born in Kabul, Afghanistan, and lives in northern California.",
+      imageUrl: "auth-KhaledH.jpeg",
     }),
   ]);
   // Creating Users

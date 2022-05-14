@@ -125,7 +125,15 @@ const Profile = (props) => {
           </form>
         </Grid>
 
-        <Grid item xs={6}></Grid>
+        <Grid item xs={6}>
+          <Typography
+            variant="h6"
+            className={classes.page}
+            style={{ textAlign: "center", marginTop: "2rem" }}
+          >
+            {" "}
+            Your Purchased Books{" "}
+          </Typography></Grid>
         <PastOrders />
       </Grid>
     </>

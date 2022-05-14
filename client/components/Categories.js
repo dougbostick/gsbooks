@@ -26,7 +26,7 @@ const useStyles = makeStyles({
     paddingLeft: "0.8rem",
     // backgroundColor: "#F8B400",
     // backgroundColor: "#FF6363",
-     backgroundColor: "#FF6363",
+    // backgroundColor: "#FF6363",
     // backgroundColor: "#125B50",
 
     // color: "#FAF5E4",
@@ -52,7 +52,8 @@ const useStyles = makeStyles({
   categoryCard: {
     backgroundColor: "#FAF5E4",
     '&:hover': {
-      boxShadow: "5px 8px #FF6363" 
+      boxShadow: "5px 8px #FF6363",
+      color: 'black'
     },
   },
   card: {

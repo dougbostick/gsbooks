@@ -57,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
+  console.log('HANDLE', handleClick)
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
@@ -95,13 +96,13 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
     <div className={classes.root}>
       <AppBar className={classes.AppBar} position="static">
         <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Typography className={classes.title} variant="h4" noWrap>
             <Link
               to={"/home"}
-              style={{ textDecoration: "inherit", color: "inherit" }}
+              style={{ textDecoration: "inherit", color: "inherit", fontFamily: 'Optima', fontWeight: 'bold' }}
             >
               {" "}
-             <u style={{textDecorationColor: '#F8B400'}}> Graceshopper </u>{" "}
+             <u style={{textDecorationColor: '#F8B400'}}> Folio Four </u>{" "}
             </Link>
           </Typography>
 
@@ -152,7 +153,7 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
                     <ClickAwayListener onClickAway={handleClose}>
                       <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                         <Link to="/profile" style={{textDecoration: "inherit", color: 'inherit'}}><MenuItem onClick={handleClose}>Profile</MenuItem></Link>
-                        <MenuItem onClick={handleClose}>Logout</MenuItem>
+                        <MenuItem onClick={handleClick}>Logout</MenuItem>
                       </MenuList>
                     </ClickAwayListener>
                   </Paper>
@@ -160,8 +161,6 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
               )}
             </Popper>
           </div>
-          
-          <MenuItem onClick={handleClick}> Logout </MenuItem>
           <Link to="/cartItem" > <MenuItem> <ShoppingCartOutlinedIcon style={{color: 'white'}}/> </MenuItem></Link>
           </>
         :
