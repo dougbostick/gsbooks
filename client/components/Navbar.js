@@ -54,6 +54,20 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     marginRight: theme.spacing(2),
   },
+  
+  menuItem: {
+    color: 'white', 
+    "&:hover": {
+      color: '#F8B400'
+    }
+  },
+  
+  subItem: {
+    color: 'black', 
+    "&:hover": {
+      color: '#F8B400'
+    }
+  }
 }));
 
 const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
@@ -110,7 +124,7 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
             style={{ textDecoration: "inherit", color: "inherit" }}
           >
             {" "}
-            <MenuItem> Books </MenuItem>{" "}
+            <MenuItem className={classes.menuItem}> Books </MenuItem>{" "}
           </Link>
           {isAdmin ? (
             <Link
@@ -118,7 +132,7 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
               style={{ textDecoration: "inherit", color: "inherit" }}
             >
               {" "}
-              <MenuItem> Admin </MenuItem>{" "}
+              <MenuItem className={classes.menuItem}> Admin </MenuItem>{" "}
             </Link>
           ) : (
             ""
@@ -151,8 +165,8 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
                   <Paper>
                     <ClickAwayListener onClickAway={handleClose}>
                       <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                        <Link to="/profile" style={{textDecoration: "inherit", color: 'inherit'}}><MenuItem onClick={handleClose}>Profile</MenuItem></Link>
-                        <MenuItem onClick={handleClose}>Logout</MenuItem>
+                        <Link to="/profile" style={{textDecoration: "inherit", color: 'inherit'}}><MenuItem className={classes.subItem} onClick={handleClose}>Profile</MenuItem></Link>
+                        <MenuItem className={classes.subItem} onClick={handleClose}>Logout</MenuItem>
                       </MenuList>
                     </ClickAwayListener>
                   </Paper>
@@ -161,7 +175,7 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
             </Popper>
           </div>
           
-          <MenuItem onClick={handleClick}> Logout </MenuItem>
+          <MenuItem onClick={handleClick} className={classes.menuItem}> Logout </MenuItem>
           <Link to="/cartItem" > <MenuItem> <ShoppingCartOutlinedIcon style={{color: 'white'}}/> </MenuItem></Link>
           </>
         :
@@ -182,8 +196,8 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
                   <Paper>
                     <ClickAwayListener onClickAway={handleClose}>
                       <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                        <Link to="/login" style={{textDecoration: "inherit", color: 'inherit'}}><MenuItem onClick={handleClose}>Login</MenuItem></Link>
-                        <Link to="/signup" style={{textDecoration: "inherit", color: 'inherit'}}><MenuItem onClick={handleClose}>Sign Up</MenuItem></Link>
+                        <Link to="/login" style={{textDecoration: "inherit", color: 'inherit'}}><MenuItem className={classes.menuItem} onClick={handleClose}>Login</MenuItem></Link>
+                        <Link to="/signup" style={{textDecoration: "inherit", color: 'inherit'}}><MenuItem className={classes.menuItem} onClick={handleClose}>Sign Up</MenuItem></Link>
                       </MenuList>
                     </ClickAwayListener>
                   </Paper>
@@ -192,7 +206,7 @@ const Navbar = ({ handleClick, isLoggedIn, isAdmin }) => {
             </Popper>
           </div>
   
-          <Link to="/cartItem" > <MenuItem> <ShoppingCartOutlinedIcon style={{color: 'white'}}/> </MenuItem></Link>
+          <Link to="/cartItem" > <MenuItem> <ShoppingCartOutlinedIcon className={classes.menuItem}/> </MenuItem></Link>
         </>
          }
          
