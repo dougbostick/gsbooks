@@ -10,7 +10,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core";
+
 const useStyles = makeStyles({
   title: {
     height: "25px",
@@ -19,84 +19,63 @@ const useStyles = makeStyles({
     alignItems: "center",
     padding: "1rem",
   },
+
   root: {
     maxWidth: 345,
   },
+  
+  category: {
+    '&:hover': {
+      boxShadow: "3px 3px #F8B400" 
+    },
+  },
+
   categoryButton: {
     paddingLeft: "0.8rem",
-    // backgroundColor: "#F8B400",
-    // backgroundColor: "#FF6363",
-     backgroundColor: "#FF6363",
-    // backgroundColor: "#125B50",
+  },
 
-    // color: "#FAF5E4",
-    textDecoration: "none",
-  },
-  pageTitle: {
-    textAlign: "center"
-  },
   categoryName: {
-    textAlign: "center",
-    fontWeight: "bold",
-    '&:hover': {
-      color: "black" 
-    },
-     color: "#FF6363",
+    textAlign: "left",
+    fontWeight: 'bold',
+    backgroundColor: '#FAF5E4',
+    width: '75%',
+    borderRadius: '10px',
+    paddingLeft: '1rem'
   },
+
+
   productContainer: {
     padding: "1rem 0",
-    // backgroundColor: "#F8B400",
-    // backgroundColor: "#125B50",
-    // backgroundColor: "#FF6363",
-  },
-  categoryCard: {
-    backgroundColor: "#FAF5E4",
-    '&:hover': {
-      boxShadow: "5px 8px #FF6363" 
-    },
-  },
-  card: {
-    // backgroundColor: "#F8B400",
-    // backgroundColor: "#125B50",
-    // backgroundColor: "#FF6363",
   },
   media: {
-    height: "225px",
-  },
-  container: {},
-  grid: {
-    // backgroundColor: "#F8B400",
-    marginTop: "0",
-  },
-  font: {
-    textDecoration: "none",
-    // color: "#FAF5E4",
+    height: '200px',
   },
 });
+
 const Categories = (props) => {
   const { products } = props;
   const classes = useStyles();
+
   const categories = props.categories.map((category) => {
     const firstThreeProducts = products
       .filter((product) => product.categoryId === category.id)
       .splice(0, 3);
     return (
-      <Grid item xs={5} key={category.id} >
-                    <Link to={`/categories/${category.id}`}>
-        <Card classes={classes.category} className={classes.categoryCard}>
-          <CardContent className={classes.card}>
+      <Grid item xs={5} key={category.id}>
+        <Card className={classes.category}>
+          <CardContent>
             <Typography
-              gutterBottom
               variant="h5"
-              component="h2"
               className={classes.categoryName}
             >
-              {category.name}
+            {category.name}
             </Typography>
           </CardContent>
+
           <CardActionArea className={classes.productContainer}>
-            <Grid container spacing={2} justifyContent="center" >
+            <Grid container spacing={2} justifyContent="flex-start">
               {firstThreeProducts.map((product) => {
+                //the plan is to have the first 3 book images thats in that category displayed, when clicked will link to that specific book.
                 return (
                   <Grid
                     item
@@ -109,13 +88,8 @@ const Categories = (props) => {
                   >
                     <Link to={`/products/${product.id}`}>
                       <Card className={classes.threeProducts}>
-                        <CardMedia
-                          className={classes.media}
-                          style={{
-                            background: `url(${product.thumbUrl})`,
-                            backgroundSize: "cover",
-                          }}
-                        ></CardMedia>
+                        <CardMedia className={classes.media} style={{background: `url(${product.thumbUrl})`, backgroundSize: 'cover'}}>
+                        </CardMedia>
                       </Card>
                     </Link>
                   </Grid>
@@ -123,9 +97,10 @@ const Categories = (props) => {
               })}
             </Grid>
           </CardActionArea>
+
           <CardActions className={classes.categoryButton}>
-            <Button size="small">
-              <Link to={`/categories/${category.id}`} className={classes.font}>
+            <Button size="small" style={{fontWeight: 'bold'}}>
+              <Link to={`/categories/${category.id}`}>
                 View All (
                 {
                   products.filter((item) => item.categoryId === category.id)
@@ -136,13 +111,14 @@ const Categories = (props) => {
             </Button>
           </CardActions>
         </Card>
-        </Link>
       </Grid>
     );
   });
+
   return (
     <>
-      <Typography
+    <div style={{display: 'flex', flexDirection: 'column', alignItems:'center', marginBottom: '1rem'}}>
+       <Typography
         variant="h4"
         style={{
           padding: "1rem",
@@ -168,6 +144,7 @@ const Categories = (props) => {
         {" "}
         Discover the best books to read right now including trending titles, bookseller recommendations, new releases and more{" "}
       </Typography>
+       </div>
       <Grid
         container
         spacing={10}
@@ -179,4 +156,5 @@ const Categories = (props) => {
     </>
   );
 };
+
 export default connect((state) => state)(Categories);

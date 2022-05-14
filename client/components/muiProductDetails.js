@@ -41,7 +41,13 @@ const useStyles = makeStyles({
   update: {
     margin: "8px",
   },
-
+  btn: {
+    backgroundColor: "black",
+    "&:hover": {
+      backgroundColor: "#FF6363",
+      border: "1px solid black"
+    },
+  }
 });
 
 function MuiProductDetails(props) {
@@ -92,8 +98,14 @@ function MuiProductDetails(props) {
                 </Typography>
           
                    <Button onClick={() =>  props.isLoggedin.id
-            ? addCartItem(book, 1)
-            : addGuestCartItem(book, 1)} size="small" style={{marginBottom: '1rem', color: 'white', fontWeight: 'bold', backgroundColor: 'grey', padding: '0.5rem', marginTop: '1rem'}}> Add to Cart </Button>
+                      ? addCartItem(book, 1)
+                      : addGuestCartItem(book, 1)} 
+                      size="small"
+                      className={classes.btn}
+                      style={{marginBottom: '1rem', color: 'white', fontWeight: 'bold', padding: '0.5rem', marginTop: '1rem', marginRight:'auto'}}
+                      > 
+                      Add to Cart 
+                  </Button>
 
                {isAdmin ? (
               <Route path="/products/:id" component={UpdateProduct} />
