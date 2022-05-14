@@ -2,45 +2,39 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { CssBaseline } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    // minHeight: "100vh",
-    // backgroundImage: `url("/assets/bookcase4.jpeg")`,
-    // backgroundSize: "cover",
-    // display: "flex",
-    // justifyContent: "center",
-    // alignItems: "center",
-    // flexDirection: "column",
-  },
   btn: {
-    // height: "5rem",
-    // width: "9rem",
-    // margin: "8px",
-    // textAlign: "center",
-    // backgroundColor: "maroon",
-    // // boxShadow: " 4px 4px 1px gray",
-    // fontWeight: "bold",
+    backgroundColor: 'black',
+     '&:hover': {
+       backgroundColor: "#125B50" 
+     },
   },
 }));
 export default function Landing() {
   const classes = useStyles();
   return (
-    <div className={classes.root} style={{display: 'flex', justifyContent:'center'}}>
+    <>
+    <div style={{height: '100vh', display: 'flex', justifyContent:'flex-end', alignItems:'center', background: 'url(/assets/kid.jpg)', backgroundSize: 'cover'}}>
     
-      <div style={{height: '500px', width: '100%', backgroundColor:'red', display: 'flex', justifyContent:'center'}}> 
-          <Button
+        <div style={{display: 'flex', flexDirection: 'column', justifyContent:'center', marginRight: '2rem', borderRadius:'10px', height: '50%', padding: '1rem'}}>
+          <Typography variant='h1' style={{color: 'white', fontSize: '9rem', fontWeight: 'bold'}}> Where <u style={{textDecorationColor: '#125B50'}}> Stories</u> <br/> Come To <u style={{textDecorationColor: '#125B50'}}> Life </u> </Typography>
+        <Button
         className={classes.btn}
-        variant="contained"
         color="secondary"
-        href="/products"
+        href="/categories"
+        size="small"
+        style={{ margin: '0.5rem auto 0', color: 'white', fontWeight: 'bold', padding: '0.5rem', width: '50%', border: '2px solid black', fontSize:'1rem'}}
       >
-        Browse Books
+       Explore
       </Button>
-      </div> 
-    
-     
-     
-    </div>
+        
+        </div>
+
+      
+      </div>
+        
+    </>
   );
 }
