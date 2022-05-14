@@ -25,7 +25,6 @@ import Author from "./components/Author";
 import Category from "./components/Category";
 import ProductsTable from "./components/muiProducts";
 import MuiProductDetails from "./components/muiProductDetails";
-import Landing from "./components/Landing";
 import muiCart from "./components/muiCart";
 
 /*
@@ -70,8 +69,6 @@ class Routes extends Component {
             <Route path="/pastOrders" component={PastOrders} />
             <Route path="/profile" component={Profile} />
             <Route path="/author" component={Author} />
-            <Route path="/test" component={Landing} />
-            <Route path="/test2" component={ProductsTable} />
             <Redirect to="/home" />
           </Switch>
         ) : (
@@ -86,8 +83,6 @@ class Routes extends Component {
             <Route path="/cartItem" component={MuiGuestCart} />
             <Route path="/products/:id" component={MuiProductDetails} />
             <Route path="/author" component={Author} />
-            <Route path="/test" component={Landing} />
-            <Route path="/test2" component={muiCart} />
             <Route path="/profile" component={Profile}>
               <Redirect to="/login" />
             </Route>

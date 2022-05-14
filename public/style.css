@@ -76,7 +76,8 @@ tr:hover {
 .searchForm button {
   position: absolute;
   z-index: 1;
-  right: 242px;
+  /*Evelyn, once you delete the other logout, this SHOULD be correct, It will look a bit wonky until then -GS*/
+  right: 143px;
   background-color: transparent;
   border-style: none;
 }
