@@ -60,7 +60,6 @@ const Category = (props) => {
   const books = products.map((book) => {
     return (
       <Grid item key={book.id} xs={3}>
-        <Link to={`/products/${book.id}`}>
           <Card className={classes.product}>
             <CardActionArea>
               <CardContent>
@@ -120,7 +119,6 @@ const Category = (props) => {
               </Button>
             </CardActionArea>
           </Card>
-        </Link>
       </Grid>
     );
   });
